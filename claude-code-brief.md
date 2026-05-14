@@ -88,7 +88,7 @@ Homepage (`index.html`) je hotová a nahraná na GitHub. Teraz budujeme zvyšok 
 
 **1. HERO sekcia** — tmavé pozadie (`--earth`), botanický vzor
 - Breadcrumb: `Ženy rebelky / Elena Maróthy-Šoltésová`
-- Vlastnosť badge: `SKROMNOSŤ`
+- Vlastnosť badge: `POKORA`
 - Meno: `Elena Maróthy-Šoltésová` — Abril Fatface, veľké
 - Roky + región: `1855 – 1939 · Turiec / Novohrad`
 - Placeholder ilustrácie: `[ILUSTRACIA_SOLTESOVA_HERO]` — 400×560px, vpravo od textu (split layout)
@@ -120,7 +120,7 @@ Homepage (`index.html`) je hotová a nahraná na GitHub. Teraz budujeme zvyšok 
 | Ženy nemajú viesť spolky | Women don't belong in leadership |
 | Vzdelanie pre ženy je luxus | Gender pay gap, sklenený strop |
 | Nebuď príliš viditeľná | Syndróm impostorky |
-| Odmietnutie titulu = slabosť | Skromnosť ako sila, nie slabosť |
+| Odmietnutie titulu = slabosť | Pokora ako sila, nie slabosť |
 
 **6. VZOR A REGIÓN** — `--cream-warm` pozadie
 - Región: Martin (Turiec) + Novohrad / Krupina
@@ -130,7 +130,7 @@ Homepage (`index.html`) je hotová a nahraná na GitHub. Teraz budujeme zvyšok 
 
 **7. CTA — E-SHOP** — `--violet` pozadie
 - Nadpis: *"Nos jej odkaz."*
-- 2 produktové karty (mockup): Mikina SKROMNOSŤ + Tote bag SKROMNOSŤ
+- 2 produktové karty (mockup): Mikina POKORA + Tote bag POKORA
 - Button: `Pozrieť produkty →` → `/eshop/?zena=soltesova`
 
 **8. ĎALŠIA REBELKA** — prechod na Timravu
@@ -147,11 +147,11 @@ Homepage (`index.html`) je hotová a nahraná na GitHub. Teraz budujeme zvyšok 
     <li class="nav__dropdown">
       <button class="nav__dropdown-toggle">Ženy rebelky ▾</button>
       <ul class="nav__dropdown-menu">
-        <li><a href="/zeny-rebelky/soltesova/">Elena Maróthy-Šoltésová <span class="vlastnost-tag">Skromnosť</span></a></li>
+        <li><a href="/zeny-rebelky/soltesova/">Elena Maróthy-Šoltésová <span class="vlastnost-tag">Pokora</span></a></li>
         <li><a href="/zeny-rebelky/timrava/">Božena Slančíková-Timrava <span class="vlastnost-tag">Uprímnosť</span></a></li>
-        <li><a href="/zeny-rebelky/vansova/">Terézia Vansová <span class="vlastnost-tag">Odhodlanie</span></a></li>
+        <li><a href="/zeny-rebelky/vansova/">Terézia Vansová <span class="vlastnost-tag">Múdrosť</span></a></li>
         <li><a href="/zeny-rebelky/gregorova/">Hana Gregorová <span class="vlastnost-tag">Odvaha</span></a></li>
-        <li><a href="/zeny-rebelky/podjavorinska/">Ľudmila Podjavorinská <span class="vlastnost-tag">Vytrvalosť</span></a></li>
+        <li><a href="/zeny-rebelky/podjavorinska/">Ľudmila Podjavorinská <span class="vlastnost-tag">Sila</span></a></li>
       </ul>
     </li>
     <li><a href="/eshop/">E-shop</a></li>

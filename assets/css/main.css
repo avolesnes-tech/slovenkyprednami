@@ -997,23 +997,27 @@ body::before {
 .section-test-teaser::before,
 .section-test-teaser::after {
   content: '';
-  position: absolute; top: 50%;
-  width: 380px; height: 380px;
-  background: url('../images/Akvarel_transparent.png') center/contain no-repeat;
-  opacity: 0.2;
+  position: absolute; top: 0; bottom: 0;
+  width: 300px;
+  background: url('../images/Akvarel_transparent.png') left top / 280px auto repeat-y;
+  opacity: 0.28;
+  filter: hue-rotate(45deg) saturate(0.85);
   pointer-events: none;
 }
 .section-test-teaser::before {
-  left: -160px;
-  transform: translateY(-50%);
+  left: 0;
+  mask-image: linear-gradient(to right, black 30%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 30%, transparent 100%);
 }
 .section-test-teaser::after {
-  right: -160px;
-  transform: translateY(-50%) scaleX(-1);
+  right: 0;
+  transform: scaleX(-1);
+  mask-image: linear-gradient(to right, black 30%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 30%, transparent 100%);
 }
 @media (max-width: 900px) {
-  .section-test-teaser::before { left: -290px; }
-  .section-test-teaser::after  { right: -290px; }
+  .section-test-teaser::before,
+  .section-test-teaser::after { width: 140px; background-size: 180px auto; }
 }
 .test-teaser__inner {
   max-width: 680px; margin: 0 auto;

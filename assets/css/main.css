@@ -379,8 +379,8 @@ body::before {
 .hero__marquee-track {
   display: flex; align-items: center;
   white-space: nowrap;
-  animation: marquee 28s linear infinite;
-  width: max-content;
+  animation: marquee 36s linear infinite;
+  will-change: transform;
 }
 .hero__marquee-track:hover { animation-play-state: paused; }
 .hero__marquee-item {
@@ -400,7 +400,7 @@ body::before {
 }
 @keyframes marquee {
   from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  to   { transform: translateX(-33.333%); }
 }
 
 /* ─── HERO (subpage) ─────────────────────────────────────── */
@@ -633,13 +633,6 @@ body::before {
   max-width: 1320px; margin: 0 auto;
 }
 
-/* ─── PER-WOMAN ACCENT COLORS ───────────── */
-.woman-card--soltesova    { --accent: #9B6DAE; --accent-glow: rgba(155,109,174,0.45); --accent-dark: rgba(155,109,174,0.15); }
-.woman-card--timrava      { --accent: #5D8B60; --accent-glow: rgba(93,139,96,0.45);  --accent-dark: rgba(93,139,96,0.15); }
-.woman-card--vansova      { --accent: #C4922A; --accent-glow: rgba(196,146,42,0.45); --accent-dark: rgba(196,146,42,0.15); }
-.woman-card--gregorova    { --accent: #C4503C; --accent-glow: rgba(196,80,60,0.45);  --accent-dark: rgba(196,80,60,0.15); }
-.woman-card--podjavorinska{ --accent: #4A72B8; --accent-glow: rgba(74,114,184,0.45); --accent-dark: rgba(74,114,184,0.15); }
-
 .woman-card {
   position: relative; overflow: hidden;
   border-radius: 16px;
@@ -647,12 +640,12 @@ body::before {
   aspect-ratio: 2/3;
   cursor: none;
   transition: transform 0.5s var(--ease-spring), box-shadow 0.5s var(--ease-out);
-  border-top: 3px solid var(--accent, var(--violet-light));
+  border-top: 3px solid var(--violet-light);
   box-shadow: 0 4px 20px rgba(30,12,4,0.09);
 }
 .woman-card:hover {
   transform: translateY(-20px) scale(1.025);
-  box-shadow: 0 32px 64px var(--accent-glow, rgba(123,79,110,0.4)),
+  box-shadow: 0 32px 64px rgba(166,120,150,0.35),
               0 8px 24px rgba(10,4,0,0.12);
   z-index: 2;
 }
@@ -664,28 +657,12 @@ body::before {
   height: 65%;
   overflow: hidden;
   background: #FAFAF8;
+  z-index: 1;
 }
 
-/* Watercolor wash blob behind the sketch */
-.woman-card__portrait::before {
-  content: '';
-  position: absolute;
-  inset: -20% -10%;
-  background: radial-gradient(
-    ellipse 80% 70% at 50% 42%,
-    var(--accent-glow, rgba(123,79,110,0.38)),
-    transparent 75%
-  );
-  z-index: 0;
-  pointer-events: none;
-  transition: opacity 0.5s var(--ease-out);
-}
-.woman-card:hover .woman-card__portrait::before {
-  opacity: 1.4;
-}
-
-/* Flowers behind the sketch */
+/* Flowers removed — placeholder to avoid broken refs */
 .woman-card__flowers {
+  display: none;
   position: absolute;
   bottom: -2%;
   left: 50%;
@@ -731,7 +708,7 @@ body::before {
   font-size: clamp(5rem, 8vw, 8rem);
   font-weight: 400;
   font-style: italic;
-  color: var(--accent, var(--violet));
+  color: var(--violet);
   opacity: 0.05;
   z-index: 0;
   user-select: none;
@@ -749,6 +726,7 @@ body::before {
   display: flex; flex-direction: column; justify-content: flex-end;
   background: #FAFAF8;
   border-top: 1px solid rgba(0,0,0,0.06);
+  z-index: 2; /* above portrait stacking context */
 }
 .woman-card__name {
   font-family: var(--font-display);
@@ -773,7 +751,7 @@ body::before {
   font-size: 0.57rem; font-weight: 600;
   letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--white);
-  background: var(--accent, var(--violet));
+  background: var(--violet);
   border-radius: 4px;
   padding: 0.26rem 0.7rem;
   align-self: flex-start;
@@ -834,16 +812,20 @@ body::before {
 }
 .section-quote__kicker.visible { opacity: 1; }
 
-/* ─── SECTION: TEST TEASER ───────────────────────────────── */
+/* ─── SECTION: TEST TEASER + EMBEDDED TEST ───────────────── */
 .section-test-teaser {
   background: var(--violet-pale);
-  padding: 7rem 2rem;
+  padding: 7rem 2rem 6rem;
   text-align: center;
   position: relative;
 }
 .test-teaser__inner {
   max-width: 680px; margin: 0 auto;
   display: flex; flex-direction: column; align-items: center;
+}
+.section-test-teaser .test-wrapper {
+  margin-top: 4rem;
+  text-align: left;
 }
 .test-teaser__eyebrow {
   display: inline-flex; align-items: center; gap: 0.75rem;

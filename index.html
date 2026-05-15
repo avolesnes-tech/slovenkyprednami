@@ -79,6 +79,9 @@
 <!-- ─── HERO ──────────────────────────────────────────────── -->
 <section class="hero">
 
+  <!-- Veil for title readability -->
+  <div class="hero__top-veil" aria-hidden="true"></div>
+
   <!-- Botanický brokátový vzor -->
   <div class="botanical-bg" aria-hidden="true">
     <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
@@ -168,50 +171,97 @@
     </svg>
   </div>
 
-  <!-- Dekoratívny výšivkový ornament -->
-  <svg class="hero__ornament" viewBox="0 0 600 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <line x1="0" y1="20" x2="240" y2="20" stroke="#C49A6C" stroke-width="0.5"/>
-    <path d="M255 20 L265 8 L275 20 L265 32 Z" stroke="#C49A6C" stroke-width="0.8" fill="none"/>
-    <path d="M280 20 L290 8 L300 20 L290 32 Z" stroke="#C49A6C" stroke-width="0.8" fill="none"/>
-    <circle cx="300" cy="20" r="3" fill="#C49A6C" opacity="0.6"/>
-    <path d="M310 20 L320 8 L330 20 L320 32 Z" stroke="#C49A6C" stroke-width="0.8" fill="none"/>
-    <path d="M335 20 L345 8 L355 20 L345 32 Z" stroke="#C49A6C" stroke-width="0.8" fill="none"/>
-    <line x1="370" y1="20" x2="600" y2="20" stroke="#C49A6C" stroke-width="0.5"/>
-    <circle cx="240" cy="20" r="2" fill="#C49A6C" opacity="0.4"/>
-    <circle cx="370" cy="20" r="2" fill="#C49A6C" opacity="0.4"/>
-  </svg>
+  <!-- Floating title header over accordion panels -->
+  <header class="hero__header">
+    <p class="hero__subtitle">Skutočné influencerky</p>
+    <h1 class="hero__title" aria-label="Slovenky pred nami">
+      <span class="hero__title--line1">SLOVENKY</span>
+      <span class="hero__title--line2">pred nami</span>
+    </h1>
+    <p class="hero__tagline">
+      <span class="hero__tagline--question">Poznáš ich?</span>
+    </p>
+    <div class="hero__cta-group">
+      <a href="#osobnostny-test" class="btn btn--primary">
+        Nájdi svoj vzor <span class="btn__arrow">→</span>
+      </a>
+      <a href="/zeny-rebelky/" class="btn btn--ghost">
+        Spoznaj rebelky
+      </a>
+    </div>
+  </header>
 
-  <h1 class="hero__title" aria-label="Slovenky pred nami">
-    <span class="hero__title--line1">SLOVENKY</span>
-    <span class="hero__title--line2">pred nami</span>
-  </h1>
+  <!-- Accordion panels — 5 žien -->
+  <div class="hero__panels">
 
-  <p class="hero__subtitle">Skutočné influencerky</p>
-
-  <p class="hero__tagline">
-    <span class="hero__tagline--row">Ich posolstvo stále žije&thinsp;·&thinsp;Bojovali aj za nás&thinsp;·&thinsp;Žijú v nás naďalej</span>
-    <span class="hero__tagline--question">Poznáš ich?</span>
-  </p>
-
-  <div class="hero__cta-group">
-    <a href="#osobnostny-test" class="btn btn--primary">
-      Nájdi svoj vzor <span class="btn__arrow">→</span>
+    <a href="/zeny-rebelky/soltesova/" class="hero__panel">
+      <div class="hero__panel-bg"></div>
+      <img class="hero__panel-img" src="/assets/images/soltesova.jpg" alt="" loading="eager">
+      <div class="hero__panel-overlay"></div>
+      <div class="hero__panel-label" aria-hidden="true"><span>Elena Maróthy-Šoltésová</span></div>
+      <div class="hero__panel-content">
+        <span class="hero__panel-attr">Pokora</span>
+        <h3 class="hero__panel-name">Elena<br>Maróthy-<br>Šoltésová</h3>
+        <p class="hero__panel-years">1855 – 1939</p>
+        <span class="hero__panel-cta">Spoznaj ju →</span>
+      </div>
     </a>
-    <a href="/zeny-rebelky/" class="btn btn--ghost">
-      Spoznaj rebelky
+
+    <a href="/zeny-rebelky/timrava/" class="hero__panel">
+      <div class="hero__panel-bg"></div>
+      <img class="hero__panel-img" src="/assets/images/timrava.jpg" alt="" loading="eager">
+      <div class="hero__panel-overlay"></div>
+      <div class="hero__panel-label" aria-hidden="true"><span>Božena Slančíková-Timrava</span></div>
+      <div class="hero__panel-content">
+        <span class="hero__panel-attr">Uprímnosť</span>
+        <h3 class="hero__panel-name">Božena<br>Slančíková-<br>Timrava</h3>
+        <p class="hero__panel-years">1867 – 1951</p>
+        <span class="hero__panel-cta">Spoznaj ju →</span>
+      </div>
     </a>
+
+    <a href="/zeny-rebelky/vansova/" class="hero__panel">
+      <div class="hero__panel-bg"></div>
+      <img class="hero__panel-img" src="/assets/images/vansova.jpg" alt="" loading="eager">
+      <div class="hero__panel-overlay"></div>
+      <div class="hero__panel-label" aria-hidden="true"><span>Terézia Vansová</span></div>
+      <div class="hero__panel-content">
+        <span class="hero__panel-attr">Múdrosť</span>
+        <h3 class="hero__panel-name">Terézia<br>Vansová</h3>
+        <p class="hero__panel-years">1857 – 1942</p>
+        <span class="hero__panel-cta">Spoznaj ju →</span>
+      </div>
+    </a>
+
+    <a href="/zeny-rebelky/gregorova/" class="hero__panel">
+      <div class="hero__panel-bg"></div>
+      <img class="hero__panel-img" src="/assets/images/gregorova.jpg" alt="" loading="eager">
+      <div class="hero__panel-overlay"></div>
+      <div class="hero__panel-label" aria-hidden="true"><span>Hana Gregorová</span></div>
+      <div class="hero__panel-content">
+        <span class="hero__panel-attr">Odvaha</span>
+        <h3 class="hero__panel-name">Hana<br>Gregorová</h3>
+        <p class="hero__panel-years">1885 – 1958</p>
+        <span class="hero__panel-cta">Spoznaj ju →</span>
+      </div>
+    </a>
+
+    <a href="/zeny-rebelky/podjavorinska/" class="hero__panel">
+      <div class="hero__panel-bg"></div>
+      <img class="hero__panel-img" src="/assets/images/podjavorinska.jpg" alt="" loading="eager">
+      <div class="hero__panel-overlay"></div>
+      <div class="hero__panel-label" aria-hidden="true"><span>Ľudmila Podjavorinská</span></div>
+      <div class="hero__panel-content">
+        <span class="hero__panel-attr">Sila</span>
+        <h3 class="hero__panel-name">Ľudmila<br>Podjavorinská</h3>
+        <p class="hero__panel-years">1872 – 1951</p>
+        <span class="hero__panel-cta">Spoznaj ju →</span>
+      </div>
+    </a>
+
   </div>
 
-  <!-- Bottom ornament -->
-  <svg class="hero__ornament-bottom" viewBox="0 0 400 30" fill="none" aria-hidden="true">
-    <line x1="0" y1="15" x2="160" y2="15" stroke="#C49A6C" stroke-width="0.4"/>
-    <path d="M170 15 L178 6 L186 15 L178 24 Z" stroke="#C49A6C" stroke-width="0.6" fill="none"/>
-    <circle cx="196" cy="15" r="2.5" fill="#C49A6C" opacity="0.5"/>
-    <path d="M206 15 L214 6 L222 15 L214 24 Z" stroke="#C49A6C" stroke-width="0.6" fill="none"/>
-    <line x1="232" y1="15" x2="400" y2="15" stroke="#C49A6C" stroke-width="0.4"/>
-  </svg>
-
-  <!-- Marquee pás -->
+  <!-- Marquee pás — 3 kopie pre plynulú nekonečnú slučku -->
   <div class="hero__marquee" aria-hidden="true">
     <div class="hero__marquee-track">
       <span class="hero__marquee-item">Elena Maróthy-Šoltésová <span class="hero__marquee-sep">♡</span></span>
@@ -219,7 +269,11 @@
       <span class="hero__marquee-item">Terézia Vansová <span class="hero__marquee-sep">♡</span></span>
       <span class="hero__marquee-item">Hana Gregorová <span class="hero__marquee-sep">♡</span></span>
       <span class="hero__marquee-item">Ľudmila Podjavorinská <span class="hero__marquee-sep">♡</span></span>
-      <!-- Duplikát pre plynulú slučku -->
+      <span class="hero__marquee-item">Elena Maróthy-Šoltésová <span class="hero__marquee-sep">♡</span></span>
+      <span class="hero__marquee-item">Božena Slančíková-Timrava <span class="hero__marquee-sep">♡</span></span>
+      <span class="hero__marquee-item">Terézia Vansová <span class="hero__marquee-sep">♡</span></span>
+      <span class="hero__marquee-item">Hana Gregorová <span class="hero__marquee-sep">♡</span></span>
+      <span class="hero__marquee-item">Ľudmila Podjavorinská <span class="hero__marquee-sep">♡</span></span>
       <span class="hero__marquee-item">Elena Maróthy-Šoltésová <span class="hero__marquee-sep">♡</span></span>
       <span class="hero__marquee-item">Božena Slančíková-Timrava <span class="hero__marquee-sep">♡</span></span>
       <span class="hero__marquee-item">Terézia Vansová <span class="hero__marquee-sep">♡</span></span>
@@ -462,8 +516,8 @@
   </div>
 </section>
 
-<!-- ─── TEST TEASER ───────────────────────────────────────── -->
-<section class="section-test-teaser">
+<!-- ─── TEST TEASER + OSOBNOSTNÝ TEST ────────────────────── -->
+<section class="section-test-teaser" id="osobnostny-test">
   <div class="test-teaser__inner">
     <p class="test-teaser__eyebrow reveal">Osobnostný test</p>
     <h2 class="test-teaser__title reveal reveal-delay-1">
@@ -472,22 +526,11 @@
     </h2>
     <p class="test-teaser__desc reveal reveal-delay-2">
       5 Sloveniek. Päť vlastností. Niektorá z nich je určite aj tvoja.<br>
-      6 otázok a zistíš ktorá.
+      8 otázok a zistíš ktorá.
     </p>
-    <a href="#osobnostny-test" class="btn btn--primary reveal reveal-delay-3">
-      Začni test <span class="btn__arrow">→</span>
-    </a>
   </div>
-</section>
 
-<!-- ─── OSOBNOSTNÝ TEST ───────────────────────────────────── -->
-<section class="section-test" id="osobnostny-test">
   <div class="test-wrapper">
-
-    <div class="test-header">
-      <h2 class="section-title reveal">Zisti svoju <em>Slovenku</em></h2>
-      <p class="test-subtitle reveal reveal-delay-1">6 otázok. Žiadne správne ani nesprávne odpovede.<br>Len ty a päť žien, ktoré ťa čakajú.</p>
-    </div>
 
     <!-- Progress -->
     <div class="test-progress" id="testProgress" role="progressbar" aria-label="Progres testu">
@@ -497,17 +540,19 @@
       <div class="test-progress__dot" id="dot3"></div>
       <div class="test-progress__dot" id="dot4"></div>
       <div class="test-progress__dot" id="dot5"></div>
+      <div class="test-progress__dot" id="dot6"></div>
+      <div class="test-progress__dot" id="dot7"></div>
     </div>
 
-    <!-- Q1 -->
+    <!-- Q1 — Motivácia -->
     <div class="test-question active" id="q0">
-      <p class="test-q-number">Otázka 1 z 6</p>
-      <h3 class="test-q-text">Keď vidíš nespravodlivosť, čo spravíš ako prvé?</h3>
+      <p class="test-q-number">Otázka 1 z 8</p>
+      <h3 class="test-q-text">Čo ťa v živote poháňa najviac?</h3>
       <div class="test-answers">
-        <button class="test-answer" data-q="0" data-scores='{"gregorova":3,"timrava":1}'>Poviem to nahlas, hneď.</button>
-        <button class="test-answer" data-q="0" data-scores='{"soltesova":2,"vansova":1}'>Premyslím to a potom konám.</button>
-        <button class="test-answer" data-q="0" data-scores='{"timrava":3,"podjavorinska":1}'>Píšem — do denníka, na sieť.</button>
-        <button class="test-answer" data-q="0" data-scores='{"vansova":3,"soltesova":1}'>Hľadám ľudí a vytváram zmenu.</button>
+        <button class="test-answer" data-q="0" data-scores='{"vansova":3,"soltesova":1}'>Tvoriť niečo trvalé — systém, komunitu, odkaz, ktorý prežije mňa.</button>
+        <button class="test-answer" data-q="0" data-scores='{"timrava":3}'>Hovoriť pravdu bez kompromisov, aj keď to bolí.</button>
+        <button class="test-answer" data-q="0" data-scores='{"gregorova":3}'>Stáť si za spravodlivosťou — verejne a bez ohľadu na cenu.</button>
+        <button class="test-answer" data-q="0" data-scores='{"soltesova":2,"podjavorinska":2}'>Slúžiť iným v tichosti a vydržať, čo sa musí vydržať.</button>
       </div>
       <div class="test-nav">
         <span></span>
@@ -515,78 +560,108 @@
       </div>
     </div>
 
-    <!-- Q2 -->
+    <!-- Q2 — Reakcia na krivdu -->
     <div class="test-question" id="q1">
-      <p class="test-q-number">Otázka 2 z 6</p>
-      <h3 class="test-q-text">Čo na tebe ostatní najčastejšie oceňujú?</h3>
+      <p class="test-q-number">Otázka 2 z 8</p>
+      <h3 class="test-q-text">Vidíš zjavnú krivdu. Čo spravíš ako prvé?</h3>
       <div class="test-answers">
-        <button class="test-answer" data-q="1" data-scores='{"timrava":3,"gregorova":1}'>Odvahu povedať pravdu.</button>
-        <button class="test-answer" data-q="1" data-scores='{"vansova":3,"podjavorinska":1}'>Múdrosť dotiahnuť veci.</button>
-        <button class="test-answer" data-q="1" data-scores='{"soltesova":3,"podjavorinska":1}'>Pokora a hlboké hodnoty.</button>
-        <button class="test-answer" data-q="1" data-scores='{"gregorova":3,"vansova":1}'>Hlas — keď hovoríš, ľudia počúvajú.</button>
+        <button class="test-answer" data-q="1" data-scores='{"gregorova":3}'>Konám ihneď — hovorím, píšem, zvolávam ľudí.</button>
+        <button class="test-answer" data-q="1" data-scores='{"timrava":2,"vansova":2}'>Pomenúvam krivdu jasne a dôsledne, nie impulzívne.</button>
+        <button class="test-answer" data-q="1" data-scores='{"soltesova":3}'>Pomáham postihnutým priamo — diskrétne a trvalo.</button>
+        <button class="test-answer" data-q="1" data-scores='{"podjavorinska":2,"vansova":2}'>Kumulujem sily a zasiahnem, keď to má väčší dopad.</button>
       </div>
       <div class="test-nav">
         <button class="test-nav__back" onclick="goBack(1)">← Späť</button>
       </div>
     </div>
 
-    <!-- Q3 -->
+    <!-- Q3 — Silná stránka -->
     <div class="test-question" id="q2">
-      <p class="test-q-number">Otázka 3 z 6</p>
-      <h3 class="test-q-text">Ako zvládaš ťažké obdobia?</h3>
+      <p class="test-q-number">Otázka 3 z 8</p>
+      <h3 class="test-q-text">Kde si skutočne vo svojom živle?</h3>
       <div class="test-answers">
-        <button class="test-answer" data-q="2" data-scores='{"podjavorinska":3,"soltesova":1}'>Ticho vytrvám. Len ďalej.</button>
-        <button class="test-answer" data-q="2" data-scores='{"timrava":3,"gregorova":1}'>Hovorím o tom — úprimne.</button>
-        <button class="test-answer" data-q="2" data-scores='{"vansova":3,"podjavorinska":1}'>Tvorím niečo nové z toho.</button>
-        <button class="test-answer" data-q="2" data-scores='{"gregorova":2,"soltesova":2}'>Organizujem — energia do akcie.</button>
+        <button class="test-answer" data-q="2" data-scores='{"gregorova":3}'>Keď stojím za niečím verejne a ľudia to počujú.</button>
+        <button class="test-answer" data-q="2" data-scores='{"vansova":3}'>Keď budujem — organizujem, plánujem, tvorím systémy.</button>
+        <button class="test-answer" data-q="2" data-scores='{"timrava":3}'>Keď som úprimná sama k sebe aj k ostatným, bez masky.</button>
+        <button class="test-answer" data-q="2" data-scores='{"podjavorinska":2,"soltesova":2}'>Keď vytrvám tam, kde iní vzdávajú — ticho a trvalo.</button>
       </div>
       <div class="test-nav">
         <button class="test-nav__back" onclick="goBack(2)">← Späť</button>
       </div>
     </div>
 
-    <!-- Q4 -->
+    <!-- Q4 — Rozhodovanie -->
     <div class="test-question" id="q3">
-      <p class="test-q-number">Otázka 4 z 6</p>
-      <h3 class="test-q-text">Čo by si nikdy neurobila pre spoločenský súhlas?</h3>
+      <p class="test-q-number">Otázka 4 z 8</p>
+      <h3 class="test-q-text">Musíš sa rozhodnúť rýchlo, bez dosť informácií. Čo sa deje v tebe?</h3>
       <div class="test-answers">
-        <button class="test-answer" data-q="3" data-scores='{"timrava":3,"gregorova":1}'>Zamlčala pravdu.</button>
-        <button class="test-answer" data-q="3" data-scores='{"vansova":3,"soltesova":1}'>Vzdala sa prvého kroku.</button>
-        <button class="test-answer" data-q="3" data-scores='{"soltesova":3,"podjavorinska":1}'>Prestala byť sama sebou.</button>
-        <button class="test-answer" data-q="3" data-scores='{"gregorova":3,"timrava":1}'>Stíšila sa.</button>
+        <button class="test-answer" data-q="3" data-scores='{"gregorova":3,"vansova":1}'>Konám. Lepšia nedokonalá akcia ako ochromená nečinnosť.</button>
+        <button class="test-answer" data-q="3" data-scores='{"timrava":3}'>Pýtam sa: čo je tu pravdivé a v súlade s mojimi hodnotami?</button>
+        <button class="test-answer" data-q="3" data-scores='{"vansova":3}'>Premýšľam o dlhodobom dopade — kde nás to dostane za roky?</button>
+        <button class="test-answer" data-q="3" data-scores='{"soltesova":2,"podjavorinska":2}'>Vydržím neistotu. Trpezlivosť prináša jasnosť.</button>
       </div>
       <div class="test-nav">
         <button class="test-nav__back" onclick="goBack(3)">← Späť</button>
       </div>
     </div>
 
-    <!-- Q5 -->
+    <!-- Q5 — Zvládanie zlyhania -->
     <div class="test-question" id="q4">
-      <p class="test-q-number">Otázka 5 z 6</p>
-      <h3 class="test-q-text">Kde cítiš svoju silu?</h3>
+      <p class="test-q-number">Otázka 5 z 8</p>
+      <h3 class="test-q-text">Niečo dôležité sa ti nepodarí. Ako reaguješ?</h3>
       <div class="test-answers">
-        <button class="test-answer" data-q="4" data-scores='{"timrava":2,"gregorova":2}'>V slovách — písaných aj hovorených.</button>
-        <button class="test-answer" data-q="4" data-scores='{"soltesova":3,"vansova":1}'>V budovaní — komunity, vzťahov.</button>
-        <button class="test-answer" data-q="4" data-scores='{"podjavorinska":3,"soltesova":1}'>V odolnosti — vstávam znova.</button>
-        <button class="test-answer" data-q="4" data-scores='{"vansova":3,"gregorova":1}'>V odvahe byť prvá.</button>
+        <button class="test-answer" data-q="4" data-scores='{"podjavorinska":3}'>Vstávam. Znova. Nevzdanie sa je moja identita.</button>
+        <button class="test-answer" data-q="4" data-scores='{"timrava":3}'>Hovorím o tom otvorene — aj slabosť si zaslúži hlas.</button>
+        <button class="test-answer" data-q="4" data-scores='{"vansova":2,"gregorova":2}'>Analyzujem, hľadám príčinu a rýchlo sa posúvam ďalej.</button>
+        <button class="test-answer" data-q="4" data-scores='{"soltesova":3}'>Sústredím sa na iných — pomáhať im ma udržiava v pohybe.</button>
       </div>
       <div class="test-nav">
         <button class="test-nav__back" onclick="goBack(4)">← Späť</button>
       </div>
     </div>
 
-    <!-- Q6 -->
+    <!-- Q6 — Rola v komunite -->
     <div class="test-question" id="q5">
-      <p class="test-q-number">Otázka 6 z 6</p>
-      <h3 class="test-q-text">Tvoja životná filozofia v jednej vete:</h3>
+      <p class="test-q-number">Otázka 6 z 8</p>
+      <h3 class="test-q-text">Čo pre teba znamená byť súčasťou skupiny alebo komunity?</h3>
       <div class="test-answers">
-        <button class="test-answer" data-q="5" data-scores='{"timrava":3}'>Radšej nepríjemná pravda ako príjemná lož.</button>
-        <button class="test-answer" data-q="5" data-scores='{"vansova":3}'>Zmenu nerobia tí, čo čakajú na povolenie.</button>
-        <button class="test-answer" data-q="5" data-scores='{"soltesova":2,"podjavorinska":2}'>Tichá sila je stále sila.</button>
-        <button class="test-answer" data-q="5" data-scores='{"gregorova":3}'>Prvá, ktorá prehovorí, mení pravidlá.</button>
+        <button class="test-answer" data-q="5" data-scores='{"soltesova":3}'>Zodpovednosť — udržiavam to, čo sme spoločne vybudovali.</button>
+        <button class="test-answer" data-q="5" data-scores='{"vansova":3}'>Príležitosť — ako to môžeme zlepšiť a posunúť dopredu?</button>
+        <button class="test-answer" data-q="5" data-scores='{"timrava":2,"gregorova":2}'>Záväzok hovoriť pravdu, aj keď ju komunita nechce počuť.</button>
+        <button class="test-answer" data-q="5" data-scores='{"podjavorinska":3}'>Zdroj inšpirácie — tvorím a moja tvorba je darom komunite.</button>
       </div>
       <div class="test-nav">
         <button class="test-nav__back" onclick="goBack(5)">← Späť</button>
+      </div>
+    </div>
+
+    <!-- Q7 — Autentickosť -->
+    <div class="test-question" id="q6">
+      <p class="test-q-number">Otázka 7 z 8</p>
+      <h3 class="test-q-text">Čo by si nikdy neurobila, ani keby ti to prinieslo uznanie?</h3>
+      <div class="test-answers">
+        <button class="test-answer" data-q="6" data-scores='{"timrava":3}'>Predstieral/a, že som niekto iný, len aby sa ľuďom páčilo.</button>
+        <button class="test-answer" data-q="6" data-scores='{"gregorova":3}'>Zamlčala som krivdu, ktorú som videla na vlastné oči.</button>
+        <button class="test-answer" data-q="6" data-scores='{"podjavorinska":3}'>Vzdala som sa tvorenia, len preto, že ho nikto nechápe.</button>
+        <button class="test-answer" data-q="6" data-scores='{"vansova":2,"soltesova":2}'>Zničila som to, čo som budovala roky, kvôli rýchlemu úspechu.</button>
+      </div>
+      <div class="test-nav">
+        <button class="test-nav__back" onclick="goBack(6)">← Späť</button>
+      </div>
+    </div>
+
+    <!-- Q8 — Odkaz -->
+    <div class="test-question" id="q7">
+      <p class="test-q-number">Otázka 8 z 8</p>
+      <h3 class="test-q-text">Čo by si chcela, aby si ľudia pamätali po tebe?</h3>
+      <div class="test-answers">
+        <button class="test-answer" data-q="7" data-scores='{"gregorova":2,"vansova":2}'>Že som ako prvá otvorila dvere, cez ktoré potom prešli mnohí.</button>
+        <button class="test-answer" data-q="7" data-scores='{"timrava":3}'>Že som hovorila pravdu, aj keď to ostatní nestíhali počuť.</button>
+        <button class="test-answer" data-q="7" data-scores='{"podjavorinska":3}'>Že som nevzdala — v umení, v hodnotách, v živote.</button>
+        <button class="test-answer" data-q="7" data-scores='{"soltesova":3}'>Že som budovala ticho a s láskou, a ľudia sa cítili doma.</button>
+      </div>
+      <div class="test-nav">
+        <button class="test-nav__back" onclick="goBack(7)">← Späť</button>
       </div>
     </div>
 
@@ -983,18 +1058,18 @@ function selectAnswer(btn) {
   setTimeout(() => {
     document.getElementById('q' + q).classList.remove('active');
     currentQ = q + 1;
-    if (currentQ < 6) {
+    if (currentQ < 8) {
       document.getElementById('q' + currentQ).classList.add('active');
       updateProgress(currentQ);
     } else {
-      updateProgress(6);
+      updateProgress(8);
       showEmailGate();
     }
   }, 380);
 }
 
 function updateProgress(step) {
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 8; i++) {
     const dot = document.getElementById('dot' + i);
     dot.className = 'test-progress__dot';
     if (i < step) dot.classList.add('done');

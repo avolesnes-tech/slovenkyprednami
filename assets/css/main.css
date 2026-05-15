@@ -1765,8 +1765,7 @@ body::before {
   position: absolute; top: 50%;
   width: 420px; height: 420px;
   background: url('../images/Akvarel_transparent.png') center/contain no-repeat;
-  opacity: 0.06;
-  mix-blend-mode: screen;
+  opacity: 0.12;
   pointer-events: none;
 }
 .footer::before {

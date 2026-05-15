@@ -312,17 +312,17 @@ body::before {
 
 /* Vertical label — shown in collapsed state */
 .hero__panel-label {
-  position: absolute; bottom: 7rem; left: 50%;
+  position: absolute; bottom: 2.5rem; left: 1.25rem;
   writing-mode: vertical-rl;
-  transform: translateX(-50%) rotate(180deg);
+  transform: rotate(180deg);
   transform-origin: center center;
   white-space: nowrap; z-index: 3;
   font-family: var(--font-display);
-  font-size: 0.68rem;
-  letter-spacing: 0.2em;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--petal);
-  opacity: 0.85;
+  color: #fff;
+  opacity: 0.45;
   transition: opacity 0.25s var(--ease-out);
 }
 .hero__panels:has(.hero__panel:hover) .hero__panel:hover .hero__panel-label {

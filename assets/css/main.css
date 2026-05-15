@@ -297,6 +297,34 @@ body::before {
   object-position: 70% 20%;
 }
 
+/* ─── WOMAN CARD HOVER: dark overlay + attribute text ──── */
+.woman-card__portrait::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(10, 4, 2, 0.72);
+  opacity: 0;
+  z-index: 3;
+  transition: opacity 0.4s var(--ease-out);
+}
+.woman-card:hover .woman-card__portrait::after { opacity: 1; }
+
+.woman-card__hover-attr {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-lit);
+  font-size: clamp(2rem, 2.8vw, 3rem);
+  color: #fff;
+  letter-spacing: 0.06em;
+  z-index: 4;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s var(--ease-out) 0.1s, transform 0.4s var(--ease-out) 0.1s;
+  pointer-events: none;
+}
+.woman-card:hover .woman-card__hover-attr {
+  opacity: 1; transform: translateY(0);
+}
+
 /* Dark gradient overlay for content legibility */
 .hero__panel-overlay {
   position: absolute; inset: 0; z-index: 2;
@@ -923,13 +951,22 @@ body::before {
   border-top: 1px solid rgba(184,132,90,0.15);
   border-bottom: 1px solid rgba(184,132,90,0.15);
 }
+.section-quote::before,
+.section-quote::after {
+  content: '';
+  position: absolute; top: 50%;
+  width: 340px; height: 340px;
+  background: url('../images/Akvarel_transparent.png') center/contain no-repeat;
+  opacity: 0.09;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
 .section-quote::before {
-  content: '«';
-  position: absolute; top: -0.1em; left: 3rem;
-  font-family: var(--font-lit);
-  font-size: 24rem; line-height: 1;
-  color: var(--violet-muted); opacity: 0.12;
-  pointer-events: none; user-select: none;
+  left: -60px;
+}
+.section-quote::after {
+  right: -60px;
+  transform: translateY(-50%) scaleX(-1);
 }
 .section-quote__inner {
   max-width: 860px; margin: 0 auto;

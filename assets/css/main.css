@@ -1021,7 +1021,21 @@ body::before {
   padding: 7rem 2rem 6rem;
   border-top: 1px solid rgba(184,132,90,0.15);
 }
-.section-zivena .section-title em { color: var(--violet); }
+.zivena-heading {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  font-weight: 400;
+  color: var(--earth);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+.zivena-subheading {
+  font-family: var(--font-lit);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--violet);
+  line-height: 1.4;
+}
 .zivena-intro {
   max-width: 680px; margin: 0 auto 4rem;
   font-size: 1.05rem; font-weight: 300;

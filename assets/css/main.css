@@ -904,8 +904,8 @@ body::before {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 35%;
-  padding: 0.9rem 1.25rem 1.25rem;
-  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 0.8rem 1.1rem 1rem;
+  display: flex; flex-direction: column; justify-content: flex-start;
   background: #FAFAF8;
   border-top: 1px solid rgba(0,0,0,0.06);
   z-index: 2; /* above portrait stacking context */
@@ -2088,4 +2088,16 @@ html.is-transitioning {
   .women-grid { grid-template-columns: 1fr 1fr; }
   .hero__names { display: none; }
   .hero__name { font-size: 2.2rem; }
+
+  /* Hero title — shrink so SLOVENKY fits without clipping */
+  .hero > .hero__header { padding: 4rem 1.25rem 0; }
+  .hero__title--line1 { font-size: clamp(2rem, 11.5vw, 3.5rem); }
+  .hero__title--line2 { font-size: clamp(1.8rem, 10vw, 3rem); }
+
+  /* Panel labels — raise above the marquee strip */
+  .hero__panel-label { bottom: 3.8rem; font-size: 0.52rem; }
+
+  /* Woman card — slightly larger name on narrow cards */
+  .woman-card__name { font-size: 0.82rem; }
+  .woman-card__content { padding: 0.65rem 0.9rem 0.75rem; }
 }

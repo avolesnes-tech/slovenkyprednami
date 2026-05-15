@@ -225,31 +225,176 @@ body::before {
 .section-eshop > *:not(.botanical-bg) { position: relative; z-index: 1; }
 .section-next > *:not(.botanical-bg) { position: relative; z-index: 1; }
 
-/* ─── HERO (homepage) ─────────────────────────────────────── */
+/* ─── HERO (homepage) — accordion layout ─────────────────── */
 .hero {
-  min-height: 100vh;
-  display: flex; flex-direction: column;
-  justify-content: center; align-items: center;
+  height: 100vh;
+  display: flex;
   position: relative; overflow: hidden;
-  padding: 7rem 2rem 4rem;
-  text-align: center;
   background: var(--earth);
 }
 
-.hero__ornament {
-  position: absolute; top: 12%; left: 50%;
-  transform: translateX(-50%);
-  width: min(600px, 90vw);
-  opacity: 0.12;
+/* Top gradient veil — title readability over photos */
+.hero > .hero__top-veil {
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 62%;
+  background: linear-gradient(to bottom, rgba(18,8,3,0.92) 0%, rgba(18,8,3,0.55) 45%, transparent 100%);
+  z-index: 4; pointer-events: none;
+}
+
+/* Floating title header overlaid on panels */
+.hero > .hero__header {
+  position: absolute; top: 0; left: 0; right: 0;
+  z-index: 6;
+  text-align: center;
+  padding: 5.5rem 2rem 0;
   pointer-events: none;
 }
-.hero__ornament-bottom {
-  position: absolute; bottom: 15%; left: 50%;
+.hero > .hero__header .btn,
+.hero > .hero__header .hero__cta-group { pointer-events: auto; }
+
+/* Accordion panels row — fills full hero */
+.hero > .hero__panels {
+  display: flex; width: 100%; height: 100%;
+  position: absolute; inset: 0;
+  z-index: 1;
+}
+
+/* Individual panel */
+.hero__panel {
+  flex: 1;
+  position: relative; overflow: hidden;
+  border-right: 1px solid rgba(200,150,100,0.07);
+  transition: flex 0.75s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: none;
+}
+.hero__panel:last-child { border-right: none; }
+
+/* Compress siblings when any panel hovered */
+.hero__panels:has(.hero__panel:hover) .hero__panel { flex: 0.45; }
+.hero__panels:has(.hero__panel:hover) .hero__panel:hover { flex: 4.2; }
+
+/* Cream bg for multiply blend */
+.hero__panel-bg {
+  position: absolute; inset: 0;
+  background: var(--cream-warm);
+  z-index: 0;
+}
+
+/* Photo — pencil sketch illustration effect */
+.hero__panel-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 12%;
+  filter: grayscale(1) contrast(1.7) brightness(1.28);
+  mix-blend-mode: multiply;
+  z-index: 1;
+  transition: transform 0.9s var(--ease-out), filter 0.55s var(--ease-out);
+}
+.hero__panels:has(.hero__panel:hover) .hero__panel:hover .hero__panel-img {
+  filter: grayscale(0.45) contrast(1.3) brightness(1.12);
+  transform: scale(1.04);
+}
+
+/* Dark gradient overlay for content legibility */
+.hero__panel-overlay {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(to top,
+    rgba(18,8,3,0.85) 0%,
+    rgba(18,8,3,0.3) 45%,
+    rgba(18,8,3,0) 70%);
+  transition: background 0.5s var(--ease-out);
+}
+.hero__panels:has(.hero__panel:hover) .hero__panel:hover .hero__panel-overlay {
+  background: linear-gradient(to top,
+    rgba(18,8,3,0.9) 0%,
+    rgba(18,8,3,0.45) 55%,
+    rgba(18,8,3,0.08) 80%);
+}
+
+/* Vertical label — shown in collapsed state */
+.hero__panel-label {
+  position: absolute; bottom: 7rem; left: 50%;
+  writing-mode: vertical-rl;
   transform: translateX(-50%) rotate(180deg);
-  width: min(400px, 70vw);
-  opacity: 0.08;
-  pointer-events: none;
+  transform-origin: center center;
+  white-space: nowrap; z-index: 3;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--petal);
+  opacity: 0.85;
+  transition: opacity 0.25s var(--ease-out);
 }
+.hero__panels:has(.hero__panel:hover) .hero__panel:hover .hero__panel-label {
+  opacity: 0; pointer-events: none;
+}
+
+/* Expanded content — visible on hover */
+.hero__panel-content {
+  position: absolute; bottom: 5rem;
+  left: 1.75rem; right: 1.75rem;
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s var(--ease-out) 0.18s, transform 0.4s var(--ease-out) 0.18s;
+}
+.hero__panels:has(.hero__panel:hover) .hero__panel:hover .hero__panel-content {
+  opacity: 1; transform: translateY(0);
+}
+
+.hero__panel-attr {
+  display: inline-block;
+  font-size: 0.6rem; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--violet-light);
+  border: 1px solid rgba(166,120,150,0.55);
+  padding: 0.28em 0.9em;
+  border-radius: var(--r-pill);
+  margin-bottom: 0.9rem;
+}
+
+.hero__panel-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1.8vw, 1.75rem);
+  font-weight: 400;
+  color: var(--cream);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+
+.hero__panel-years {
+  font-size: 0.68rem; letter-spacing: 0.06em;
+  color: var(--dust); opacity: 0.78;
+  margin-bottom: 1.25rem;
+}
+
+.hero__panel-cta {
+  display: inline-flex; align-items: center;
+  font-size: 0.68rem; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--cream);
+  border-bottom: 1px solid rgba(250,244,238,0.28);
+  padding-bottom: 0.2em;
+  transition: letter-spacing 0.3s var(--ease-out), border-color 0.25s;
+}
+.hero__panel-cta:hover {
+  letter-spacing: 0.2em;
+  border-color: rgba(250,244,238,0.8);
+}
+
+/* Marquee — on top of everything */
+.hero > .hero__marquee {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  z-index: 8;
+}
+
+/* Title sizing adjustments for overlay layout */
+.hero__title--line1 { font-size: clamp(2.8rem, 8vw, 7rem); }
+.hero__title--line2 { font-size: clamp(2.4rem, 6.5vw, 5.5rem); }
+.hero__tagline { margin: 1rem auto 2rem; }
+.hero__tagline::before { display: none; }
+.hero__tagline--row { display: none; }
 
 .hero__eyebrow {
   font-size: 0.7rem; font-weight: 500;

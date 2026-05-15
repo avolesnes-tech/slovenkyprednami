@@ -999,7 +999,8 @@ body::before {
   position: absolute; top: 50%;
   width: 380px; height: 380px;
   background: url('../images/Akvarel_transparent.png') center/contain no-repeat;
-  opacity: 0.13;
+  opacity: 0.22;
+  mix-blend-mode: multiply;
   pointer-events: none;
 }
 .section-test-teaser::before {

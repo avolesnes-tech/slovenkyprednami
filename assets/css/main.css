@@ -236,8 +236,8 @@ body::before {
 /* Top gradient veil — title readability over photos */
 .hero > .hero__top-veil {
   position: absolute; top: 0; left: 0; right: 0;
-  height: 62%;
-  background: linear-gradient(to bottom, rgba(18,8,3,0.92) 0%, rgba(18,8,3,0.55) 45%, transparent 100%);
+  height: 72%;
+  background: linear-gradient(to bottom, rgba(10,4,2,0.97) 0%, rgba(10,4,2,0.88) 25%, rgba(10,4,2,0.6) 50%, rgba(10,4,2,0.15) 75%, transparent 100%);
   z-index: 4; pointer-events: none;
 }
 
@@ -292,7 +292,6 @@ body::before {
 }
 .hero__panels:has(.hero__panel:hover) .hero__panel:hover .hero__panel-img {
   filter: grayscale(0.45) contrast(1.3) brightness(1.12);
-  transform: scale(1.04);
 }
 
 /* Dark gradient overlay for content legibility */
@@ -390,8 +389,14 @@ body::before {
 }
 
 /* Title sizing adjustments for overlay layout */
-.hero__title--line1 { font-size: clamp(2.8rem, 8vw, 7rem); }
-.hero__title--line2 { font-size: clamp(2.4rem, 6.5vw, 5.5rem); }
+.hero__title--line1 {
+  font-size: clamp(2.8rem, 8vw, 7rem);
+  text-shadow: 0 2px 24px rgba(0,0,0,0.6), 0 0 60px rgba(0,0,0,0.35);
+}
+.hero__title--line2 {
+  font-size: clamp(2.4rem, 6.5vw, 5.5rem);
+  text-shadow: 0 2px 20px rgba(0,0,0,0.55);
+}
 .hero__tagline { margin: 1rem auto 2rem; }
 .hero__tagline::before { display: none; }
 .hero__tagline--row { display: none; }

@@ -951,23 +951,6 @@ body::before {
   border-top: 1px solid rgba(184,132,90,0.15);
   border-bottom: 1px solid rgba(184,132,90,0.15);
 }
-.section-quote::before,
-.section-quote::after {
-  content: '';
-  position: absolute; top: 50%;
-  width: 340px; height: 340px;
-  background: url('../images/Akvarel_transparent.png') center/contain no-repeat;
-  opacity: 0.09;
-  pointer-events: none;
-  transform: translateY(-50%);
-}
-.section-quote::before {
-  left: -60px;
-}
-.section-quote::after {
-  right: -60px;
-  transform: translateY(-50%) scaleX(-1);
-}
 .section-quote__inner {
   max-width: 860px; margin: 0 auto;
   position: relative; z-index: 1;
@@ -1008,6 +991,24 @@ body::before {
   padding: 7rem 2rem 6rem;
   text-align: center;
   position: relative;
+  overflow: hidden;
+}
+.section-test-teaser::before,
+.section-test-teaser::after {
+  content: '';
+  position: absolute; top: 50%;
+  width: 380px; height: 380px;
+  background: url('../images/Akvarel_transparent.png') center/contain no-repeat;
+  opacity: 0.13;
+  pointer-events: none;
+}
+.section-test-teaser::before {
+  left: -310px;
+  transform: translateY(-50%);
+}
+.section-test-teaser::after {
+  right: -310px;
+  transform: translateY(-50%) scaleX(-1);
 }
 .test-teaser__inner {
   max-width: 680px; margin: 0 auto;

@@ -161,7 +161,8 @@ body::before {
   transition: opacity 0.25s var(--ease-out), transform 0.25s var(--ease-out);
   list-style: none;
 }
-.nav__dropdown:hover .nav__dropdown-menu {
+.nav__dropdown:hover .nav__dropdown-menu,
+.nav__dropdown-toggle[aria-expanded="true"] + .nav__dropdown-menu {
   opacity: 1; pointer-events: all;
   transform: translateX(-50%) translateY(0);
 }

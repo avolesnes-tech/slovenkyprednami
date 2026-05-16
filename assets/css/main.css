@@ -1445,6 +1445,252 @@ body::before {
 }
 
 /* ─── SECTION: SHOP PREVIEW ──────────────────────────────── */
+/* ─── LISTOVÁ KOREŠPONDENCIA ─────────────────────────────── */
+.section-listy {
+  background: #1A0F08;
+  padding: 9rem 2rem 8rem;
+  position: relative;
+  overflow: hidden;
+}
+/* Subtle botanical corners */
+.section-listy::before,
+.section-listy::after {
+  content: '';
+  position: absolute;
+  width: 440px; height: 440px;
+  background: url('../images/Akvarel_transparent.png') center / contain no-repeat;
+  opacity: 0.07;
+  pointer-events: none;
+}
+.section-listy::before { top: -80px; left: -100px; }
+.section-listy::after  { bottom: -80px; right: -100px; transform: rotate(180deg); }
+
+/* ── Two-column layout ── */
+.listy-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto 8rem;
+  position: relative; z-index: 1;
+}
+
+/* Floating letter column */
+.listy-letter-wrap {
+  position: relative;
+  width: 100%; max-width: 440px;
+  margin: 0 auto;
+  filter: drop-shadow(0 40px 80px rgba(0,0,0,0.65));
+}
+/* Second sheet peeking behind */
+.listy-letter--back {
+  position: absolute;
+  inset: 0;
+  background: #F5F1E6;
+  transform: rotate(2.5deg) translateY(-4px);
+  border-radius: 2px;
+  z-index: 0;
+}
+.listy-letter {
+  background: #FBF8F0;
+  border-radius: 2px;
+  padding: 2.8rem 2.8rem 4rem;
+  transform: rotate(-1.8deg);
+  position: relative;
+  z-index: 1;
+  /* subtle ruled lines */
+  background-image: repeating-linear-gradient(
+    transparent, transparent 30px,
+    rgba(92,51,32,0.07) 30px, rgba(92,51,32,0.07) 31px
+  );
+  background-position: 0 2.8rem;
+}
+.listy-letter__text {
+  font-family: var(--font-lit);
+  font-size: 1.05rem;
+  color: #2E1A0C;
+  line-height: 2.05;
+  text-align: left;
+  position: relative; z-index: 1;
+}
+.listy-wax-seal {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 35%, #B52535, #6B0F1A);
+  position: absolute;
+  bottom: -26px; left: 50%; transform: translateX(-50%) rotate(-1.8deg);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.18);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2;
+}
+.listy-wax-seal span {
+  font-family: var(--font-display);
+  font-size: 1.7rem; font-weight: 400;
+  color: rgba(251,248,240,0.6);
+  line-height: 1;
+}
+
+/* ── Content column ── */
+.listy-content {
+  position: relative; z-index: 1;
+  text-align: left;
+}
+.listy-content .section-label {
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.listy-heading {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  font-weight: 400;
+  color: var(--cream-warm);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin: 0 0 2.5rem;
+}
+.listy-heading em {
+  font-family: var(--font-lit);
+  font-style: normal;
+  color: var(--violet-light);
+  font-size: 1.15em;
+  display: block;
+  line-height: 1.1;
+}
+.listy-sensory {
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  font-weight: 300;
+  color: rgba(250,244,238,0.72);
+  line-height: 2;
+  margin: 0 0 2.5rem;
+}
+.listy-reveal {
+  font-family: var(--font-lit);
+  font-size: clamp(1.3rem, 2.2vw, 1.65rem);
+  color: var(--cream-warm);
+  line-height: 1.55;
+  margin: 0 0 2rem;
+}
+.listy-reveal em {
+  color: var(--violet-light);
+  font-style: normal;
+}
+.listy-detail {
+  font-size: 0.85rem; font-weight: 300;
+  color: rgba(250,244,238,0.42);
+  line-height: 1.95;
+}
+
+/* ── Pricing row ── */
+.listy-plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  max-width: 900px; margin: 0 auto 3rem;
+  position: relative; z-index: 1;
+}
+.listy-plan {
+  background: rgba(250,244,238,0.04);
+  border: 1px solid rgba(250,244,238,0.1);
+  border-radius: 16px;
+  padding: 2.2rem 2rem 2.5rem;
+  text-align: center;
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+.listy-plan:hover {
+  background: rgba(250,244,238,0.08);
+  border-color: rgba(250,244,238,0.22);
+  transform: translateY(-4px);
+}
+.listy-plan--featured {
+  background: rgba(123,79,110,0.2);
+  border-color: rgba(166,120,150,0.45);
+}
+.listy-plan--featured:hover {
+  background: rgba(123,79,110,0.3);
+  border-color: var(--violet-light);
+}
+.listy-plan__badge {
+  font-size: 0.56rem; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--violet-light); margin-bottom: 0.7rem;
+}
+.listy-plan__label {
+  font-family: var(--font-display);
+  font-size: 1.15rem; font-weight: 400;
+  color: var(--cream-warm); margin-bottom: 0.8rem;
+}
+.listy-plan__price {
+  font-size: 0.75rem;
+  color: rgba(250,244,238,0.4);
+  margin-bottom: 0.1rem; line-height: 1;
+}
+.listy-plan__price span {
+  font-family: var(--font-display);
+  font-size: 3.5rem; font-weight: 400;
+  color: var(--cream-warm); letter-spacing: -0.04em;
+  display: inline-block; line-height: 1;
+}
+.listy-plan__desc {
+  font-size: 0.78rem; font-weight: 300;
+  color: rgba(250,244,238,0.48);
+  line-height: 1.65;
+  margin: 1rem 0 1.8rem;
+}
+.listy-plan__btn {
+  display: inline-block;
+  font-size: 0.62rem; font-weight: 500;
+  letter-spacing: 0.13em; text-transform: uppercase;
+  color: rgba(250,244,238,0.75);
+  padding: 0.65rem 1.6rem;
+  border: 1px solid rgba(250,244,238,0.22);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+.listy-plan__btn:hover {
+  background: rgba(250,244,238,0.1);
+  border-color: rgba(250,244,238,0.5);
+  color: var(--cream-warm);
+}
+.listy-plan__btn--primary {
+  background: var(--violet);
+  border-color: var(--violet);
+  color: var(--white);
+}
+.listy-plan__btn--primary:hover {
+  background: #6B3D60;
+  border-color: #6B3D60;
+  color: var(--white);
+}
+.listy-footnote {
+  font-size: 0.75rem; font-style: italic;
+  color: rgba(250,244,238,0.28);
+  letter-spacing: 0.06em;
+  text-align: center;
+  position: relative; z-index: 1;
+}
+/* Tablet */
+@media (max-width: 900px) {
+  .listy-main {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+    margin-bottom: 5rem;
+    text-align: center;
+  }
+  .listy-content { text-align: center; }
+  .listy-letter-wrap { max-width: 360px; }
+  .listy-plans { grid-template-columns: 1fr; max-width: 380px; gap: 1rem; }
+}
+/* Mobile */
+@media (max-width: 600px) {
+  .section-listy { padding: 6rem 1.5rem 5rem; }
+  .listy-letter-wrap { max-width: 300px; }
+  .listy-heading { font-size: 3rem; }
+}
+
+/* ─── E-SHOP ──────────────────────────────────────────────── */
 .section-shop {
   background: var(--cream);
   padding: 6rem 2rem;

@@ -49,7 +49,7 @@
 
 <!-- ─── NAVIGÁCIA ─────────────────────────────────────────── -->
 <nav class="nav" id="mainNav">
-  <a href="/" class="nav__logo">Slovenky <span>pred nami</span></a>
+  <a href="../../index.html" class="nav__logo">Slovenky <span>pred nami</span></a>
 
   <ul class="nav__links">
     <li class="nav__dropdown">
@@ -60,10 +60,10 @@
         </svg>
       </button>
       <ul class="nav__dropdown-menu">
-        <li><a href="/zeny-rebelky/soltesova/" class="active-page">Elena Maróthy-Šoltésová <span class="vlastnost-tag">Pokora</span></a></li>
-        <li><a href="/zeny-rebelky/timrava/">Božena Slančíková-Timrava <span class="vlastnost-tag">Uprímnosť</span></a></li>
-        <li><a href="/zeny-rebelky/vansova/">Terézia Vansová <span class="vlastnost-tag">Múdrosť</span></a></li>
-        <li><a href="/zeny-rebelky/gregorova/">Hana Gregorová <span class="vlastnost-tag">Odvaha</span></a></li>
+        <li><a href="../soltesova/index.html" class="active-page">Elena Maróthy-Šoltésová <span class="vlastnost-tag">Pokora</span></a></li>
+        <li><a href="../timrava/index.html">Božena Slančíková-Timrava <span class="vlastnost-tag">Uprímnosť</span></a></li>
+        <li><a href="../vansova/index.html">Terézia Vansová <span class="vlastnost-tag">Múdrosť</span></a></li>
+        <li><a href="../gregorova/index.html">Hana Gregorová <span class="vlastnost-tag">Odvaha</span></a></li>
       </ul>
     </li>
     <li><a href="/eshop/">E-shop</a></li>
@@ -119,7 +119,7 @@
     <nav class="breadcrumb" aria-label="Navigácia">
       <a href="/">Domov</a>
       <span class="breadcrumb__sep">›</span>
-      <a href="/zeny-rebelky/">Ženy rebelky</a>
+      <a href="../">Ženy rebelky</a>
       <span class="breadcrumb__sep">›</span>
       <span class="breadcrumb__current">Elena Maróthy-Šoltésová</span>
     </nav>
@@ -161,7 +161,7 @@
 
   <div class="hero__illustration" aria-label="Ilustrácia Eleny Maróthy-Šoltésovej">
     <img
-      src="/EMSoltesova.jpg"
+      src="../../EMSoltesova.jpg"
       alt="Elena Maróthy-Šoltésová"
       class="hero__illustration-img"
       onerror="this.style.display='none'"
@@ -537,7 +537,7 @@
     <p style="font-size:0.9rem; font-weight:300; color:var(--dust); line-height:1.75; max-width:40ch; margin-bottom:1.75rem;">
       Hovorila pravdu, aj keď za to nemala mať radi. Odmietla romantizovať realitu. A písala to tak, aby to bolelo — lebo inak to nebola pravda.
     </p>
-    <a href="/zeny-rebelky/timrava/" class="btn btn--ghost">
+    <a href="../timrava/index.html" class="btn btn--ghost">
       Spoznaj Timravu <span class="btn__arrow">→</span>
     </a>
   </div>
@@ -550,7 +550,7 @@
 <footer class="footer">
   <div class="footer__grid">
     <div class="footer__brand">
-      <a href="/" class="nav__logo">Slovenky <span>pred nami</span></a>
+      <a href="../../index.html" class="nav__logo">Slovenky <span>pred nami</span></a>
       <p class="footer__tagline">„Ona tu bola prvá."</p>
       <div class="footer__social">
         <a href="https://instagram.com/slovenkyprednami" aria-label="Instagram">IG</a>
@@ -560,10 +560,10 @@
     <div>
       <p class="footer__col-title">Ženy rebelky</p>
       <ul class="footer__links">
-        <li><a href="/zeny-rebelky/soltesova/">Elena Maróthy-Šoltésová</a></li>
-        <li><a href="/zeny-rebelky/timrava/">Božena Slančíková-Timrava</a></li>
-        <li><a href="/zeny-rebelky/vansova/">Terézia Vansová</a></li>
-        <li><a href="/zeny-rebelky/gregorova/">Hana Gregorová</a></li>
+        <li><a href="../soltesova/index.html">Elena Maróthy-Šoltésová</a></li>
+        <li><a href="../timrava/index.html">Božena Slančíková-Timrava</a></li>
+        <li><a href="../vansova/index.html">Terézia Vansová</a></li>
+        <li><a href="../gregorova/index.html">Hana Gregorová</a></li>
       </ul>
     </div>
     <div>
@@ -640,6 +640,9 @@ function initScrollReveal() {
 initScrollReveal();
 
 /* ─── BARBA + GSAP TRANSITIONS ───────────────────────────── */
+// Page transitions work only when served via a local server (http://).
+// When opening files directly (file://), we fall back to native navigation.
+if (window.location.protocol !== 'file:') {
 barba.init({
   transitions: [{
     name: 'botanical-curtain',
@@ -701,6 +704,7 @@ barba.init({
     }
   }]
 });
+} // end file:// guard
 </script>
 
 </body>

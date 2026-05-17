@@ -551,8 +551,12 @@ function initScrollReveal() {
   if (!els.length) return;
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-  }, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
+  }, { threshold: 0.04, rootMargin: '0px 0px 0px 0px' });
   els.forEach(el => { el.classList.remove('visible'); obs.observe(el); });
+  // Fallback: force-reveal anything still hidden after 2.5s
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
+  }, 2500);
 }
 initScrollReveal();
 

@@ -1807,59 +1807,24 @@ body::before {
   position: relative; z-index: 1;
 }
 
-/* Floating letter column */
-.listy-letter-wrap {
+/* Letter photo column */
+.listy-photo-wrap {
   position: relative;
-  width: 100%; max-width: 440px;
+  width: 100%;
   margin: 0 auto;
-  filter: drop-shadow(0 40px 80px rgba(0,0,0,0.65));
 }
-/* Second sheet peeking behind */
-.listy-letter--back {
-  position: absolute;
-  inset: 0;
-  background: #F5F1E6;
-  transform: rotate(2.5deg) translateY(-4px);
-  border-radius: 2px;
-  z-index: 0;
+.listy-photo {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+  transform: rotate(-1.5deg);
+  filter: drop-shadow(0 32px 72px rgba(0,0,0,0.7));
+  transition: transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94),
+              filter 0.8s ease;
 }
-.listy-letter {
-  background: #FBF8F0;
-  border-radius: 2px;
-  padding: 2.8rem 2.8rem 4rem;
-  transform: rotate(-1.8deg);
-  position: relative;
-  z-index: 1;
-  /* subtle ruled lines */
-  background-image: repeating-linear-gradient(
-    transparent, transparent 30px,
-    rgba(92,51,32,0.07) 30px, rgba(92,51,32,0.07) 31px
-  );
-  background-position: 0 2.8rem;
-}
-.listy-letter__text {
-  font-family: var(--font-lit);
-  font-size: 1.05rem;
-  color: #2E1A0C;
-  line-height: 2.05;
-  text-align: left;
-  position: relative; z-index: 1;
-}
-.listy-wax-seal {
-  width: 64px; height: 64px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 38% 35%, #B52535, #6B0F1A);
-  position: absolute;
-  bottom: -26px; left: 50%; transform: translateX(-50%) rotate(-1.8deg);
-  box-shadow: 0 8px 28px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.18);
-  display: flex; align-items: center; justify-content: center;
-  z-index: 2;
-}
-.listy-wax-seal span {
-  font-family: var(--font-display);
-  font-size: 1.7rem; font-weight: 400;
-  color: rgba(251,248,240,0.6);
-  line-height: 1;
+.listy-photo-wrap:hover .listy-photo {
+  transform: rotate(-0.5deg) scale(1.015);
+  filter: drop-shadow(0 40px 90px rgba(0,0,0,0.6));
 }
 
 /* ── Content column ── */
@@ -2011,13 +1976,13 @@ body::before {
     text-align: center;
   }
   .listy-content { text-align: center; }
-  .listy-letter-wrap { max-width: 360px; }
+  .listy-photo-wrap { max-width: 360px; }
   .listy-plans { grid-template-columns: 1fr; max-width: 380px; gap: 1rem; }
 }
 /* Mobile */
 @media (max-width: 600px) {
   .section-listy { padding: 4rem 1.5rem 3.5rem; }
-  .listy-letter-wrap { max-width: 300px; }
+  .listy-photo-wrap { max-width: 300px; }
   .listy-heading { font-size: 3rem; }
 }
 

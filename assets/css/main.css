@@ -1061,7 +1061,7 @@ body::before {
   position: relative;
   border-top: 1px solid rgba(255,255,255,0.04);
   background: transparent;
-  transition: background 0.6s ease;
+  transition: background 0.7s cubic-bezier(0.16,1,0.3,1);
 }
 .woman-panel:last-child {
   border-bottom: 1px solid rgba(255,255,255,0.04);
@@ -1071,7 +1071,7 @@ body::before {
 }
 .woman-panel:nth-child(even) .woman-panel__visual { order: 2; }
 .woman-panel:nth-child(even) .woman-panel__info   { order: 1; }
-.woman-panel:hover { background: rgba(255,255,255,0.013); }
+.woman-panel:hover { background: rgba(196,160,181,0.13); }
 
 /* ── Ghost virtue word spanning full panel ── */
 /* font-size capped so even UPRÍMNOSŤ (9 chars) fits in panel width  */

@@ -1074,21 +1074,26 @@ body::before {
 .woman-panel:hover { background: rgba(255,255,255,0.013); }
 
 /* ── Ghost virtue word spanning full panel ── */
+/* font-size capped so even UPRÍMNOSŤ (9 chars) fits in panel width  */
+/* animation: scale + opacity only — no letter-spacing change which   */
+/* causes long words to bleed far off screen                          */
 .woman-panel__virtue-bg {
   position: absolute; inset: 0; z-index: 0;
   display: flex; align-items: center; justify-content: center;
   pointer-events: none; user-select: none;
   font-family: var(--font-display);
-  font-size: clamp(6rem, 13vw, 16rem);
+  font-size: clamp(3rem, 6.5vw, 8.5rem);
   font-weight: 400;
-  letter-spacing: 0.38em;
-  color: rgba(250,244,238,0.032);
-  transition: letter-spacing 1.8s cubic-bezier(0.16,1,0.3,1),
-              color 1s ease;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  color: rgba(250,244,238,0.04);
+  transform: scale(1.08);
+  transition: transform 1.4s cubic-bezier(0.16,1,0.3,1),
+              color 0.9s ease;
 }
 .woman-panel:hover .woman-panel__virtue-bg {
-  letter-spacing: 0.05em;
-  color: rgba(250,244,238,0.06);
+  transform: scale(1.0);
+  color: rgba(250,244,238,0.09);
 }
 
 /* ── Visual (illustration) side ── */
@@ -1145,23 +1150,6 @@ body::before {
               transform 0.9s cubic-bezier(0.16,1,0.3,1) 0.22s;
 }
 
-/* Vertical accent line on divider side */
-.woman-panel__info::before {
-  content: '';
-  position: absolute;
-  top: 25%; bottom: 25%;
-  left: 0;
-  width: 1px;
-  background: linear-gradient(to bottom, transparent, rgba(184,132,90,0.18), transparent);
-  transition: top 0.55s ease, bottom 0.55s ease, background 0.55s ease;
-}
-.woman-panel:nth-child(even) .woman-panel__info::before {
-  left: auto; right: 0;
-}
-.woman-panel:hover .woman-panel__info::before {
-  top: 10%; bottom: 10%;
-  background: linear-gradient(to bottom, transparent, rgba(184,132,90,0.4), transparent);
-}
 
 /* ── Panel-in state (added by JS IntersectionObserver) ── */
 .woman-panel.panel-in .woman-panel__visual,

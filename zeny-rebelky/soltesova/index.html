@@ -115,11 +115,22 @@
     </svg>
   </div>
 
-  <!-- full-bleed photo background -->
+  <!-- full-bleed photo background — LCP image, eager + high priority -->
   <div class="hero__bg">
-    <img src="../../EMSoltesova.jpg" alt="" class="hero__bg-img" onerror="this.style.display='none'">
+    <img
+      src="../../assets/images/soltesova_hero.jpg"
+      alt=""
+      class="hero__bg-img"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+      onerror="this.style.display='none'"
+    >
     <div class="hero__bg-overlay"></div>
   </div>
+
+  <!-- virtue word runs across the photo -->
+  <span class="hero__virtue-word" aria-hidden="true">POKORA</span>
 
   <span class="hero__editorial-letter" aria-hidden="true">E</span>
 

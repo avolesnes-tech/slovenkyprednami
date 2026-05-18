@@ -82,7 +82,15 @@
 
   <!-- full-bleed photo background -->
   <div class="hero__bg">
-    <img src="../../Timrava.jpg" alt="" class="hero__bg-img" onerror="this.style.display='none'">
+    <img
+      src="../../Timrava.jpg"
+      alt=""
+      class="hero__bg-img"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+      onerror="this.style.display='none'"
+    >
     <div class="hero__bg-overlay"></div>
   </div>
 

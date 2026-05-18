@@ -215,7 +215,7 @@ body::before {
 .section-newsletter { position: relative; }
 
 /* Všetok obsah nad vzorem */
-.hero > *:not(.botanical-bg):not(.hero__bg):not(.hero__editorial-letter) { position: relative; z-index: 1; }
+.hero > *:not(.botanical-bg):not(.hero__bg):not(.hero__editorial-letter):not(.hero__virtue-word) { position: relative; z-index: 1; }
 .section-women > *:not(.botanical-bg) { position: relative; z-index: 1; }
 .section-quote > *:not(.botanical-bg) { position: relative; z-index: 1; }
 .section-newsletter > *:not(.botanical-bg) { position: relative; z-index: 1; }
@@ -645,11 +645,22 @@ body::before {
 }
 
 /* correct stacking within subpage hero */
-.hero--subpage > .botanical-bg { z-index: 1; }
+.hero--subpage > .botanical-bg    { z-index: 1; }
+.hero--subpage > .hero__virtue-word { z-index: 2 !important; position: absolute !important; }
 .hero--subpage > .hero__editorial-letter { z-index: 2 !important; }
-.hero--subpage > .hero__content { z-index: 3 !important; }
+.hero--subpage > .hero__content   { z-index: 3 !important; }
 
-/* full-bleed photo — beneath everything, including botanical pattern */
+/* ── Ken Burns zoom-out on photo ──────────────────────────── */
+@keyframes heroImgZoom {
+  from { transform: scale(1.07); }
+  to   { transform: scale(1.0); }
+}
+@keyframes heroVirtueIn {
+  from { opacity: 0; letter-spacing: 0.22em; }
+  to   { opacity: 1; letter-spacing: 0.1em; }
+}
+
+/* full-bleed photo — beneath everything */
 .hero__bg {
   position: absolute; inset: 0;
   z-index: 0;
@@ -657,19 +668,49 @@ body::before {
 .hero__bg-img {
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center top;
-  opacity: 0.28;
-  filter: sepia(0.2) contrast(1.05);
+  object-position: center 22%;
+  opacity: 0.54;
+  filter: sepia(0.18) contrast(1.08) brightness(0.92);
+  will-change: transform;
+  animation: heroImgZoom 9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
+
+/* richer vignette — face stays visible in center, very dark at foot */
 .hero__bg-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(8, 3, 1, 0.98) 0%,
-    rgba(8, 3, 1, 0.84) 28%,
-    rgba(8, 3, 1, 0.48) 58%,
-    rgba(8, 3, 1, 0.14) 100%
-  );
+  background:
+    /* radial punch-through: face area stays lighter */
+    radial-gradient(ellipse 72% 55% at 50% 38%,
+      transparent 0%,
+      rgba(8, 3, 1, 0.38) 100%),
+    /* main linear gradient — bottom → top */
+    linear-gradient(
+      to top,
+      rgba(8, 3, 1, 0.98) 0%,
+      rgba(8, 3, 1, 0.88) 22%,
+      rgba(8, 3, 1, 0.42) 50%,
+      rgba(8, 3, 1, 0.58) 78%,
+      rgba(8, 3, 1, 0.72) 100%
+    );
+}
+
+/* ── VIRTUE WORD overlay (POKORA / UPRÍMNOSŤ / …) ─────────── */
+.hero__virtue-word {
+  left: 0; right: 0;
+  top: 50%;
+  transform: translateY(-62%);
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(5.5rem, 20vw, 21rem);
+  line-height: 1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: rgba(250, 244, 238, 0.082);
+  user-select: none;
+  pointer-events: none;
+  opacity: 0;
+  animation: heroVirtueIn 2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
 }
 
 /* large atmospheric initial — far right */
@@ -2477,6 +2518,7 @@ html.is-transitioning {
   .hero__content { padding: 0 2.5rem 3.5rem; }
   .hero__editorial-letter { font-size: clamp(14rem, 22vw, 22rem); }
   .hero__cta { justify-content: flex-start; }
+  .hero__virtue-word { font-size: clamp(5rem, 20vw, 14rem); }
   .rebelka-grid { grid-template-columns: 1fr; max-width: 520px; }
   .vzor-grid { grid-template-columns: 1fr; }
   .vzor__pattern { max-width: 300px; margin: 0 auto; }
@@ -2495,6 +2537,14 @@ html.is-transitioning {
   /* subpage */
   .hero__content { padding: 0 1.5rem 3rem; }
   .hero__editorial-letter { display: none; }
+  /* virtue word — keep it legible on narrow screens */
+  .hero__virtue-word {
+    font-size: clamp(3.8rem, 18vw, 8rem);
+    letter-spacing: 0.06em;
+    transform: translateY(-55%);
+  }
+  /* photo shows face on portrait screens */
+  .hero__bg-img { object-position: center 15%; }
   .comparison-table__header,
   .comparison-table__row { grid-template-columns: 1fr; }
   .comparison-table__cell--vtedy { border-right: none; border-bottom: 1px solid var(--divider); }

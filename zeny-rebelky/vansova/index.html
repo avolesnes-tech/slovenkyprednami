@@ -546,6 +546,53 @@ function initHoverListeners() {
 }
 initHoverListeners();
 
+/* ─── HERO SPLIT-TEXT ANIMATION ─────────────────────────── */
+function splitWords(el) {
+  if (el.querySelector('.split-word')) return el.querySelectorAll('.split-word');
+  el.innerHTML = el.textContent.trim().split(/\s+/)
+    .map(function(w) { return '<span class="split-word">' + w + '</span>'; })
+    .join(' ');
+  return el.querySelectorAll('.split-word');
+}
+
+function initHeroAnimation() {
+  if (typeof gsap === 'undefined') return;
+
+  // Homepage hero
+  var line1 = document.querySelector('.hero__title--line1');
+  var line2 = document.querySelector('.hero__title--line2');
+  var subtitle = document.querySelector('.hero__subtitle');
+  var ctaGroup = document.querySelector('.hero__cta-group');
+
+  if (line1 && line2) {
+    var words1 = splitWords(line1);
+    var words2 = splitWords(line2);
+    var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    if (subtitle) tl.from(subtitle, { opacity: 0, y: 10, duration: 0.5 }, 0);
+    tl.from(words1, { opacity: 0, y: 22, duration: 0.65, stagger: 0.055 }, 0.1);
+    tl.from(words2, { opacity: 0, y: 22, duration: 0.65, stagger: 0.055 }, 0.3);
+    if (ctaGroup) tl.from(ctaGroup, { opacity: 0, y: 12, duration: 0.5 }, 0.56);
+    return;
+  }
+
+  // Subpage hero
+  var badge = document.querySelector('.hero__badge');
+  var heroName = document.querySelector('.hero__name');
+  var heroMeta = document.querySelector('.hero__meta');
+  var breadcrumb = document.querySelector('.breadcrumb');
+
+  if (heroName) {
+    var words = splitWords(heroName);
+    var tl2 = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    if (breadcrumb) tl2.from(breadcrumb, { opacity: 0, y: 8, duration: 0.4 }, 0);
+    if (badge) tl2.from(badge, { opacity: 0, y: 10, duration: 0.45 }, 0.12);
+    tl2.from(words, { opacity: 0, y: 20, duration: 0.6, stagger: 0.065 }, 0.22);
+    if (heroMeta) tl2.from(heroMeta, { opacity: 0, y: 8, duration: 0.4 }, 0.5);
+  }
+}
+initHeroAnimation();
+
+
 function initScrollReveal() {
   const els = document.querySelectorAll('.reveal');
   if (!els.length) return;
@@ -586,7 +633,7 @@ barba.init({
   }],
   views: [{
     namespace: 'vansova',
-    afterEnter() { initScrollReveal(); initHoverListeners(); }
+    afterEnter() { initScrollReveal(); initHoverListeners(); initHeroAnimation(); }
   }]
 });
 } // end file:// guard

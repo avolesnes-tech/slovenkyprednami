@@ -2416,6 +2416,11 @@ body::before {
 .reveal-delay-4 { transition-delay: 0.32s; }
 .reveal-delay-5 { transition-delay: 0.40s; }
 
+/* ─── SPLIT-WORD (GSAP hero animation) ──────────────────── */
+.split-word {
+  display: inline-block;
+}
+
 /* ─── KEYFRAMES ──────────────────────────────────────────── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }

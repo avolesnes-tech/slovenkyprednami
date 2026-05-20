@@ -1053,20 +1053,20 @@ initScrollReveal();
 
 /* ─── HOMEPAGE-SPECIFIC INIT ─────────────────────────────── */
 function initHomepage() {
-  // Siluety rotation
+  // Siluety rotation — optional, skip if not present
   const siluety = document.querySelectorAll('.silueta');
-  if (!siluety.length) return;
-  let idx = 2;
-  // make sure one is active on init
-  siluety.forEach(s => s.classList.remove('active'));
-  siluety[idx].classList.add('active');
-  setInterval(() => {
-    siluety[idx].classList.remove('active');
-    idx = (idx + 1) % siluety.length;
+  if (siluety.length) {
+    let idx = 2;
+    siluety.forEach(s => s.classList.remove('active'));
     siluety[idx].classList.add('active');
-  }, 1800);
+    setInterval(() => {
+      siluety[idx].classList.remove('active');
+      idx = (idx + 1) % siluety.length;
+      siluety[idx].classList.add('active');
+    }, 1800);
+  }
 
-  // Test answers
+  // Test answers — always wire up regardless of siluety
   document.querySelectorAll('.test-answer').forEach(btn => {
     btn.addEventListener('click', () => selectAnswer(btn));
   });

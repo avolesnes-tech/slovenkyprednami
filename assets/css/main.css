@@ -1307,7 +1307,7 @@ body::before {
 /* Each entry */
 .story-entry {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: minmax(0, 36%) 1fr;
   gap: 0;
   padding: 3.2rem 0;
   border-top: 1px solid rgba(196,160,181,0.13);
@@ -1421,10 +1421,11 @@ body::before {
 /* ── Responsive ── */
 @media (max-width: 860px) {
   .story-entry {
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: minmax(0, 38%) 1fr;
   }
   .story-entry__left { padding-right: 1.8rem; }
   .story-entry__right { padding-left: 1.8rem; }
+  .story-entry__virtue { font-size: clamp(1.9rem, 5vw, 3rem); }
 }
 @media (max-width: 600px) {
   .story-entry {

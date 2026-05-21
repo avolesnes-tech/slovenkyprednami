@@ -853,6 +853,12 @@ body::before {
   background: linear-gradient(160deg, var(--violet-pale) 0%, #fdf8fb 45%, var(--cream) 100%);
   padding: 6rem 2rem 7rem;
   position: relative;
+  /* Shared token: width of the opaque aside (portrait + info) on the right.
+     The virtue word starts hidden at translateX(aside-w) and slides left. */
+  --aside-w: clamp(260px, 35vw, 370px);
+  /* Opaque colour that matches the section background mid-tone.
+     Used on the aside so it masks the virtue word as it slides out. */
+  --women-bg: #ede8f0;
 }
 .section-women__header {
   text-align: center;
@@ -912,22 +918,21 @@ body::before {
 }
 
 /* ─── WOMEN — horizontal reveal rows ──────────────────────────
-   Layout per row:
-     [VIRTUE WORD sliding left ← ] [portrait] | [name / dates]
+   Correct layout per row (matches original brief):
 
-   The portrait sits at z-index 2 with an opaque background that
-   masks the virtue word until it slides out to the left. The word
-   starts fully hidden behind the portrait (translateX = portrait
-   width) and animates to its natural position on row-in.
+     LEFT  ── virtue-area ──────────────────────────────────────
+     [  VIRTUE WORD ← slides out from behind the right block   ]
+     RIGHT ── aside (portrait + name / dates) ─────────────────
+     [ portrait  |  name, birth–death, place, CTA link ]
+
+   The aside has z-index 2 + opaque background (--women-bg).
+   It acts as a mask: the virtue word starts hidden behind it
+   (translateX = 1000px, guaranteed off-screen to the right),
+   then animates to translate(0, -50%) on row-in, so letters
+   run out from behind the aside's left edge.
    Works for any word length — UPRÍMNOSŤ included.
 ──────────────────────────────────────────────────────────────── */
 
-/* ── CSS custom property for portrait size (shared across children) */
-.woman-row__stage {
-  --pw: clamp(110px, 13vw, 155px);  /* portrait width = height */
-}
-
-/* Row container */
 .women-rows {
   max-width: 1100px;
   margin: 0 auto;
@@ -938,121 +943,133 @@ body::before {
   align-items: stretch;
   text-decoration: none;
   color: inherit;
+  min-height: clamp(130px, 16vw, 180px);
   border-bottom: 1px solid rgba(196,160,181,0.2);
-  transition: background 0.5s ease;
+  overflow: hidden;                /* clips virtue word while it's off-screen */
   position: relative;
+  transition: background 0.5s ease;
 }
 .women-rows .woman-row:first-child {
   border-top: 1px solid rgba(196,160,181,0.2);
 }
-.woman-row:hover { background: rgba(196,160,181,0.07); }
+.woman-row:hover { background: rgba(196,160,181,0.06); }
 
-/* ── Stage: virtue word + portrait sitting on the right ── */
-.woman-row__stage {
+/* ── LEFT: virtue word area — fills all space left of the aside ── */
+.woman-row__virtue-area {
   flex: 1;
-  display: flex;
-  align-items: center;
-  overflow: hidden;               /* clips virtue word when shifted right */
-  min-height: var(--pw);
-  position: relative;
+  position: relative;           /* needed for absolute virtue word */
+  min-width: 0;                 /* allow flex shrink */
 }
 
-/* Virtue word — sits at z-index 1, behind portrait */
-/* Initial: pushed right by exactly portrait width → hidden behind it */
+/* Virtue word — absolutely centred in virtue-area, starts hidden to the right */
 .woman-row__virtue {
-  flex: 1;
+  position: absolute;
+  left: 2.5rem;
+  top: 50%;
+  /* Start far to the right — fully hidden behind the aside */
+  transform: translate(1000px, -50%);
+  transition: transform 2.6s cubic-bezier(0.16, 1, 0.3, 1) 0.08s;
+
   font-family: var(--font-display);
-  font-size: clamp(2.6rem, 5vw, 4.8rem);
+  font-size: clamp(2.8rem, 5.2vw, 5rem);
   font-weight: 400;
   color: var(--violet);
   white-space: nowrap;
   line-height: 1;
   letter-spacing: -0.01em;
-  padding-left: 2rem;
-  position: relative;
   z-index: 1;
-  /* Start fully concealed behind portrait */
-  transform: translateX(var(--pw));
-  transition: transform 2.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
 }
+/* On scroll-reveal: virtue word slides left, letters emerge from behind aside */
 .woman-row.row-in .woman-row__virtue {
-  transform: translateX(0);        /* slide left → letters run out */
+  transform: translate(0, -50%);
 }
 
-/* Portrait — z-index 2, opaque background acts as mask for the virtue word */
-.woman-row__portrait {
-  width: var(--pw);
-  height: var(--pw);
+/* ── RIGHT: aside = portrait + info — opaque, acts as reveal mask ── */
+.woman-row__aside {
+  width: var(--aside-w, 340px);
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.4rem 2rem 1.4rem 1.4rem;
+  /* Opaque background — masks virtue word while it's still behind */
+  background: var(--women-bg, #ede8f0);
+  border-left: 1px solid rgba(196,160,181,0.2);
+  z-index: 2;              /* sits above virtue word */
   position: relative;
-  z-index: 2;
-  /* Solid rose background — masks virtue word underneath */
-  background: #ede0e8;
+  /* Subtle entrance from the right */
+  opacity: 0;
+  transform: translateX(14px);
+  transition: opacity 0.75s ease 0.55s, transform 0.75s cubic-bezier(0.16,1,0.3,1) 0.55s;
+}
+.woman-row.row-in .woman-row__aside {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Portrait inside the aside */
+.woman-row__portrait {
+  width: clamp(70px, 8vw, 105px);
+  height: clamp(88px, 10vw, 130px);
+  flex-shrink: 0;
+  border-radius: 6px;
+  background: rgba(237,224,232,0.55);
   display: flex;
   align-items: flex-end;
   justify-content: center;
   overflow: hidden;
+  box-shadow: 0 4px 18px rgba(123,79,110,0.12);
 }
 .woman-row__portrait img {
   width: auto;
-  max-width: 88%;
+  max-width: 90%;
   height: 100%;
   object-fit: contain;
   object-position: center bottom;
   display: block;
-  transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  transition: transform 0.85s cubic-bezier(0.16,1,0.3,1);
 }
 .woman-row:hover .woman-row__portrait img {
   transform: scale(1.07) translateY(-5px);
 }
 
-/* ── Info: name + dates, right column ── */
+/* Info block: name, meta, CTA — sits to the right of the portrait */
 .woman-row__info {
-  width: clamp(190px, 26%, 300px);
-  flex-shrink: 0;
+  flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1.4rem 1.2rem 1.4rem 2rem;
-  border-left: 1px solid rgba(196,160,181,0.2);
-  /* Fade in with slight delay after virtue word starts moving */
-  opacity: 0;
-  transform: translateX(10px);
-  transition: opacity 0.7s ease 0.55s, transform 0.7s ease 0.55s;
-}
-.woman-row.row-in .woman-row__info {
-  opacity: 1;
-  transform: translateX(0);
+  gap: 0.3rem;
 }
 
 .woman-row__name {
   font-family: var(--font-display);
-  font-size: clamp(0.92rem, 1.3vw, 1.2rem);
+  font-size: clamp(0.88rem, 1.25vw, 1.15rem);
   font-weight: 400;
   color: var(--earth-deep);
   line-height: 1.2;
   letter-spacing: -0.01em;
-  margin-bottom: 0.55rem;
 }
 
 .woman-row__meta {
   font-family: var(--font-body);
   font-style: italic;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   color: rgba(46,26,14,0.45);
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 .woman-row__cta {
-  display: block;
-  margin-top: 0.9rem;
-  font-size: 0.58rem;
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-size: 0.56rem;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--violet);
   opacity: 0;
-  transition: opacity 0.4s ease, letter-spacing 0.4s ease;
+  transition: opacity 0.35s ease, letter-spacing 0.35s ease;
 }
 .woman-row:hover .woman-row__cta {
   opacity: 1;
@@ -1062,24 +1079,36 @@ body::before {
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
   .woman-row__virtue { transition: transform 0.4s ease !important; }
-  .woman-row__info   { transition: opacity 0.4s ease !important; }
+  .woman-row__aside  { transition: opacity 0.4s ease !important; }
 }
 
-/* ── Mobile: stack stage above info ── */
+/* ── Mobile: stack top–bottom ── */
 @media (max-width: 600px) {
-  .woman-row { flex-wrap: wrap; }
-  .woman-row__stage {
-    width: 100%;
-    --pw: 80px;
-    min-height: 80px;
+  .woman-row {
+    flex-direction: column;
+    min-height: auto;
   }
-  .woman-row__virtue { font-size: clamp(2rem, 9vw, 3.2rem); padding-left: 1rem; }
-  .woman-row__info {
+  /* On mobile the virtue is always visible — no animation */
+  .woman-row__virtue {
+    position: relative;
+    left: auto; top: auto;
+    transform: none !important;
+    transition: none !important;
+    display: block;
+    padding: 1rem 1rem 0.8rem;
+    font-size: clamp(2.2rem, 10vw, 3.2rem);
+  }
+  .woman-row__virtue-area {
+    min-height: auto;
+  }
+  .woman-row__aside {
     width: 100%;
+    background: transparent;
     border-left: none;
     border-top: 1px solid rgba(196,160,181,0.2);
     padding: 1rem 1rem 1.2rem;
-    opacity: 1; transform: none;  /* always visible on mobile */
+    opacity: 1;
+    transform: none;
     transition: none;
   }
 }

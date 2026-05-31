@@ -949,39 +949,44 @@ body::before {
 .woman-panel:hover { background: rgba(196,160,181,0.04); }
 
 /* ── Ghost virtue word ────────────────────────────────────────
-   z-index: 2 puts it ABOVE the illustration (z-index: 1) so it
-   is never obscured. At base opacity (0.048) it reads as a faint
-   watermark; on hover it compresses and brightens so the word
-   is clearly legible across the full panel.
-   Info text sits at z-index 3 — always on top.
+   Lives inside .woman-panel__info as absolute, pinned to the
+   bottom. Info has overflow:hidden so the wide letter-spacing
+   pushes letters outside the visible area (invisible at rest).
+   On hover letters compress into view from the sides — the word
+   materialises in the empty space beneath the name/dates.
 ──────────────────────────────────────────────────────────────── */
 .woman-panel__virtue-bg {
-  position: absolute; inset: 0;
-  z-index: 2;                         /* above illustration */
-  display: flex; align-items: center; justify-content: center;
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: auto;
+  z-index: 0;                          /* behind name/meta text */
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 2rem;
   pointer-events: none; user-select: none;
   font-family: var(--font-display);
-  font-size: clamp(6rem, 13vw, 16rem);
+  font-size: clamp(2.8rem, 4.8vw, 6rem);
   font-weight: 400;
-  letter-spacing: 0.38em;             /* letters spread → barely visible */
-  color: rgba(250, 230, 218, 0.048);  /* warm cream, palette-safe */
+  letter-spacing: 0.55em;             /* wide → letters outside overflow → invisible */
+  color: rgba(250, 230, 218, 0.0);    /* fully transparent at rest */
   white-space: nowrap;
   transition: letter-spacing 1.8s cubic-bezier(0.16, 1, 0.3, 1),
-              color 1s ease;
+              color 1.2s ease;
 }
-/* Hover: letters compress to centre, word becomes readable */
+/* Hover: letters fly inward and word fades into view */
 .woman-panel:hover .woman-panel__virtue-bg {
-  letter-spacing: 0.05em;
-  color: rgba(250, 230, 218, 0.22);   /* bright enough to read clearly */
+  letter-spacing: 0.04em;
+  color: rgba(250, 230, 218, 0.20);
 }
 
-/* UPRÍMNOSŤ — 9 chars needs smaller font to stay within panel */
+/* UPRÍMNOSŤ — smaller font so it settles within the info column */
 .woman-panel[data-virtue="Uprímnosť"] .woman-panel__virtue-bg {
-  font-size: clamp(4rem, 9.5vw, 11.5rem);
-  letter-spacing: 0.28em;
+  font-size: clamp(1.8rem, 3.2vw, 4rem);
+  letter-spacing: 0.45em;
 }
 .woman-panel[data-virtue="Uprímnosť"]:hover .woman-panel__virtue-bg {
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
 }
 
 /* ── Illustration side ── */
@@ -1022,7 +1027,8 @@ body::before {
 
 /* ── Info side ── */
 .woman-panel__info {
-  position: relative; z-index: 3;   /* above ghost word (z-2) and illustration (z-1) */
+  position: relative; z-index: 1;
+  overflow: hidden;    /* clips virtue-bg when letter-spacing is wide */
   display: flex; flex-direction: column;
   justify-content: center;
   gap: 0;
@@ -1072,6 +1078,7 @@ body::before {
 /* ── Number badge ── */
 .woman-panel__num {
   display: block;
+  position: relative; z-index: 1;   /* above virtue-bg (z-0) */
   font-family: var(--font-body);
   font-size: 0.58rem; font-weight: 400;
   letter-spacing: 0.3em; text-transform: uppercase;
@@ -1083,6 +1090,7 @@ body::before {
 
 /* ── Name ── */
 .woman-panel__name {
+  position: relative; z-index: 1;
   font-family: var(--font-display);
   font-size: clamp(1.7rem, 2.8vw, 2.9rem);
   font-weight: 400;
@@ -1096,16 +1104,18 @@ body::before {
 
 /* ── Dates + place ── */
 .woman-panel__meta {
+  position: relative; z-index: 1;
   font-family: var(--font-body);
   font-size: 0.72rem; font-weight: 300;
   letter-spacing: 0.08em;
   line-height: 1.9;
   color: rgba(196, 160, 181, 0.52);
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.2rem;
 }
 
 /* ── CTA link ── */
 .woman-panel__cta {
+  position: relative; z-index: 1;
   display: inline-flex; align-items: center; gap: 0.6rem;
   font-family: var(--font-body);
   font-size: 0.62rem; font-weight: 500;

@@ -20,7 +20,7 @@
   --divider:        rgba(200,160,130,0.18);
 
   --font-display:   'Abril Fatface', Georgia, serif;
-  --font-body:      'EB Garamond', Georgia, serif;
+  --font-body:      'DM Sans', system-ui, sans-serif;
   --font-lit:       'Pinyon Script', cursive;
 
   --ease-out:       cubic-bezier(0.16, 1, 0.3, 1);

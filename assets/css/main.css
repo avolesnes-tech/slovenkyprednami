@@ -954,7 +954,7 @@ body::before {
 .woman-panel__virtue-bg {
   order: 3;                             /* sits between meta and CTA in flex column */
   position: relative; z-index: 1;
-  font-family: var(--font-lit);         /* Pinyon Script — elegant cursive */
+  font-family: var(--font-display);     /* Abril Fatface */
   font-size: clamp(1.7rem, 2.4vw, 2.6rem);
   font-weight: 400;
   color: var(--violet-muted);
@@ -1107,7 +1107,7 @@ body::before {
     content: attr(data-virtue);
     display: block;
     /* order 0 = first in grid, before visual (order 1) and info (order 2) */
-    font-family: var(--font-lit);
+    font-family: var(--font-display);
     font-size: clamp(2rem, 9vw, 3rem);
     color: var(--violet-muted);
     opacity: 0.82;

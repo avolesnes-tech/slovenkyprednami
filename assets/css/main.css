@@ -934,19 +934,21 @@ body::before {
   color: inherit;
   position: relative;
   border-top: 1px solid rgba(196,160,181,0.08);
-  background: transparent;
-  transition: background 0.7s ease;
+  background: #2E1520;   /* tmavá ružovohnedá — nepárne riadky */
+  transition: background 0.5s ease;
 }
 .woman-panel:last-child {
   border-bottom: 1px solid rgba(196,160,181,0.08);
 }
-/* Even panels: info left, illustration right */
+/* Even panels: lighter rose-brown + info left, illustration right */
 .woman-panel:nth-child(even) {
   grid-template-columns: 45% 55%;
+  background: #4A2535;   /* svetlejšia ružovohnedá — párne riadky */
 }
 .woman-panel:nth-child(even) .woman-panel__visual { order: 2; }
 .woman-panel:nth-child(even) .woman-panel__info   { order: 1; }
-.woman-panel:hover { background: rgba(196,160,181,0.04); }
+.woman-panel:hover         { background: #382030; }
+.woman-panel:nth-child(even):hover { background: #563040; }
 
 /* ── Virtue label — always readable, in document flow ── */
 .woman-panel__virtue-bg {

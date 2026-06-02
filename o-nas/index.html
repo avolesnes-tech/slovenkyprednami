@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O nás — Slovenky pred nami</title>
+  <meta name="description" content="Ako jeden objav v knižnici, jedno ťažké obdobie a tri deti doma viedli k projektu, ktorý chce vrátiť dlh ženám, čo stavali bez uznania.">
+  <meta name="author" content="Anna Lockwoodová">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sk_SK">
+  <meta property="og:site_name" content="Slovenky pred nami">
+  <meta property="og:title" content="O nás — Slovenky pred nami">
+  <meta property="og:description" content="Ako jeden objav, jedno ťažké obdobie a tri deti doma viedli k projektu, ktorý chce vrátiť dlh ženám, čo stavali bez uznania.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Pinyon+Script&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/onas.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.10.3/dist/barba.umd.min.js"></script>
+</head>
+
+<body>
+
+<div id="pageCurtain" aria-hidden="true">
+  <svg class="curtain-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#5A3520" stroke-width="0.8" fill="none">
+      <path d="M80 120 Q100 90 130 80"/><ellipse cx="96" cy="68" rx="7" ry="4" transform="rotate(-30 96 68)"/>
+      <path d="M1340 100 Q1360 80 1380 90"/><ellipse cx="1371" cy="53" rx="7" ry="4" transform="rotate(40 1371 53)"/>
+      <path d="M60 750 Q80 720 110 710"/><ellipse cx="75" cy="698" rx="7" ry="4" transform="rotate(-25 75 698)"/>
+      <path d="M680 30 Q700 10 720 20"/><ellipse cx="702" cy="-2" rx="6" ry="3" transform="rotate(-40 702 -2)"/>
+      <circle cx="400" cy="150" r="2" fill="#5A3520"/>
+      <circle cx="1050" cy="170" r="2" fill="#5A3520"/>
+    </g>
+  </svg>
+</div>
+
+<div class="cursor" id="cursor"><div class="cursor__dot"></div></div>
+<div class="cursor__ring" id="cursorRing"></div>
+
+<nav class="nav" id="mainNav">
+  <a href="../index.html#hero" class="nav__logo">Slovenky <span>pred nami</span></a>
+  <ul class="nav__links">
+    <li class="nav__dropdown">
+      <button class="nav__dropdown-toggle" aria-expanded="false">
+        Ženy rebelky
+        <svg width="10" height="6" fill="none" viewBox="0 0 10 6">
+          <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <ul class="nav__dropdown-menu">
+        <li><a href="../zeny-rebelky/soltesova/index.html">Elena Maróthy-Šoltésová <span class="vlastnost-tag">Pokora</span></a></li>
+        <li><a href="../zeny-rebelky/timrava/index.html">Božena Slančíková-Timrava <span class="vlastnost-tag">Uprímnosť</span></a></li>
+        <li><a href="../zeny-rebelky/vansova/index.html">Terézia Vansová <span class="vlastnost-tag">Múdrosť</span></a></li>
+        <li><a href="../zeny-rebelky/gregorova/index.html">Hana Gregorová <span class="vlastnost-tag">Odvaha</span></a></li>
+      </ul>
+    </li>
+    <li><a href="/eshop/">E-shop</a></li>
+    <li><a href="/o-nas/" class="active-page">O nás</a></li>
+    <li><a href="/kontakt/">Kontakt</a></li>
+  </ul>
+</nav>
+
+<div data-barba="wrapper">
+  <main data-barba="container" data-barba-namespace="onas">
+
+<!-- ─── HERO ──────────────────────────────────────────────── -->
+<section class="onas-hero">
+  <div class="onas-hero__inner">
+    <p class="section-label reveal">O projekte</p>
+    <h1 class="onas-hero__title reveal">
+      Začalo to<br><em>jedným listom.</em>
+    </h1>
+    <p class="onas-hero__lead reveal">
+      Listom, ktorý napísala Božena Slančíková-Timrava svojej priateľke v roku 1898.
+      Prečítala som ho a niečo sa vo mne zastavilo.
+    </p>
+  </div>
+  <div class="onas-hero__deco" aria-hidden="true">
+    <span class="onas-hero__letter">Ž</span>
+  </div>
+</section>
+
+<!-- ─── PRÍBEH ─────────────────────────────────────────────── -->
+<section class="onas-story">
+  <div class="onas-story__inner">
+
+    <div class="onas-chapter reveal">
+      <span class="onas-chapter__num">01</span>
+      <div class="onas-chapter__body">
+        <h2 class="onas-chapter__title">Ako som objavila Živenu</h2>
+        <p>
+          Narazila som na ňu náhodou — na stránke Mapy spomienok, kde sa píše o miestach a ľuďoch, ktorí formovali Slovensko.
+          Živena. Najstarší ženský spolok na Slovensku, založený v roku 1869.
+          Ženy, ktoré sa organizovali v čase, keď k tomu nemali takmer žiadne právo — ani právne, ani spoločenské.
+        </p>
+        <p>
+          Čím viac som čítala, tým viac som cítila, že tieto ženy nepatria len do učebníc.
+          Patria do rozhovorov pri káve, do podcastov, do Instagramu.
+          Ich príbehy sú neuveriteľne živé — a neuveriteľne aktuálne.
+        </p>
+      </div>
+    </div>
+
+    <div class="onas-chapter reveal">
+      <span class="onas-chapter__num">02</span>
+      <div class="onas-chapter__body">
+        <h2 class="onas-chapter__title">Prečo práve vtedy</h2>
+        <p>
+          Keď som ich objavovala, prechádzala som jedným z najťažších období svojho života.
+          Po materskej dovolenke mi zrušili pozíciu v korporáte.
+          Tri deti doma, životopis na stole, a pocit, že trh práce vás ako matku jednoducho
+          nechce — alebo aspoň nie za rovnakých podmienok.
+        </p>
+        <p>
+          Hľadala som prácu. Chodila na pohovory. Počúvala vety, ktoré by nikto nepovedal
+          mužovi v rovnakej situácii. A popri tom som čítala o ženách, ktoré bojovali —
+          za právo vzdelávať sa v materinskom jazyku, za právo písať, za právo existovať
+          vo verejnom priestore.
+        </p>
+        <p>
+          Zrazu som ich chápala inak. Nie ako historické postavy. Ako spojenky.
+        </p>
+      </div>
+    </div>
+
+    <div class="onas-chapter reveal">
+      <span class="onas-chapter__num">03</span>
+      <div class="onas-chapter__body">
+        <h2 class="onas-chapter__title">Doba sa zmenila — a nezmenila</h2>
+        <p>
+          Elena Maróthy-Šoltésová viedla Živenu aj v čase, keď spoločnosť od ženy
+          očakávala predovšetkým ticho a pokoru. Timrava písala o ženách,
+          ktoré nechceli hrať rolu, akú im niekto pripravil. Vansová zakladala to,
+          čo neexistovalo — sama, lebo nikto iný to neurobiť nechcel.
+          Gregorová bojovala za práva, ktoré dnes považujeme za samozrejmosť.
+        </p>
+        <p>
+          V mnohom sa doba zmenila. V niečom k lepšiemu, v niečom stále nie.
+          Ženská otázka nie je archaický pojem — je to každodenná realita milónov žien.
+          A tieto štyri mi ukázali, že s ňou nie sme prvé, ani posledné.
+          A predovšetkým — že sa dá bojovať s eleganciou, odhodlanosťou
+          a neskutočnou dávkou húževnatosti.
+        </p>
+      </div>
+    </div>
+
+    <div class="onas-chapter reveal">
+      <span class="onas-chapter__num">04</span>
+      <div class="onas-chapter__body">
+        <h2 class="onas-chapter__title">Prečo ich životy, nie len dielo</h2>
+        <p>
+          Priznám sa — na gymnáziu som nemala vždy jednotku zo slovenčiny a literatúry.
+          Ich diela samotné mi nikdy neprišli dosť blízko. Nebola som dostatočne
+          pokorná čitateľka klasikov, alebo možno len klasici neboli podaní tak,
+          aby som ich chcela čítať.
+        </p>
+        <p>
+          Ale keď som spoznala ich životy — ich rozhodnutia, bolesti, vzťahy,
+          zlyhania aj víťazstvá — zrazu som pochopila, prečo písali to, čo písali.
+          A zrazu som chcela čítať všetko.
+        </p>
+        <p>
+          Preto tento projekt nie je literárna analýza.
+          Je to pokus priblížiť ženy, ktoré sú naše hrdinky —
+          nie napriek tomu, čím prešli, ale práve kvôli tomu.
+        </p>
+      </div>
+    </div>
+
+    <div class="onas-chapter reveal">
+      <span class="onas-chapter__num">05</span>
+      <div class="onas-chapter__body">
+        <h2 class="onas-chapter__title">Čo je Slovenky pred nami</h2>
+        <p>
+          Slovenky pred nami je môj spôsob, ako vrátiť dlh —
+          ženám, ktoré stavali bez uznania, a všetkým matkám,
+          sestrám a dcérам, ktoré tiež len chcú žiť naplno.
+        </p>
+        <p>
+          Nie je to akademický projekt. Je to osobný hold.
+          Hold od ženy, ktorá sa v ich príbehoch spoznala —
+          a ktorá verí, že ich odvaha môže inšpirovať mnoho žien aj dnes.
+        </p>
+        <p class="onas-chapter__signature">
+          Anna Lockwoodová
+        </p>
+      </div>
+    </div>
+
+  </div><!-- /.onas-story__inner -->
+</section>
+
+<!-- ─── CTA — spoznaj ich ──────────────────────────────────── -->
+<section class="onas-cta">
+  <div class="onas-cta__inner reveal">
+    <p class="section-label section-label--light">Spoznaj ich</p>
+    <h2 class="onas-cta__title">Štyri rebelky.<br><em>Štyri životy.</em></h2>
+    <div class="onas-cta__links">
+      <a href="../zeny-rebelky/soltesova/index.html" class="onas-cta__card">
+        <span class="onas-cta__card-virtue">Pokora</span>
+        <span class="onas-cta__card-name">Elena Maróthy-Šoltésová</span>
+      </a>
+      <a href="../zeny-rebelky/timrava/index.html" class="onas-cta__card">
+        <span class="onas-cta__card-virtue">Uprímnosť</span>
+        <span class="onas-cta__card-name">Božena Slančíková-Timrava</span>
+      </a>
+      <a href="../zeny-rebelky/vansova/index.html" class="onas-cta__card">
+        <span class="onas-cta__card-virtue">Múdrosť</span>
+        <span class="onas-cta__card-name">Terézia Vansová</span>
+      </a>
+      <a href="../zeny-rebelky/gregorova/index.html" class="onas-cta__card">
+        <span class="onas-cta__card-virtue">Odvaha</span>
+        <span class="onas-cta__card-name">Hana Gregorová</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <a href="../index.html#hero" class="nav__logo">Slovenky <span>pred nami</span></a>
+      <p class="footer__tagline">„Ona tu bola prvá."</p>
+      <div class="footer__social">
+        <a href="https://instagram.com/slovenkyprednami" aria-label="Instagram">IG</a>
+        <a href="https://facebook.com/slovenkyprednami" aria-label="Facebook">FB</a>
+      </div>
+    </div>
+    <div>
+      <p class="footer__col-title">Ženy rebelky</p>
+      <ul class="footer__links">
+        <li><a href="../zeny-rebelky/soltesova/index.html">Elena Maróthy-Šoltésová</a></li>
+        <li><a href="../zeny-rebelky/timrava/index.html">Božena Slančíková-Timrava</a></li>
+        <li><a href="../zeny-rebelky/vansova/index.html">Terézia Vansová</a></li>
+        <li><a href="../zeny-rebelky/gregorova/index.html">Hana Gregorová</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer__col-title">Ďalšie</p>
+      <ul class="footer__links">
+        <li><a href="/eshop/">E-shop</a></li>
+        <li><a href="/o-nas/">O nás</a></li>
+        <li><a href="/kontakt/">Kontakt</a></li>
+        <li><a href="/sukromie/">Ochrana súkromia</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2025 Anna Lockwoodová · slovenkyprednami.sk</span>
+    <span>Vytvorené s láskou k ženám, ktoré boli pred nami.</span>
+  </div>
+</footer>
+
+<script>
+const cursor = document.getElementById('cursor');
+const ring   = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+cursor.style.left = ring.style.left = '0px';
+cursor.style.top  = ring.style.top  = '0px';
+(function animCursor() {
+  cursor.style.transform = `translate(${mx}px, ${my}px)`;
+  rx += (mx - rx) * 0.14; ry += (my - ry) * 0.14;
+  ring.style.transform = `translate(${rx}px, ${ry}px)`;
+  requestAnimationFrame(animCursor);
+})();
+
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+
+document.querySelectorAll('.nav__dropdown-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+  });
+});
+
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+});
+
+/* ─── SCROLL REVEAL ──────────────────────────────────────── */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('revealed');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+/* ─── GSAP HERO ENTRY ────────────────────────────────────── */
+if (typeof gsap !== 'undefined') {
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  tl.from('.onas-hero__title', { opacity: 0, y: 40, duration: 0.9 }, 0.2)
+    .from('.onas-hero__lead',  { opacity: 0, y: 20, duration: 0.7 }, 0.5)
+    .from('.onas-hero__deco',  { opacity: 0, scale: 0.85, duration: 1.2 }, 0.1);
+}
+
+/* ─── BARBA PAGE TRANSITIONS ─────────────────────────────── */
+if (typeof barba !== 'undefined') {
+  barba.init({
+    transitions: [{
+      name: 'curtain',
+      leave() {
+        return gsap.to('#pageCurtain', { scaleY: 1, transformOrigin: 'bottom center', duration: 0.55, ease: 'power2.inOut' });
+      },
+      enter() {
+        return gsap.from('#pageCurtain', { scaleY: 0, transformOrigin: 'top center', duration: 0.5, ease: 'power2.inOut', delay: 0.1 });
+      }
+    }]
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+/* ═══════════════════════════════════════════════════════════
+   O NÁS — page-specific styles
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── HERO ────────────────────────────────────────────────── */
+.onas-hero {
+  min-height: 72vh;
+  background: var(--earth-deep);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 10rem 8vw 6rem;
+  gap: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.onas-hero__inner {
+  position: relative; z-index: 2;
+}
+
+.onas-hero__inner .section-label {
+  color: var(--dust);
+  margin-bottom: 1.8rem;
+}
+.onas-hero__inner .section-label::before,
+.onas-hero__inner .section-label::after { background: var(--dust); opacity: 0.45; }
+
+.onas-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 400;
+  color: var(--cream-warm);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+}
+.onas-hero__title em {
+  font-style: normal;
+  color: var(--violet-light);
+  font-family: var(--font-lit);
+  font-size: 1.15em;
+  letter-spacing: 0.01em;
+}
+
+.onas-hero__lead {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  font-weight: 300;
+  color: rgba(250, 244, 238, 0.65);
+  line-height: 1.85;
+  max-width: 42ch;
+}
+
+/* Decorative large letter */
+.onas-hero__deco {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; z-index: 1;
+}
+.onas-hero__letter {
+  font-family: var(--font-display);
+  font-size: clamp(14rem, 24vw, 22rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(196, 160, 181, 0.18);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ─── STORY BODY ──────────────────────────────────────────── */
+.onas-story {
+  background: var(--earth);
+  padding: 7rem 0 6rem;
+}
+
+.onas-story__inner {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+/* Individual chapter */
+.onas-chapter {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 0 2.5rem;
+  margin-bottom: 5.5rem;
+  align-items: start;
+}
+.onas-chapter:last-child { margin-bottom: 0; }
+
+.onas-chapter__num {
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  color: var(--violet-muted);
+  opacity: 0.5;
+  padding-top: 0.45rem;
+  text-align: right;
+}
+
+.onas-chapter__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  font-weight: 400;
+  color: var(--cream-warm);
+  line-height: 1.15;
+  margin-bottom: 1.4rem;
+}
+
+.onas-chapter__body p {
+  font-family: var(--font-body);
+  font-size: clamp(0.92rem, 1.3vw, 1.02rem);
+  font-weight: 300;
+  color: rgba(250, 244, 238, 0.7);
+  line-height: 1.9;
+  margin-bottom: 1.1rem;
+}
+.onas-chapter__body p:last-child { margin-bottom: 0; }
+
+/* Signature styling */
+.onas-chapter__signature {
+  font-family: var(--font-lit) !important;
+  font-size: 1.8rem !important;
+  font-weight: 400 !important;
+  color: var(--violet-light) !important;
+  opacity: 1 !important;
+  margin-top: 2rem !important;
+  line-height: 1.2 !important;
+}
+
+/* Top accent line per chapter */
+.onas-chapter::before {
+  content: '';
+  display: none; /* visual separator instead: top border on the body div */
+}
+.onas-chapter__body {
+  border-top: 1px solid rgba(196, 160, 181, 0.14);
+  padding-top: 1.2rem;
+}
+
+/* ─── SCROLL REVEAL ───────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── CTA — štyri rebelky ─────────────────────────────────── */
+.onas-cta {
+  background: #2E1520;
+  padding: 6rem 2.5rem 7rem;
+}
+
+.onas-cta__inner {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.onas-cta__inner .section-label {
+  margin-bottom: 1.4rem;
+}
+
+.onas-cta__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 400;
+  color: var(--cream-warm);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 3.5rem;
+}
+.onas-cta__title em {
+  font-style: normal;
+  color: var(--violet-light);
+  font-family: var(--font-lit);
+  font-size: 1.12em;
+}
+
+.onas-cta__links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(196, 160, 181, 0.1);
+  border: 1px solid rgba(196, 160, 181, 0.1);
+}
+
+.onas-cta__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 2.2rem 1.5rem;
+  background: #2E1520;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.4s ease;
+}
+.onas-cta__card:hover {
+  background: #3D2030;
+}
+
+.onas-cta__card-virtue {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  color: var(--violet-muted);
+  font-weight: 400;
+}
+.onas-cta__card-name {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: rgba(250, 244, 238, 0.45);
+  line-height: 1.5;
+  text-align: center;
+}
+.onas-cta__card:hover .onas-cta__card-name {
+  color: rgba(250, 244, 238, 0.7);
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .onas-hero {
+    grid-template-columns: 1fr;
+    padding: 8rem 1.5rem 4rem;
+    min-height: auto;
+  }
+  .onas-hero__deco { display: none; }
+  .onas-hero__lead { max-width: 100%; }
+
+  .onas-chapter {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .onas-chapter__num {
+    text-align: left;
+    margin-bottom: 0.6rem;
+  }
+
+  .onas-cta__links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .onas-cta__links {
+    grid-template-columns: 1fr 1fr;
+  }
+  .onas-cta__card { padding: 1.5rem 1rem; }
+}

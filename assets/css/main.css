@@ -1410,11 +1410,11 @@ body::before {
 }
 
 .section-quote {
-  background: var(--cream);
+  background: var(--violet-pale);
   padding: 4.5rem 2rem;
   position: relative; overflow: hidden;
-  border-top: 1px solid rgba(184,132,90,0.15);
-  border-bottom: 1px solid rgba(184,132,90,0.15);
+  border-top: 1px solid rgba(123,79,110,0.18);
+  border-bottom: 1px solid rgba(123,79,110,0.18);
 }
 .section-quote__inner {
   max-width: 860px; margin: 0 auto;
@@ -1431,13 +1431,13 @@ body::before {
 .section-quote__attribution {
   font-size: 0.78rem; font-weight: 300;
   letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--clay);
+  color: var(--warm-brown);
   display: flex; align-items: center; gap: 1rem;
 }
 .section-quote__attribution::before {
   content: '';
   display: block; width: 2.5rem; height: 1px;
-  background: var(--clay);
+  background: var(--dust);
 }
 .section-quote__kicker {
   margin-top: 3.5rem;
@@ -2117,11 +2117,11 @@ body::before {
   max-width: 1100px; margin: 0 auto;
 }
 .rebelka-col {
-  background: var(--white);
+  background: var(--violet-pale);
   border-radius: var(--r-lg);
   padding: 2.5rem 2rem;
   border-top: 3px solid var(--violet);
-  box-shadow: 0 2px 20px rgba(30,12,4,0.06);
+  box-shadow: 0 2px 20px rgba(123,79,110,0.1);
 }
 .rebelka-col__eyebrow {
   font-size: 0.65rem; font-weight: 500;
@@ -2153,8 +2153,8 @@ body::before {
   border-radius: 50%;
   background: var(--violet-muted);
 }
-.rebelka-col--today { border-top-color: var(--dust); }
-.rebelka-col--today .rebelka-col__eyebrow { color: var(--clay); }
+.rebelka-col--today { border-top-color: var(--warm-brown); }
+.rebelka-col--today .rebelka-col__eyebrow { color: var(--warm-brown); }
 .rebelka-col--today ul li::before { background: var(--dust); }
 
 .rebelka-col--doktorat { border-top-color: var(--violet); }
@@ -2414,8 +2414,9 @@ body::before {
 
 /* ─── ELENIN ODKAZ ───────────────────────────────────────── */
 .section-odkaz {
-  background: var(--cream-warm);
+  background: var(--violet-pale);
   padding: 5rem 2rem 5.5rem;
+  border-bottom: 1px solid rgba(123,79,110,0.15);
 }
 .odkaz-list {
   list-style: none;
@@ -2432,10 +2433,10 @@ body::before {
   color: var(--earth);
   line-height: 1.45;
   padding: 1.35rem 0 1.35rem 2rem;
-  border-bottom: 1px solid rgba(46, 26, 14, 0.1);
+  border-bottom: 1px solid rgba(123, 79, 110, 0.18);
   position: relative;
 }
-.odkaz-list__item:first-child { border-top: 1px solid rgba(46, 26, 14, 0.1); }
+.odkaz-list__item:first-child { border-top: 1px solid rgba(123, 79, 110, 0.18); }
 .odkaz-list__item::before {
   content: '';
   position: absolute;

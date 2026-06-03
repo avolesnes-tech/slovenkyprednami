@@ -289,14 +289,14 @@ body::before {
   flex: 1;
   position: relative; overflow: hidden;
   border-right: 1px solid rgba(200,150,100,0.07);
-  transition: flex 0.75s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: flex 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: none;
 }
 .hero__panel:last-child { border-right: none; }
 
 /* Compress siblings when any panel hovered */
-.hero__panels:has(.hero__panel:hover) .hero__panel { flex: 0.45; }
-.hero__panels:has(.hero__panel:hover) .hero__panel:hover { flex: 3.0; }
+.hero__panels:has(.hero__panel:hover) .hero__panel { flex: 0.62; }
+.hero__panels:has(.hero__panel:hover) .hero__panel:hover { flex: 2.0; }
 
 /* Cream bg for multiply blend */
 .hero__panel-bg {

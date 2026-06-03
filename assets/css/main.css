@@ -320,10 +320,10 @@ body::before {
   object-position: center 18%;
 }
 .hero__panel--soltesova .hero__panel-img {
-  object-position: 38% 15%;
+  object-position: 14% 15%;
 }
 .hero__panels:has(.hero__panel:hover) .hero__panel--soltesova:hover .hero__panel-img {
-  object-position: 38% 18%;
+  object-position: 14% 18%;
 }
 
 /* ─── WOMAN CARD HOVER: dark overlay + attribute text ──── */

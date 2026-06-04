@@ -2459,6 +2459,17 @@ body::before {
   background: var(--violet);
 }
 
+/* Pinyon Script zvýraznenie v odkaz liste */
+.odkaz-em {
+  font-family: var(--font-lit);
+  font-style: normal;
+  font-size: 1.22em;
+  line-height: 1;
+  display: inline;
+}
+.odkaz-em--violet { color: var(--violet); }
+.odkaz-em--brown  { color: var(--warm-brown); }
+
 .vzor-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

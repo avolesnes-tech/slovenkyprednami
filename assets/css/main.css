@@ -548,18 +548,64 @@ body::before {
 }
 
 .hero__subtitle {
-  font-family: var(--font-display);
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-family: var(--font-lit);
+  font-size: clamp(1.6rem, 2.8vw, 2.3rem);
   font-weight: 400;
-  letter-spacing: 0.06em;
+  font-style: normal;
+  letter-spacing: 0.02em;
   text-transform: none;
-  color: var(--violet-light);
+  color: var(--violet-muted);
   margin-bottom: 0.75rem;
   text-shadow:
-    0 2px 24px rgba(0,0,0,0.98),
-    0 0 64px rgba(0,0,0,0.85),
-    0 0 120px rgba(123,79,110,0.4);
+    0 1px 16px rgba(0,0,0,0.95),
+    0 0 48px rgba(0,0,0,0.8);
   opacity: 0; /* GSAP handles reveal */
+}
+
+/* ─── NEHORÁZNE BRIDGE ────────────────────────────────────── */
+.nehorazne-bridge {
+  background: var(--cream-warm);
+  text-align: center;
+  padding: 5.5rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.nehorazne-bridge__word {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 12vw, 10rem);
+  font-weight: 400;
+  color: var(--violet);
+  letter-spacing: -0.01em;
+  line-height: 1;
+  display: block;
+  opacity: 0;
+  transition: none;
+}
+.nehorazne-bridge__word.visible {
+  animation: nehorazne-in 1.1s var(--ease-out) forwards;
+}
+@keyframes nehorazne-in {
+  from { opacity: 0; filter: blur(14px); letter-spacing: 0.25em; }
+  to   { opacity: 1; filter: blur(0px);  letter-spacing: -0.01em; }
+}
+.nehorazne-bridge__sub {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-weight: 300;
+  color: var(--warm-brown);
+  line-height: 1.75;
+  max-width: 520px;
+  margin: 1.6rem auto 0;
+  opacity: 0;
+}
+.nehorazne-bridge__sub em {
+  font-family: var(--font-lit);
+  font-style: normal;
+  font-size: 1.18em;
+  color: var(--violet);
+}
+.nehorazne-bridge__sub.visible {
+  animation: fadeUp 0.8s var(--ease-out) forwards;
 }
 
 .hero__cta-group {

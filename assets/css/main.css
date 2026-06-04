@@ -998,28 +998,28 @@ body::before {
 /* ── Virtue watermark — floats across the full panel ── */
 .woman-panel__virtue-bg {
   position: absolute;
-  bottom: -0.1em;
-  left: 0;
+  bottom: 1.2rem;
+  left: 2.5rem;
   z-index: 0;
   font-family: var(--font-display);
-  font-size: clamp(6rem, 16vw, 18rem);
+  font-size: clamp(2.8rem, 4.2vw, 5rem);
   font-weight: 400;
   line-height: 1;
   color: var(--violet-muted);
-  opacity: 0.13;
-  letter-spacing: -0.02em;
+  opacity: 0.38;
+  letter-spacing: 0.02em;
   white-space: nowrap;
   pointer-events: none;
   user-select: none;
   will-change: transform;
-  animation: virtue-drift-right 22s ease-in-out infinite alternate;
+  animation: virtue-drift-right 20s ease-in-out infinite alternate;
 }
 
-/* Even panels: visual is on the LEFT — text drifts from right edge toward left */
+/* Even panels: info on LEFT, visual on RIGHT → text drifts from left toward illustration */
 .woman-panel:nth-child(even) .woman-panel__virtue-bg {
   left: auto;
-  right: 0;
-  animation: virtue-drift-left 22s ease-in-out infinite alternate;
+  right: 2.5rem;
+  animation: virtue-drift-left 20s ease-in-out infinite alternate;
 }
 
 /* stagger so panels aren't in sync */
@@ -1029,12 +1029,12 @@ body::before {
 .woman-panel:nth-child(4) .woman-panel__virtue-bg { animation-delay: -17s; }
 
 @keyframes virtue-drift-right {
-  from { transform: translateX(0%); }
-  to   { transform: translateX(42%); }
+  from { transform: translateX(0); }
+  to   { transform: translateX(clamp(40px, 6vw, 80px)); }
 }
 @keyframes virtue-drift-left {
-  from { transform: translateX(0%); }
-  to   { transform: translateX(-42%); }
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-1 * clamp(40px, 6vw, 80px))); }
 }
 
 /* ── Illustration side ── */

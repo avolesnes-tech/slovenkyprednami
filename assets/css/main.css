@@ -2466,9 +2466,30 @@ body::before {
   font-size: 1.22em;
   line-height: 1;
   display: inline;
+  opacity: 0; /* starts hidden, revealed by parent .visible */
 }
 .odkaz-em--violet { color: var(--violet); }
 .odkaz-em--brown  { color: var(--warm-brown); }
+
+/* Triggered once parent list item scrolls into view */
+.odkaz-list__item.visible .odkaz-em {
+  animation: odkaz-em-reveal 0.9s var(--ease-out) 0.38s forwards;
+}
+/* Second em in same item (e.g. "sila") appears just after the first */
+.odkaz-list__item.visible .odkaz-em:nth-of-type(2) {
+  animation-delay: 0.62s;
+}
+
+@keyframes odkaz-em-reveal {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
 
 .vzor-grid {
   display: grid;

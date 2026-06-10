@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://annalockwoodova.github.io/Slovenky_pred_nami/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://annalockwoodova.github.io/Slovenky_pred_nami/zeny-rebelky/index.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://annalockwoodova.github.io/Slovenky_pred_nami/zeny-rebelky/soltesova/index.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://annalockwoodova.github.io/Slovenky_pred_nami/zeny-rebelky/timrava/index.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://annalockwoodova.github.io/Slovenky_pred_nami/zeny-rebelky/vansova/index.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://annalockwoodova.github.io/Slovenky_pred_nami/zeny-rebelky/gregorova/index.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://annalockwoodova.github.io/Slovenky_pred_nami/o-nas/index.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://annalockwoodova.github.io/Slovenky_pred_nami/kontakt/index.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

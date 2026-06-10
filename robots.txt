@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://annalockwoodova.github.io/Slovenky_pred_nami/sitemap.xml

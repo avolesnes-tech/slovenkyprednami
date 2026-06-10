@@ -191,6 +191,13 @@ body::before {
   background: rgba(123,79,110,0.12);
 }
 .nav__dropdown-menu li a.active-page .vlastnost-tag { color: var(--violet-light); }
+.nav__dropdown-menu li a.nav__overview-link {
+  font-weight: 500;
+  color: var(--cream-warm);
+  border-bottom: 1px solid rgba(200,160,130,0.18);
+  padding-bottom: 0.65rem;
+  margin-bottom: 0.1rem;
+}
 
 /* ─── BOTANICAL BACKGROUND ───────────────────────────────── */
 .botanical-bg {
@@ -2249,6 +2256,13 @@ body::before {
   opacity: 0.65;
 }
 .newsletter-note a { color: var(--cream); text-decoration: underline; }
+.newsletter-error {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--blush);
+  margin-top: 0.75rem;
+  max-width: 480px;
+}
 
 /* ─── SECTION: PREČO BOLA REBELKA ────────────────────────── */
 .section-rebelka {

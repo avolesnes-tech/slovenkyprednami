@@ -11,6 +11,9 @@
   <meta property="og:site_name" content="Slovenky pred nami">
   <meta property="og:title" content="Slovenky pred nami — Štyri rebelky. Štyri vlastnosti.">
   <meta property="og:description" content="Spoznaj slovenské ženy, ktoré zmenili históriu — a zisti, ktorá žije v tebe.">
+  <meta property="og:image" content="https://annalockwoodova.github.io/Slovenky_pred_nami/assets/images/soltesova_art.webp">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="800">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Pinyon+Script&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -62,6 +65,7 @@
         </svg>
       </button>
       <ul class="nav__dropdown-menu">
+        <li><a href="zeny-rebelky/index.html" class="nav__overview-link">Všetky ženy rebelky <span class="vlastnost-tag">Prehľad</span></a></li>
         <li><a href="zeny-rebelky/soltesova/index.html">Elena Maróthy-Šoltésová <span class="vlastnost-tag">Pokora</span></a></li>
         <li><a href="zeny-rebelky/timrava/index.html">Božena Slančíková-Timrava <span class="vlastnost-tag">Uprímnosť</span></a></li>
         <li><a href="zeny-rebelky/vansova/index.html">Terézia Vansová <span class="vlastnost-tag">Múdrosť</span></a></li>
@@ -1227,13 +1231,76 @@ function shareResult(platform) {
 }
 
 /* ─── NEWSLETTER ─────────────────────────────────────────── */
-function subscribeNewsletter(e) {
+/* ─── NEWSLETTER — Brevo API ─────────────────────────────── */
+/*
+  Nastavenie (raz):
+  1. Vytvor bezplatný účet na https://app.brevo.com
+  2. Contacts → Lists → klikni "+" → pomenuj zoznam napr. "Newsletter"
+     → poznač si číslo zoznamu (napr. 3) → doplň do LIST_ID
+  3. Account → SMTP & API → API Keys → Generate → skopíruj kľúč
+     → doplň do BREVO_API_KEY
+     (kľúč bude viditeľný v zdrojovom kóde — použi "contacts only" rozsah)
+*/
+const BREVO_API_KEY = 'BREVO_API_KEY_SEM';  // ← sem vlož tvoj API kľúč
+const BREVO_LIST_ID = 0;                     // ← sem vlož číslo zoznamu (celé číslo)
+
+async function subscribeNewsletter(e) {
   e.preventDefault();
-  const input = e.target.querySelector('input[type="email"]');
-  const btn   = e.target.querySelector('button');
-  btn.textContent = 'Ďakujeme! ✦';
-  btn.disabled = true;
-  input.value = '';
+
+  const form  = e.target;
+  const input = form.querySelector('input[type="email"]');
+  const btn   = form.querySelector('button[type="submit"]');
+  const email = input.value.trim();
+  if (!email) return;
+
+  /* Loading state */
+  const origHTML = btn.innerHTML;
+  btn.innerHTML  = '<span style="opacity:.75">Odosielam…</span>';
+  btn.disabled   = true;
+
+  try {
+    const res = await fetch('https://api.brevo.com/v3/contacts', {
+      method:  'POST',
+      headers: {
+        'Accept':       'application/json',
+        'Content-Type': 'application/json',
+        'api-key':      BREVO_API_KEY
+      },
+      body: JSON.stringify({
+        email:         email,
+        listIds:       [BREVO_LIST_ID],
+        updateEnabled: true   /* ak kontakt už existuje, len pridá do zoznamu */
+      })
+    });
+
+    if (res.ok || res.status === 204) {
+      /* Úspech */
+      btn.innerHTML  = 'Ďakujeme! ✦ Skontrolujte e-mail.';
+      input.value    = '';
+      input.disabled = true;
+    } else if (res.status === 400) {
+      const data = await res.json().catch(() => ({}));
+      if (data.code === 'duplicate_parameter') {
+        btn.innerHTML = 'Ste už prihlásená ✦';
+      } else {
+        throw new Error(data.message || 'Bad request');
+      }
+    } else {
+      throw new Error('HTTP ' + res.status);
+    }
+  } catch (err) {
+    /* Obnov tlačidlo a zobraz chybu */
+    btn.innerHTML = origHTML;
+    btn.disabled  = false;
+
+    let msg = form.querySelector('.newsletter-error');
+    if (!msg) {
+      msg = document.createElement('p');
+      msg.className = 'newsletter-error';
+      form.after(msg);
+    }
+    msg.textContent = 'Niečo sa pokazilo. Skúste to znova alebo napíšte na ahoj@slovenkyprednami.sk';
+  }
 }
 
 /* ─── BARBA + GSAP TRANSITIONS ───────────────────────────── */

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ochrana súkromia — Slovenky pred nami</title>
+  <meta name="description" content="Informácie o spracúvaní osobných údajov na webe Slovenky pred nami v súlade s GDPR.">
+  <meta name="author" content="Anna Lockwoodová">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sk_SK">
+  <meta property="og:site_name" content="Slovenky pred nami">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Pinyon+Script&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.10.3/dist/barba.umd.min.js"></script>
+
+  <style>
+    .sukromie-hero {
+      background: var(--earth-deep);
+      padding: 9rem 2rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .sukromie-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(123,79,110,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .sukromie-hero__label {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--dust);
+      margin-bottom: 1.4rem;
+    }
+    .sukromie-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-weight: 400;
+      color: var(--cream-warm);
+      line-height: 1.1;
+      position: relative; z-index: 1;
+    }
+    .sukromie-hero__title em {
+      font-family: var(--font-lit);
+      font-style: normal;
+      color: var(--violet-light);
+      font-size: 1.1em;
+      display: block;
+      line-height: 1.2;
+    }
+    .sukromie-hero__sub {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--petal);
+      margin-top: 1.4rem;
+      opacity: 0.75;
+      position: relative; z-index: 1;
+    }
+
+    /* ── Content ── */
+    .sukromie-content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 5rem 2rem 7rem;
+    }
+    .sukromie-section {
+      margin-bottom: 3.5rem;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid rgba(184,132,90,0.14);
+    }
+    .sukromie-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+    .sukromie-section__num {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dust);
+      margin-bottom: 0.6rem;
+    }
+    .sukromie-section__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-weight: 400;
+      color: var(--earth);
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+    }
+    .sukromie-section p {
+      font-family: var(--font-body);
+      font-size: 0.97rem;
+      font-weight: 300;
+      color: rgba(46,26,14,0.72);
+      line-height: 1.85;
+      margin-bottom: 0.9rem;
+    }
+    .sukromie-section p:last-child { margin-bottom: 0; }
+    .sukromie-section strong {
+      font-weight: 500;
+      color: var(--warm-brown);
+    }
+    .sukromie-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.6rem 0 0.9rem;
+    }
+    .sukromie-section ul li {
+      font-family: var(--font-body);
+      font-size: 0.97rem;
+      font-weight: 300;
+      color: rgba(46,26,14,0.72);
+      line-height: 1.8;
+      padding-left: 1.4rem;
+      position: relative;
+    }
+    .sukromie-section ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--dust);
+    }
+    .sukromie-section a {
+      color: var(--violet);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .sukromie-section a:hover { color: var(--warm-brown); }
+
+    .sukromie-updated {
+      text-align: center;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(46,26,14,0.38);
+      padding: 2rem 0 0;
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 600px) {
+      .sukromie-hero { padding: 7rem 1.5rem 4rem; }
+      .sukromie-content { padding: 3.5rem 1.5rem 5rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Page Transition Curtain -->
+<div id="pageCurtain" aria-hidden="true">
+  <svg class="curtain-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#5A3520" stroke-width="0.8" fill="none">
+      <path d="M80 120 Q100 90 130 80"/><ellipse cx="96" cy="68" rx="7" ry="4" transform="rotate(-30 96 68)"/>
+      <path d="M1340 100 Q1360 80 1380 90"/><ellipse cx="1371" cy="53" rx="7" ry="4" transform="rotate(40 1371 53)"/>
+      <path d="M60 750 Q80 720 110 710"/><ellipse cx="75" cy="698" rx="7" ry="4" transform="rotate(-25 75 698)"/>
+      <path d="M680 30 Q700 10 720 20"/><ellipse cx="702" cy="-2" rx="6" ry="3" transform="rotate(-40 702 -2)"/>
+      <circle cx="400" cy="150" r="2" fill="#5A3520"/>
+      <circle cx="1050" cy="170" r="2" fill="#5A3520"/>
+    </g>
+  </svg>
+</div>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"><div class="cursor__dot"></div></div>
+<div class="cursor__ring" id="cursorRing"></div>
+
+<!-- ─── NAVIGÁCIA ─────────────────────────────────────────── -->
+<nav class="nav" id="mainNav">
+  <a href="../index.html" class="nav__logo">Slovenky <span>pred nami</span></a>
+  <ul class="nav__links">
+    <li class="nav__dropdown">
+      <button class="nav__dropdown-toggle" aria-expanded="false">
+        Ženy rebelky
+        <svg width="10" height="6" fill="none" viewBox="0 0 10 6">
+          <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <ul class="nav__dropdown-menu">
+        <li><a href="../zeny-rebelky/soltesova/index.html">Elena Maróthy-Šoltésová <span class="vlastnost-tag">Pokora</span></a></li>
+        <li><a href="../zeny-rebelky/timrava/index.html">Božena Slančíková-Timrava <span class="vlastnost-tag">Uprímnosť</span></a></li>
+        <li><a href="../zeny-rebelky/vansova/index.html">Terézia Vansová <span class="vlastnost-tag">Múdrosť</span></a></li>
+        <li><a href="../zeny-rebelky/gregorova/index.html">Hana Gregorová <span class="vlastnost-tag">Odvaha</span></a></li>
+      </ul>
+    </li>
+    <li><a href="../eshop/index.html">E-shop</a></li>
+    <li><a href="../o-nas/index.html">O nás</a></li>
+    <li><a href="../kontakt/index.html">Kontakt</a></li>
+  </ul>
+</nav>
+
+<div data-barba="wrapper">
+  <main data-barba="container" data-barba-namespace="sukromie">
+
+<!-- ─── HERO ──────────────────────────────────────────────── -->
+<section class="sukromie-hero">
+  <p class="sukromie-hero__label">Ochrana súkromia</p>
+  <h1 class="sukromie-hero__title">
+    Vaše údaje<br><em>sú v bezpečí.</em>
+  </h1>
+  <p class="sukromie-hero__sub">Informácie o spracúvaní osobných údajov v súlade s nariadením GDPR.</p>
+</section>
+
+<!-- ─── OBSAH ─────────────────────────────────────────────── -->
+<div class="sukromie-content">
+
+  <div class="sukromie-section">
+    <p class="sukromie-section__num">01</p>
+    <h2 class="sukromie-section__title">Prevádzkovateľ</h2>
+    <p>
+      Prevádzkovateľom webovej stránky <strong>slovenkyprednami.sk</strong> je
+      <strong>Anna Lockwoodová</strong>, kontaktný email:
+      <a href="mailto:avolesnes@gmail.com">avolesnes@gmail.com</a>.
+    </p>
+    <p>
+      Táto stránka je nekomerčný kultúrno-vzdelávací projekt venovaný štyrom slovenským ženám
+      19. a začiatku 20. storočia.
+    </p>
+  </div>
+
+  <div class="sukromie-section">
+    <p class="sukromie-section__num">02</p>
+    <h2 class="sukromie-section__title">Aké údaje zbierame a na čo</h2>
+    <p>Zbierame výlučne údaje, ktoré nám sami dobrovoľne poskytnete:</p>
+    <ul>
+      <li>
+        <strong>E-mailová adresa</strong> — pri prihlásení na newsletter.
+        Účelom je zasielanie pravidelných príbehov o inšpiratívnych slovenských ženách.
+        Právnym základom je váš slobodný súhlas (čl. 6 ods. 1 písm. a) GDPR).
+      </li>
+      <li>
+        <strong>Meno a e-mail z kontaktného formulára</strong> — na zodpovedanie vašej správy.
+        Právnym základom je oprávnený záujem pri korešpondencii (čl. 6 ods. 1 písm. f) GDPR).
+      </li>
+    </ul>
+    <p>Žiadne iné osobné údaje nezbierame. Na webe nepoužívame analytické nástroje ani reklamné cookies.</p>
+  </div>
+
+  <div class="sukromie-section">
+    <p class="sukromie-section__num">03</p>
+    <h2 class="sukromie-section__title">Ako dlho údaje uchovávame</h2>
+    <ul>
+      <li><strong>Newsletter</strong> — kým odber nezrušíte. Odhlásiť sa môžete kedykoľvek kliknutím na odkaz v každom emaili.</li>
+      <li><strong>Kontaktné správy</strong> — po dobu potrebnú na vybavenie vašej požiadavky, najdlhšie 12 mesiacov.</li>
+    </ul>
+  </div>
+
+  <div class="sukromie-section">
+    <p class="sukromie-section__num">04</p>
+    <h2 class="sukromie-section__title">Vaše práva</h2>
+    <p>V súlade s GDPR máte právo:</p>
+    <ul>
+      <li><strong>Na prístup</strong> — vedieť, aké údaje o vás spracúvame</li>
+      <li><strong>Na opravu</strong> — požiadať o opravu nesprávnych údajov</li>
+      <li><strong>Na vymazanie</strong> — požiadať o zmazanie vašich údajov</li>
+      <li><strong>Na prenosnosť</strong> — dostať vaše údaje v strojovo čitateľnom formáte</li>
+      <li><strong>Namietať</strong> — voči spracúvaniu na základe oprávneného záujmu</li>
+      <li><strong>Odvolať súhlas</strong> — kedykoľvek bez udania dôvodu</li>
+    </ul>
+    <p>
+      Všetky žiadosti posielajte na
+      <a href="mailto:avolesnes@gmail.com">avolesnes@gmail.com</a>.
+      Odpovieme do 30 dní. Máte tiež právo podať sťažnosť na
+      <a href="https://dataprotection.gov.sk" target="_blank" rel="noopener">Úrad na ochranu osobných údajov SR</a>.
+    </p>
+  </div>
+
+  <div class="sukromie-section">
+    <p class="sukromie-section__num">05</p>
+    <h2 class="sukromie-section__title">Súbory cookies</h2>
+    <p>
+      Táto webová stránka nepoužíva žiadne analytické, marketingové ani sledovacie cookies.
+      Technicky nevyhnutné cookies (napr. pre správne fungovanie stránky) nepodliehajú súhlasu.
+    </p>
+  </div>
+
+  <div class="sukromie-section">
+    <p class="sukromie-section__num">06</p>
+    <h2 class="sukromie-section__title">Zmeny týchto zásad</h2>
+    <p>
+      V prípade zmeny podmienok vás upozorníme prostredníctvom newslettera alebo aktualizáciou
+      tejto stránky. Odporúčame ju príležitostne skontrolovať.
+    </p>
+  </div>
+
+  <p class="sukromie-updated">Naposledy aktualizované: jún 2025</p>
+
+</div>
+
+  </main>
+</div>
+
+<!-- ─── FOOTER ────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <a href="../index.html" class="nav__logo">Slovenky <span>pred nami</span></a>
+      <p class="footer__tagline">„Volali ich nehorázne."</p>
+      <div class="footer__social">
+        <a href="https://instagram.com/slovenkyprednami" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
+        <a href="https://facebook.com/slovenkyprednami" aria-label="Facebook" target="_blank" rel="noopener">FB</a>
+      </div>
+    </div>
+    <div>
+      <p class="footer__col-title">Ženy rebelky</p>
+      <ul class="footer__links">
+        <li><a href="../zeny-rebelky/soltesova/index.html">Elena Maróthy-Šoltésová</a></li>
+        <li><a href="../zeny-rebelky/timrava/index.html">Božena Slančíková-Timrava</a></li>
+        <li><a href="../zeny-rebelky/vansova/index.html">Terézia Vansová</a></li>
+        <li><a href="../zeny-rebelky/gregorova/index.html">Hana Gregorová</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer__col-title">Ďalšie</p>
+      <ul class="footer__links">
+        <li><a href="../eshop/index.html">E-shop</a></li>
+        <li><a href="../o-nas/index.html">O nás</a></li>
+        <li><a href="../kontakt/index.html">Kontakt</a></li>
+        <li><a href="index.html">Ochrana súkromia</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2025 Anna Lockwoodová · slovenkyprednami.sk</span>
+    <span>Vytvorené s láskou k ženám, ktoré boli pred nami.</span>
+  </div>
+</footer>
+
+<!-- ─── JAVASCRIPT ─────────────────────────────────────────── -->
+<script>
+const cursor = document.getElementById('cursor');
+const ring   = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+cursor.style.left = ring.style.left = '0px';
+cursor.style.top  = ring.style.top  = '0px';
+(function animCursor() {
+  cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+  rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(animCursor);
+})();
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => { cursor.classList.add('cursor--hover'); ring.classList.add('cursor--hover'); });
+  el.addEventListener('mouseleave', () => { cursor.classList.remove('cursor--hover'); ring.classList.remove('cursor--hover'); });
+});
+
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('nav--scrolled', window.scrollY > 40);
+}, { passive: true });
+
+document.querySelectorAll('.nav__dropdown-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', !expanded);
+  });
+});
+document.addEventListener('click', e => {
+  if (!e.target.closest('.nav__dropdown')) {
+    document.querySelectorAll('.nav__dropdown-toggle').forEach(b => b.setAttribute('aria-expanded', 'false'));
+  }
+});
+
+(function() {
+  const curtain = document.getElementById('pageCurtain');
+  if (curtain) {
+    curtain.classList.add('curtain--exit');
+    setTimeout(() => { curtain.style.display = 'none'; }, 800);
+  }
+})();
+
+document.querySelectorAll('a[href]').forEach(link => {
+  const href = link.getAttribute('href');
+  if (!href || href.startsWith('#') || href.startsWith('mailto') || href.startsWith('http') || link.getAttribute('target') === '_blank') return;
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const curtain = document.getElementById('pageCurtain');
+    if (curtain) {
+      curtain.style.display = '';
+      curtain.classList.remove('curtain--exit');
+      setTimeout(() => { window.location.href = href; }, 540);
+    } else {
+      window.location.href = href;
+    }
+  });
+});
+
+/* Simple reveal on scroll */
+const revealEls = document.querySelectorAll('.sukromie-section');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'none'; obs.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+revealEls.forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(18px)';
+  el.style.transition = 'opacity 0.7s ease, transform 0.7s cubic-bezier(0.16,1,0.3,1)';
+  obs.observe(el);
+});
+</script>
+
+</body>
+</html>

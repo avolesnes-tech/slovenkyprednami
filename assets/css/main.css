@@ -1260,11 +1260,12 @@ body::before {
   object-fit: cover;
   object-position: center top;
   display: block;
+  transform-origin: center 20%;
   transition: transform 0.7s cubic-bezier(0.16,1,0.3,1);
   filter: grayscale(30%);
 }
 .story-card:hover .story-card__photo img {
-  transform: scale(1.04);
+  transform: scale(1.06);
   filter: grayscale(0%);
 }
 

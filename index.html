@@ -347,21 +347,42 @@
   <div class="stories-grid">
 
     <article class="story-card" data-virtue="Pokora">
-      <span class="story-card__virtue">Pokora</span>
-      <h3 class="story-card__name">Elena Maróthy-Šoltésová</h3>
-      <p class="story-card__text">Stratila obe deti — dcéru Elenku na tuberkulózu, keď mala osem rokov, a neskôr syna Ivana, ktorý zomrel vo veku tridsaťtri rokov krátko po svadbe. Manžel odišiel o štyri roky neskôr. Napriek tomu zostala <em>desaťročia</em> predsedníčkou Živeny — prvého slovenského ženského spolku, ktorý bojoval za vzdelanie žien a ich miesto vo verejnom živote. O stratených deťoch nakoniec napísala knihu <em>Moje deti</em>, vydanú v roku 1923.</p>
+      <div class="story-card__photo">
+        <img src="assets/images/soltesova.jpg" alt="Elena Maróthy-Šoltésová" loading="lazy">
+        <div class="story-card__photo-overlay">
+          <span class="story-card__virtue-badge">Pokora</span>
+        </div>
+      </div>
+      <div class="story-card__body">
+        <h3 class="story-card__name">Elena Maróthy-Šoltésová</h3>
+        <p class="story-card__text">Stratila obe deti — dcéru Elenku na tuberkulózu, keď mala osem rokov, a neskôr syna Ivana, ktorý zomrel vo veku tridsaťtri rokov krátko po svadbe. Manžel odišiel o štyri roky neskôr. Napriek tomu zostala <em>desaťročia</em> predsedníčkou Živeny — prvého slovenského ženského spolku, ktorý bojoval za vzdelanie žien a ich miesto vo verejnom živote. O stratených deťoch nakoniec napísala knihu <em>Moje deti</em>, vydanú v roku 1923.</p>
+      </div>
     </article>
 
     <article class="story-card" data-virtue="Uprímnosť">
-      <span class="story-card__virtue">Uprímnosť</span>
-      <h3 class="story-card__name">Božena Slančíková-Timrava</h3>
-      <p class="story-card__text"><em>Nikdy sa nevydala</em>, čo v tej dobe znamenalo trvalú finančnú neistotu — honoráre za literárnu tvorbu nestačili na živobytie. Krátko pracovala ako spoločníčka vdovy a správkyňa zbierok múzea v Martine, no väčšinu života prežila v odľahlých novohradských dedinách Polichno a Abelová.</p>
+      <div class="story-card__photo">
+        <img src="assets/images/timrava.jpg" alt="Božena Slančíková-Timrava" loading="lazy">
+        <div class="story-card__photo-overlay">
+          <span class="story-card__virtue-badge">Uprímnosť</span>
+        </div>
+      </div>
+      <div class="story-card__body">
+        <h3 class="story-card__name">Božena Slančíková-Timrava</h3>
+        <p class="story-card__text"><em>Nikdy sa nevydala</em>, čo v tej dobe znamenalo trvalú finančnú neistotu — honoráre za literárnu tvorbu nestačili na živobytie. Krátko pracovala ako spoločníčka vdovy a správkyňa zbierok múzea v Martine, no väčšinu života prežila v odľahlých novohradských dedinách Polichno a Abelová.</p>
+      </div>
     </article>
 
     <article class="story-card" data-virtue="Múdrosť">
-      <span class="story-card__virtue">Múdrosť</span>
-      <h3 class="story-card__name">Terézia Vansová</h3>
-      <p class="story-card__text">Vydala sa za evanjelického farára Jána Vansu, s ktorým mala syna — ten však v útlom veku zomrel. Manžel neskôr ťažko ochorel psychicky a zomrel vlastnou rukou. Terézia zostala bez pravidelného príjmu, no naďalej písala — vrátane <em>prvého slovenského ženského románu</em> Sirota Podhradských a časopisu Dennica, ktorý sama redigovala.</p>
+      <div class="story-card__photo">
+        <img src="assets/images/vansova.jpg" alt="Terézia Vansová" loading="lazy">
+        <div class="story-card__photo-overlay">
+          <span class="story-card__virtue-badge">Múdrosť</span>
+        </div>
+      </div>
+      <div class="story-card__body">
+        <h3 class="story-card__name">Terézia Vansová</h3>
+        <p class="story-card__text">Vydala sa za evanjelického farára Jána Vansu, s ktorým mala syna — ten však v útlom veku zomrel. Manžel neskôr ťažko ochorel psychicky a zomrel vlastnou rukou. Terézia zostala bez pravidelného príjmu, no naďalej písala — vrátane <em>prvého slovenského ženského románu</em> Sirota Podhradských a časopisu Dennica, ktorý sama redigovala.</p>
+      </div>
     </article>
 
   </div>
@@ -895,7 +916,7 @@ function initHeroAnimation() {
   /* Failsafe — force all hero elements visible regardless of CSS initial state */
   function ensureHeroVisible() {
     document.querySelectorAll(
-      '.hero__title--line1, .hero__title--line2, .split-word, .hero__subtitle, .hero__cta-group'
+      '.hero__title--main, .hero__title--sub, .hero__title--tagline, .split-word, .hero__cta-group'
     ).forEach(function(el) {
       el.style.opacity = '1';
       el.style.transform = '';
@@ -909,20 +930,18 @@ function initHeroAnimation() {
   _heroAnimDone = true;
 
   // Homepage hero
-  var line1 = document.querySelector('.hero__title--line1');
-  var line2 = document.querySelector('.hero__title--line2');
-  var subtitle = document.querySelector('.hero__subtitle');
-  var ctaGroup = document.querySelector('.hero__cta-group');
+  var titleMain = document.querySelector('.hero__title--main');
+  var titleSub  = document.querySelector('.hero__title--sub');
+  var titleTag  = document.querySelector('.hero__title--tagline');
+  var ctaGroup  = document.querySelector('.hero__cta-group');
 
-  if (line1 && line2) {
-    var words1 = splitWords(line1);
-    var words2 = splitWords(line2);
+  if (titleMain) {
     var tl = gsap.timeline({ defaults: { ease: 'power3.out' }, onComplete: ensureHeroVisible });
-    if (subtitle) tl.from(subtitle, { opacity: 0, y: 6, filter: 'blur(5px)', duration: 1.0, ease: 'power3.out', clearProps: 'all' }, 0);
-    tl.from(words1, { opacity: 0, y: 22, duration: 0.65, stagger: 0.055, clearProps: 'all' }, 0.1);
-    tl.from(words2, { opacity: 0, y: 22, duration: 0.65, stagger: 0.055, clearProps: 'all' }, 0.3);
-    if (ctaGroup) tl.from(ctaGroup, { opacity: 0, y: 12, duration: 0.5, clearProps: 'all' }, 0.56);
-    setTimeout(ensureHeroVisible, 2200); // hard fallback
+    tl.from(titleMain, { opacity: 0, y: 28, filter: 'blur(6px)', duration: 0.9, clearProps: 'all' }, 0.05);
+    if (titleSub)  tl.from(titleSub,  { opacity: 0, y: 16, filter: 'blur(4px)', duration: 0.75, clearProps: 'all' }, 0.35);
+    if (titleTag)  tl.from(titleTag,  { opacity: 0, y: 10, duration: 0.6, clearProps: 'all' }, 0.6);
+    if (ctaGroup)  tl.from(ctaGroup,  { opacity: 0, y: 12, duration: 0.5, clearProps: 'all' }, 0.78);
+    setTimeout(ensureHeroVisible, 2500);
     return;
   }
 
@@ -984,6 +1003,37 @@ function initStoryCards() {
   }, 3000);
 }
 initStoryCards();
+
+/* ─── ŽIVENA — sequential card highlight ────────────────── */
+function initZivenaHighlight() {
+  var grid = document.querySelector('.zivena-grid');
+  if (!grid) return;
+  var cards = Array.from(grid.querySelectorAll('.zivena-card'));
+  if (!cards.length) return;
+
+  var DELAY_FIRST   = 500;   // ms after grid enters viewport
+  var DELAY_BETWEEN = 1800;  // ms between each card
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var obs = new IntersectionObserver(function(entries) {
+    if (!entries[0].isIntersecting) return;
+    obs.disconnect();
+
+    if (reducedMotion) {
+      cards.forEach(function(c) { c.classList.add('lit'); });
+      return;
+    }
+
+    cards.forEach(function(card, i) {
+      setTimeout(function() {
+        card.classList.add('lit');
+      }, DELAY_FIRST + i * DELAY_BETWEEN);
+    });
+  }, { threshold: 0.25 });
+
+  obs.observe(grid);
+}
+initZivenaHighlight();
 
 /* ─── SCROLL REVEAL ──────────────────────────────────────── */
 function initScrollReveal() {

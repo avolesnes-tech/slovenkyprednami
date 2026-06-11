@@ -815,6 +815,8 @@ if (typeof gsap !== 'undefined') {
 /* ─── BARBA PAGE TRANSITIONS ─────────────────────────────── */
 if (typeof barba !== 'undefined') {
   barba.init({
+  /* E-shop sa vykresluje JS-om — potrebuje plne nacitanie, nie barba swap */
+  prevent: function (data) { return data.href && data.href.indexOf("eshop") !== -1; },
     transitions: [{
       name: 'curtain',
       leave() {

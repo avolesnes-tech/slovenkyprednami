@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obchodné podmienky — Slovenky pred nami</title>
+  <meta name="description" content="Všeobecné obchodné podmienky e-shopu Slovenky pred nami — merch a predplatné listov Píšem Ti.">
+  <meta name="author" content="Anna Lockwoodová">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sk_SK">
+  <meta property="og:site_name" content="Slovenky pred nami">
+  <meta property="og:title" content="Obchodné podmienky — Slovenky pred nami">
+  <meta property="og:description" content="Všeobecné obchodné podmienky e-shopu Slovenky pred nami.">
+  <meta property="og:image" content="https://annalockwoodova.github.io/Slovenky_pred_nami/assets/images/soltesova_art.webp">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="800">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Pinyon+Script&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/legal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.10.3/dist/barba.umd.min.js"></script>
+</head>
+
+<body>
+
+<!-- Page Transition Curtain -->
+<div id="pageCurtain" aria-hidden="true">
+  <svg class="curtain-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#5A3520" stroke-width="0.8" fill="none">
+      <path d="M80 120 Q100 90 130 80"/><ellipse cx="96" cy="68" rx="7" ry="4" transform="rotate(-30 96 68)"/>
+      <path d="M1340 100 Q1360 80 1380 90"/><ellipse cx="1371" cy="53" rx="7" ry="4" transform="rotate(40 1371 53)"/>
+      <path d="M60 750 Q80 720 110 710"/><ellipse cx="75" cy="698" rx="7" ry="4" transform="rotate(-25 75 698)"/>
+      <path d="M680 30 Q700 10 720 20"/><ellipse cx="702" cy="-2" rx="6" ry="3" transform="rotate(-40 702 -2)"/>
+      <circle cx="400" cy="150" r="2" fill="#5A3520"/>
+      <circle cx="1050" cy="170" r="2" fill="#5A3520"/>
+    </g>
+  </svg>
+</div>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"><div class="cursor__dot"></div></div>
+<div class="cursor__ring" id="cursorRing"></div>
+
+<!-- ─── NAVIGÁCIA ─────────────────────────────────────────── -->
+<nav class="nav" id="mainNav">
+  <a href="../index.html#hero" class="nav__logo">Slovenky <span>pred nami</span></a>
+  <ul class="nav__links">
+    <li class="nav__dropdown">
+      <button class="nav__dropdown-toggle" aria-expanded="false">
+        Ženy rebelky
+        <svg width="10" height="6" fill="none" viewBox="0 0 10 6">
+          <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <ul class="nav__dropdown-menu">
+        <li><a href="../zeny-rebelky/index.html" class="nav__overview-link">Všetky ženy rebelky <span class="vlastnost-tag">Prehľad</span></a></li>
+        <li><a href="../zeny-rebelky/soltesova/index.html">Elena Maróthy-Šoltésová <span class="vlastnost-tag">Pokora</span></a></li>
+        <li><a href="../zeny-rebelky/timrava/index.html">Božena Slančíková-Timrava <span class="vlastnost-tag">Uprímnosť</span></a></li>
+        <li><a href="../zeny-rebelky/vansova/index.html">Terézia Vansová <span class="vlastnost-tag">Múdrosť</span></a></li>
+        <li><a href="../zeny-rebelky/gregorova/index.html">Hana Gregorová <span class="vlastnost-tag">Odvaha</span></a></li>
+      </ul>
+    </li>
+    <li><a href="../eshop/index.html">E-shop</a></li>
+    <li><a href="../o-nas/index.html">O nás</a></li>
+    <li><a href="../kontakt/index.html">Kontakt</a></li>
+  </ul>
+</nav>
+
+<div data-barba="wrapper">
+  <main data-barba="container" data-barba-namespace="obchodne-podmienky" class="legal-page">
+
+<!-- ─── HERO ──────────────────────────────────────────────── -->
+<section class="legal-hero">
+  <p class="legal-hero__label">Obchodné podmienky</p>
+  <h1 class="legal-hero__title">
+    Jasné pravidlá<br><em>pre pokojný nákup.</em>
+  </h1>
+  <p class="legal-hero__sub">Všeobecné obchodné podmienky pre nákup tovaru a predplatného na webe Slovenky pred nami.</p>
+</section>
+
+<!-- ─── OBSAH ─────────────────────────────────────────────── -->
+<div class="legal-content">
+
+  <!-- Pracovná verzia — výrazný box -->
+  <div class="legal-notice">
+    <p class="legal-notice__title">Pracovná verzia</p>
+    <p>
+      Tieto obchodné podmienky sú pripravené vopred — <strong>pred spustením predaja je potrebné
+      doplniť identifikačné údaje podnikateľa</strong> (IČO, DIČ, sídlo, registráciu) na miestach
+      označených ako [DOPLNIŤ]. Kým tieto údaje nie sú doplnené, web neprijíma záväzné objednávky,
+      iba nezáväzné predobjednávky.
+    </p>
+  </div>
+
+  <p class="legal-intro">
+    Píšeme jasne aj v právnych textoch. Tu nájdeš všetko o tom, ako u nás nakupuješ —
+    od objednávky cez doručenie až po vrátenie. Ak ti niečo nie je jasné, napíš nám.
+  </p>
+
+  <!-- TOC -->
+  <nav class="legal-toc" aria-label="Obsah dokumentu">
+    <p class="legal-toc__title">Obsah</p>
+    <ol>
+      <li><a href="#cl1">Prevádzkovateľ a orgán dozoru</a></li>
+      <li><a href="#cl2">Vymedzenie pojmov</a></li>
+      <li><a href="#cl3">Objednávka a uzavretie zmluvy</a></li>
+      <li><a href="#cl4">Ceny a platobné podmienky</a></li>
+      <li><a href="#cl5">Dodacie podmienky</a></li>
+      <li><a href="#cl6">Odstúpenie od zmluvy</a></li>
+      <li><a href="#cl7">Reklamačný poriadok</a></li>
+      <li><a href="#cl8">Alternatívne riešenie sporov</a></li>
+      <li><a href="#cl9">Ochrana osobných údajov</a></li>
+      <li><a href="#cl10">Záverečné ustanovenia</a></li>
+      <li><a href="#priloha">Príloha: formulár na odstúpenie</a></li>
+    </ol>
+  </nav>
+
+  <!-- Článok 1 -->
+  <article class="legal-article" id="cl1">
+    <p class="legal-article__num">Článok 1</p>
+    <h2>Prevádzkovateľ a orgán dozoru</h2>
+    <ol>
+      <li>
+        Predávajúcim a prevádzkovateľom internetového obchodu na stránke
+        <strong>slovenkyprednami.sk</strong> (ďalej len „e-shop") je:
+        <ul>
+          <li>Obchodné meno: <span class="legal-placeholder">[DOPLNIŤ: obchodné meno]</span></li>
+          <li>Sídlo / miesto podnikania: <span class="legal-placeholder">[DOPLNIŤ: adresa]</span></li>
+          <li>IČO: <span class="legal-placeholder">[DOPLNIŤ: IČO]</span></li>
+          <li>DIČ: <span class="legal-placeholder">[DOPLNIŤ: DIČ]</span></li>
+          <li>Zapísaný: <span class="legal-placeholder">[DOPLNIŤ: živnostenský register / obchodný register, číslo zápisu]</span></li>
+          <li>E-mail: <a href="mailto:senselovaanna@gmail.com">senselovaanna@gmail.com</a></li>
+          <li>Telefón: <span class="legal-placeholder">[DOPLNIŤ: telefónne číslo]</span></li>
+        </ul>
+        (ďalej len „predávajúci").
+      </li>
+      <li>
+        Orgánom dozoru je <strong>Slovenská obchodná inšpekcia (SOI)</strong>,
+        <span class="legal-placeholder">[DOPLNIŤ: Inšpektorát SOI príslušný podľa sídla podnikateľa, adresa]</span>,
+        <a href="https://www.soi.sk" target="_blank" rel="noopener">www.soi.sk</a>.
+      </li>
+      <li>
+        Tieto všeobecné obchodné podmienky (ďalej len „VOP") upravujú práva a povinnosti
+        predávajúceho a kupujúceho pri predaji tovaru a poskytovaní predplatného na diaľku,
+        najmä v súlade so zákonom č. 102/2014 Z. z. o ochrane spotrebiteľa pri predaji tovaru
+        alebo poskytovaní služieb na základe zmluvy uzavretej na diaľku, zákonom č. 250/2007 Z. z.
+        o ochrane spotrebiteľa, zákonom č. 22/2004 Z. z. o elektronickom obchode a Občianskym
+        zákonníkom (zákon č. 40/1964 Zb.).
+      </li>
+    </ol>
+  </article>
+
+  <!-- Článok 2 -->
+  <article class="legal-article" id="cl2">
+    <p class="legal-article__num">Článok 2</p>
+    <h2>Vymedzenie pojmov</h2>
+    <ul>
+      <li><strong>Kupujúci</strong> — fyzická alebo právnická osoba, ktorá odoslala objednávku cez e-shop. Spotrebiteľom je fyzická osoba, ktorá pri uzatváraní zmluvy nekoná v rámci svojej podnikateľskej činnosti, zamestnania alebo povolania.</li>
+      <li><strong>Tovar</strong> — produkty ponúkané v e-shope, najmä mikiny a tote bagy s autorskými ilustráciami.</li>
+      <li><strong>Predplatné „Píšem Ti."</strong> — opakované plnenie: papierové listy doručované poštou raz mesačne, písané na motívy tvorby slovenských spisovateliek, v trvaní 1, 6 alebo 12 mesiacov podľa zvoleného variantu.</li>
+      <li><strong>Predobjednávka</strong> — nezáväzný prejav záujmu o tovar pred spustením riadneho predaja (pozri článok 3).</li>
+      <li><strong>Zmluva uzavretá na diaľku</strong> — zmluva medzi predávajúcim a kupujúcim dohodnutá a uzavretá výlučne prostredníctvom prostriedkov diaľkovej komunikácie (web, e-mail).</li>
+      <li><strong>Objednávka</strong> — návrh kupujúceho na uzavretie kúpnej zmluvy odoslaný prostredníctvom objednávkového formulára e-shopu alebo e-mailom.</li>
+    </ul>
+  </article>
+
+  <!-- Článok 3 -->
+  <article class="legal-article" id="cl3">
+    <p class="legal-article__num">Článok 3</p>
+    <h2>Objednávka a uzavretie zmluvy</h2>
+
+    <h3>Aktuálny režim: predobjednávky</h3>
+    <ol>
+      <li>
+        E-shop momentálne funguje v <strong>režime predobjednávok</strong>. Odoslanie
+        predobjednávky e-mailom je <strong>nezáväzným dopytom</strong> — nevzniká ňou kúpna zmluva
+        ani povinnosť zaplatiť. Predávajúci kupujúceho kontaktuje s potvrdením dostupnosti,
+        konečnej ceny a termínu dodania; kúpna zmluva vzniká až výslovným potvrdením objednávky
+        oboma stranami (e-mailom).
+      </li>
+      <li>
+        Predobjednávku môže kupujúci kedykoľvek pred potvrdením zmluvy bezplatne zrušiť e-mailom.
+      </li>
+    </ol>
+
+    <h3>Záväzné objednávky (po spustení platobnej brány)</h3>
+    <ol>
+      <li>
+        Po spustení online platieb bude objednávka odoslaná kliknutím na tlačidlo výslovne
+        označené <strong>„objednávka s povinnosťou platby"</strong> alebo inou rovnocennou
+        jednoznačnou formuláciou v súlade s § 4 ods. 2 zákona č. 102/2014 Z. z. Odoslaním
+        takejto objednávky kupujúci potvrdzuje, že bol oboznámený s tým, že súčasťou objednávky
+        je povinnosť zaplatiť cenu.
+      </li>
+      <li>
+        Kúpna zmluva vzniká doručením potvrdenia o prijatí objednávky na e-mail kupujúceho.
+        Predávajúci bezodkladne poskytne kupujúcemu potvrdenie o uzavretí zmluvy na trvanlivom
+        nosiči (e-mailom) spolu s týmito VOP a poučením o práve odstúpiť od zmluvy.
+      </li>
+      <li>
+        Pred odoslaním objednávky má kupujúci možnosť skontrolovať a opraviť zadané údaje.
+        Zmluva sa uzatvára v slovenskom jazyku.
+      </li>
+      <li>
+        Pri predplatnom „Píšem Ti." kupujúci pred odoslaním objednávky vidí celkovú cenu za zvolené
+        obdobie (1 mesiac / 6 mesiacov / 12 mesiacov) vrátane všetkých poplatkov. Predplatné sa
+        <strong>neobnovuje automaticky</strong> — po uplynutí obdobia jednoducho skončí, pokiaľ si
+        ho kupujúci sám nepredĺži.
+      </li>
+    </ol>
+  </article>
+
+  <!-- Článok 4 -->
+  <article class="legal-article" id="cl4">
+    <p class="legal-article__num">Článok 4</p>
+    <h2>Ceny a platobné podmienky</h2>
+    <ol>
+      <li>
+        Všetky ceny v e-shope sú uvedené v eurách (€) a sú konečné.
+        <span class="legal-placeholder">[DOPLNIŤ: „Predávajúci nie je platiteľom DPH." alebo „Ceny sú vrátane DPH."]</span>
+        Cena nezahŕňa poštovné a balné, ktoré sa zobrazuje samostatne pred dokončením objednávky.
+      </li>
+      <li>
+        Orientačné ceny: mikina 45&nbsp;€, tote bag 22&nbsp;€, predplatné „Píšem Ti." —
+        1 list 9&nbsp;€ / 6 mesiacov 49&nbsp;€ / 12 mesiacov 89&nbsp;€. Záväzná je vždy cena
+        platná v okamihu odoslania objednávky.
+      </li>
+      <li>
+        Spôsoby platby:
+        <ul>
+          <li><strong>Prevod na bankový účet</strong> — IBAN: <span class="legal-placeholder">[DOPLNIŤ: IBAN]</span>, splatnosť 7 dní od potvrdenia objednávky;</li>
+          <li><strong>Online platba kartou</strong> — <span class="legal-placeholder">[DOPLNIŤ: platobná brána — po spustení]</span>.</li>
+        </ul>
+      </li>
+      <li>
+        Tovar zostáva vo vlastníctve predávajúceho do úplného zaplatenia kúpnej ceny.
+        Predávajúci vystaví kupujúcemu doklad o kúpe a doručí ho e-mailom alebo spolu s tovarom.
+      </li>
+    </ol>
+  </article>
+
+  <!-- Článok 5 -->
+  <article class="legal-article" id="cl5">
+    <p class="legal-article__num">Článok 5</p>
+    <h2>Dodacie podmienky</h2>
+    <ol>
+      <li>
+        Tovar doručujeme v rámci <strong>Slovenskej republiky a krajín Európskej únie</strong>.
+      </li>
+      <li>
+        Poštovné a balné:
+        <ul>
+          <li>Slovensko: <span class="legal-placeholder">[DOPLNIŤ: cena poštovného SR]</span></li>
+          <li>Krajiny EÚ: <span class="legal-placeholder">[DOPLNIŤ: cena poštovného EÚ]</span></li>
+        </ul>
+      </li>
+      <li>
+        Dodacia lehota pri tovare je spravidla <span class="legal-placeholder">[DOPLNIŤ: počet dní]</span>
+        pracovných dní od pripísania platby, najneskôr však 30 dní od uzavretia zmluvy. Ak predávajúci
+        nemôže dodať tovar v tejto lehote, kupujúceho informuje a kupujúci má právo od zmluvy odstúpiť.
+      </li>
+      <li>
+        Pri predplatnom „Píšem Ti." je prvý list odoslaný do
+        <span class="legal-placeholder">[DOPLNIŤ: počet dní]</span> dní od pripísania platby a ďalšie
+        listy vždy raz mesačne, spravidla v rovnakom týždni mesiaca.
+      </li>
+      <li>
+        Kupujúci je povinný prevziať zásielku alebo zabezpečiť jej prevzatie. Pri prevzatí odporúčame
+        skontrolovať neporušenosť obalu; zjavné poškodenie zásielky odporúčame oznámiť dopravcovi
+        a predávajúcemu bez zbytočného odkladu.
+      </li>
+    </ol>
+  </article>
+
+  <!-- Článok 6 -->
+  <article class="legal-article" id="cl6">
+    <p class="legal-article__num">Článok 6</p>
+    <h2>Odstúpenie od zmluvy</h2>
+    <ol>
+      <li>
+        Spotrebiteľ má právo odstúpiť od zmluvy uzavretej na diaľku <strong>bez uvedenia dôvodu
+        do 14 dní</strong> odo dňa prevzatia tovaru. Pri predplatnom (zmluva o opakovanom dodaní
+        tovaru) lehota plynie od prevzatia prvého dodaného tovaru.
+      </li>
+      <li>
+        Právo na odstúpenie možno uplatniť listom na adresu predávajúceho alebo e-mailom na
+        <a href="mailto:senselovaanna@gmail.com">senselovaanna@gmail.com</a>. Spotrebiteľ môže
+        použiť <a href="#priloha">vzorový formulár</a> uvedený v prílohe týchto VOP, nie je to však
+        povinné. Lehota je zachovaná, ak bolo oznámenie o odstúpení odoslané v posledný deň lehoty.
+      </li>
+      <li>
+        Po odstúpení vráti predávajúci spotrebiteľovi všetky platby vrátane nákladov na najlacnejší
+        ponúkaný spôsob doručenia, a to do 14 dní od doručenia oznámenia o odstúpení, rovnakým
+        spôsobom, akým spotrebiteľ platbu uhradil (ak sa nedohodnú inak). Predávajúci nie je povinný
+        vrátiť platby pred tým, ako mu je tovar doručený alebo kým spotrebiteľ nepreukáže jeho
+        zaslanie späť.
+      </li>
+      <li>
+        Spotrebiteľ zašle tovar späť do 14 dní od odstúpenia na adresu
+        <span class="legal-placeholder">[DOPLNIŤ: adresa na vrátenie]</span>. Náklady na vrátenie
+        tovaru znáša spotrebiteľ. Spotrebiteľ zodpovedá za zníženie hodnoty tovaru, ktoré vzniklo
+        zaobchádzaním nad rámec potrebný na zistenie jeho vlastností a funkčnosti.
+      </li>
+      <li>
+        <strong>Výnimky z práva na odstúpenie</strong> (§ 7 ods. 6 zákona č. 102/2014 Z. z.) —
+        spotrebiteľ nemôže odstúpiť od zmluvy, ktorej predmetom je najmä:
+        <ul>
+          <li>tovar zhotovený podľa osobitných požiadaviek spotrebiteľa alebo tovar vyrobený na mieru
+          (napr. personalizovaná mikina či list s menom na želanie);</li>
+          <li>tovar, ktorý podlieha rýchlemu zníženiu akosti alebo skaze.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Špecifiká predplatného „Píšem Ti."</strong> — ak spotrebiteľ odstúpi od zmluvy
+        o predplatnom v 14-dňovej lehote a <strong>prvý list už bol odoslaný</strong>, predávajúci
+        vráti zaplatenú sumu zníženú o <strong>pomernú časť zodpovedajúcu už dodanému plneniu</strong>
+        (t. j. cenu už odoslaných listov vo výške 9&nbsp;€ za list) a o poštovné za už odoslané listy.
+        Zvyšok predplatného sa vráti v plnej výške.
+      </li>
+      <li>
+        Predávajúci môže odstúpiť od zmluvy, ak nie je schopný dodať tovar v dohodnutej lehote alebo
+        cene z dôvodu vypredania zásob či nedostupnosti materiálu; o tom kupujúceho bezodkladne
+        informuje a vráti mu už zaplatené platby do 14 dní.
+      </li>
+    </ol>
+  </article>
+
+  <!-- Článok 7 -->
+  <article class="legal-article" id="cl7">
+    <p class="legal-article__num">Článok 7</p>
+    <h2>Reklamačný poriadok</h2>
+    <ol>
+      <li>
+        Predávajúci zodpovedá za vady, ktoré má tovar pri prevzatí, a za vady, ktoré sa vyskytnú
+        v <strong>záručnej dobe 24 mesiacov</strong> od prevzatia tovaru (§ 619 a nasl. Občianskeho
+        zákonníka).
+      </li>
+      <li>
+        Reklamáciu možno uplatniť e-mailom na
+        <a href="mailto:senselovaanna@gmail.com">senselovaanna@gmail.com</a> alebo písomne na adrese
+        predávajúceho. K reklamácii odporúčame priložiť doklad o kúpe a opis vady. Predávajúci vydá
+        kupujúcemu potvrdenie o uplatnení reklamácie.
+      </li>
+      <li>
+        Ak ide o vadu, ktorú možno odstrániť, má kupujúci právo na jej bezplatné, včasné a riadne
+        odstránenie. Ak ide o vadu, ktorú odstrániť nemožno a ktorá bráni riadnemu užívaniu tovaru,
+        má kupujúci právo na výmenu tovaru alebo právo od zmluvy odstúpiť. Pri neodstrániteľnej vade,
+        ktorá nebráni užívaniu, má kupujúci právo na primeranú zľavu.
+      </li>
+      <li>
+        Predávajúci určí spôsob vybavenia reklamácie bez zbytočného odkladu, v zložitých prípadoch
+        do 3 pracovných dní. Reklamácia vrátane odstránenia vady bude vybavená
+        <strong>najneskôr do 30 dní</strong> odo dňa jej uplatnenia. Po márnom uplynutí tejto lehoty
+        má spotrebiteľ právo od zmluvy odstúpiť alebo právo na výmenu tovaru.
+      </li>
+      <li>
+        Záruka sa nevzťahuje na vady spôsobené bežným opotrebovaním, nesprávnym používaním,
+        praním v rozpore s pokynmi na údržbu alebo mechanickým poškodením po prevzatí.
+      </li>
+    </ol>
+  </article>
+
+  <!-- Článok 8 -->
+  <article class="legal-article" id="cl8">
+    <p class="legal-article__num">Článok 8</p>
+    <h2>Alternatívne riešenie sporov</h2>
+    <ol>
+      <li>
+        Ak spotrebiteľ nie je spokojný so spôsobom vybavenia reklamácie alebo sa domnieva, že boli
+        porušené jeho práva, môže sa obrátiť na predávajúceho so žiadosťou o nápravu. Ak predávajúci
+        žiadosť zamietne alebo na ňu do 30 dní neodpovie, má spotrebiteľ právo podať návrh na začatie
+        <strong>alternatívneho riešenia sporu (ARS)</strong> podľa zákona č. 391/2015 Z. z.
+      </li>
+      <li>
+        Subjektom alternatívneho riešenia sporov je <strong>Slovenská obchodná inšpekcia</strong>
+        (<a href="https://www.soi.sk" target="_blank" rel="noopener">www.soi.sk</a>) alebo iná
+        oprávnená právnická osoba zapísaná v zozname subjektov ARS vedenom Ministerstvom hospodárstva SR.
+      </li>
+      <li>
+        Spotrebiteľ môže na podanie návrhu využiť aj európsku
+        <strong>platformu riešenia sporov online (RSO/ODR)</strong> dostupnú na
+        <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.
+      </li>
+    </ol>
+  </article>
+
+  <!-- Článok 9 -->
+  <article class="legal-article" id="cl9">
+    <p class="legal-article__num">Článok 9</p>
+    <h2>Ochrana osobných údajov</h2>
+    <p>
+      Informácie o tom, aké osobné údaje pri objednávke spracúvame, na aký účel, ako dlho ich
+      uchovávame a aké máš práva, nájdeš v samostatnom dokumente
+      <a href="../sukromie/index.html">Zásady ochrany osobných údajov</a>.
+    </p>
+  </article>
+
+  <!-- Článok 10 -->
+  <article class="legal-article" id="cl10">
+    <p class="legal-article__num">Článok 10</p>
+    <h2>Záverečné ustanovenia</h2>
+    <ol>
+      <li>
+        Tieto VOP nadobúdajú účinnosť dňom
+        <span class="legal-placeholder">[DOPLNIŤ: dátum účinnosti]</span> a vzťahujú sa na zmluvy
+        uzavreté odo dňa ich účinnosti. Pre konkrétnu zmluvu je záväzné znenie VOP platné v okamihu
+        odoslania objednávky.
+      </li>
+      <li>
+        Predávajúci si vyhradzuje právo VOP meniť; zmena nemá vplyv na už uzavreté zmluvy.
+        Aktuálne znenie je vždy zverejnené na tejto stránke.
+      </li>
+      <li>
+        Právne vzťahy neupravené týmito VOP sa riadia právnym poriadkom Slovenskej republiky,
+        najmä Občianskym zákonníkom, zákonom č. 102/2014 Z. z., zákonom č. 250/2007 Z. z.
+        a zákonom č. 22/2004 Z. z.
+      </li>
+      <li>
+        Ak sa niektoré ustanovenie VOP stane neplatným alebo neúčinným, nemá to vplyv na platnosť
+        ostatných ustanovení.
+      </li>
+    </ol>
+  </article>
+
+  <!-- Príloha: vzorový formulár na odstúpenie -->
+  <section class="legal-annex" id="priloha">
+    <h2 class="legal-annex__title">Príloha</h2>
+    <p class="legal-annex__sub">Vzorový formulár na odstúpenie od zmluvy — vyplň a pošli len v prípade, že chceš od zmluvy odstúpiť.</p>
+    <p>
+      Komu: <span class="legal-placeholder">[DOPLNIŤ: obchodné meno]</span>,
+      <span class="legal-placeholder">[DOPLNIŤ: adresa]</span>,
+      e-mail: senselovaanna@gmail.com
+    </p>
+    <p>
+      Týmto oznamujem/oznamujeme*, že odstupujem/odstupujeme* od zmluvy na tento tovar /
+      od zmluvy o poskytnutí tejto služby*:
+      <span class="legal-annex__line"></span>
+    </p>
+    <p>
+      Dátum objednania / dátum prijatia*:
+      <span class="legal-annex__line"></span>
+    </p>
+    <p>
+      Meno a priezvisko spotrebiteľa/spotrebiteľov*:
+      <span class="legal-annex__line"></span>
+    </p>
+    <p>
+      Adresa spotrebiteľa/spotrebiteľov*:
+      <span class="legal-annex__line"></span>
+    </p>
+    <p>
+      Podpis spotrebiteľa/spotrebiteľov* (iba ak sa formulár podáva v listinnej podobe):
+      <span class="legal-annex__line"></span>
+    </p>
+    <p>
+      Dátum:
+      <span class="legal-annex__line"></span>
+    </p>
+    <p><em>* Nehodiace sa prečiarknite.</em></p>
+  </section>
+
+  <p class="legal-updated">Pracovná verzia · naposledy aktualizované: jún 2026</p>
+
+</div>
+
+  </main>
+</div>
+
+<!-- ─── FOOTER ────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <a href="../index.html#hero" class="nav__logo">Slovenky <span>pred nami</span></a>
+      <p class="footer__tagline">„Volali ich nehorázne."</p>
+      <div class="footer__social">
+        <a href="https://instagram.com/slovenkyprednami" aria-label="Instagram">IG</a>
+        <a href="https://facebook.com/slovenkyprednami" aria-label="Facebook">FB</a>
+      </div>
+    </div>
+    <div>
+      <p class="footer__col-title">Ženy rebelky</p>
+      <ul class="footer__links">
+        <li><a href="../zeny-rebelky/soltesova/index.html">Elena Maróthy-Šoltésová</a></li>
+        <li><a href="../zeny-rebelky/timrava/index.html">Božena Slančíková-Timrava</a></li>
+        <li><a href="../zeny-rebelky/vansova/index.html">Terézia Vansová</a></li>
+        <li><a href="../zeny-rebelky/gregorova/index.html">Hana Gregorová</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer__col-title">Ďalšie</p>
+      <ul class="footer__links">
+        <li><a href="../eshop/index.html">E-shop</a></li>
+        <li><a href="../o-nas/index.html">O nás</a></li>
+        <li><a href="../kontakt/index.html">Kontakt</a></li>
+        <li><a href="../obchodne-podmienky/index.html">Obchodné podmienky</a></li>
+        <li><a href="../sukromie/index.html">Ochrana súkromia</a></li>
+        <li><a href="../cookies/index.html">Cookies</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2025 Anna Lockwoodová · slovenkyprednami.sk</span>
+    <span>Vytvorené s láskou k ženám, ktoré boli pred nami.</span>
+  </div>
+</footer>
+
+<script>
+/* ─── CURSOR ─────────────────────────────────────────────── */
+const cursor = document.getElementById('cursor');
+const ring   = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+cursor.style.left = ring.style.left = '0px';
+cursor.style.top  = ring.style.top  = '0px';
+(function animCursor() {
+  cursor.style.transform = `translate(${mx}px, ${my}px)`;
+  rx += (mx - rx) * 0.14; ry += (my - ry) * 0.14;
+  ring.style.transform = `translate(${rx}px, ${ry}px)`;
+  requestAnimationFrame(animCursor);
+})();
+
+/* ─── NAV SCROLL ─────────────────────────────────────────── */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+
+/* ─── NAV DROPDOWN ───────────────────────────────────────── */
+document.querySelectorAll('.nav__dropdown-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+  });
+});
+
+/* ─── HOVER LISTENERS ────────────────────────────────────── */
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+});
+
+/* ─── SCROLL REVEAL ──────────────────────────────────────── */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+/* ─── GSAP HERO ENTRY ────────────────────────────────────── */
+if (typeof gsap !== 'undefined') {
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  tl.from('.legal-hero__title', { opacity: 0, y: 40, duration: 0.9 }, 0.2)
+    .from('.legal-hero__sub',   { opacity: 0, y: 20, duration: 0.7 }, 0.5);
+}
+
+/* ─── BARBA PAGE TRANSITIONS ─────────────────────────────── */
+if (typeof barba !== 'undefined') {
+  barba.init({
+  /* E-shop sa vykresluje JS-om — potrebuje plne nacitanie, nie barba swap */
+  prevent: function (data) { return data.href && data.href.indexOf("eshop") !== -1; },
+    transitions: [{
+      name: 'curtain',
+      leave() {
+        return gsap.to('#pageCurtain', { scaleY: 1, transformOrigin: 'bottom center', duration: 0.55, ease: 'power2.inOut' });
+      },
+      enter() {
+        return gsap.from('#pageCurtain', { scaleY: 0, transformOrigin: 'top center', duration: 0.5, ease: 'power2.inOut', delay: 0.1 });
+      }
+    }]
+  });
+}
+</script>
+
+<script src="../assets/js/consent.js" defer></script>
+</body>
+</html>

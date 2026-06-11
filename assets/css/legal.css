@@ -1,0 +1,318 @@
+/* ─────────────────────────────────────────────────────────────
+   LEGAL.CSS — spoločný štýl pre právne stránky
+   (obchodne-podmienky, sukromie, cookies)
+   Linkuje sa ZA main.css.
+   ───────────────────────────────────────────────────────────── */
+
+/* ── HERO ── */
+.legal-hero {
+  background: var(--earth-deep);
+  padding: 9rem 2rem 5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.legal-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(123,79,110,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.legal-hero__label {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--dust);
+  margin-bottom: 1.4rem;
+  position: relative; z-index: 1;
+}
+.legal-hero__title {
+  font-family: 'Abril Fatface', Georgia, serif;
+  font-size: clamp(2.2rem, 6vw, 4.2rem);
+  font-weight: 400;
+  color: var(--cream-warm);
+  line-height: 1.12;
+  position: relative; z-index: 1;
+}
+.legal-hero__title em {
+  font-family: 'Pinyon Script', cursive;
+  font-style: normal;
+  color: var(--violet-light);
+  font-size: 1.1em;
+  display: block;
+  line-height: 1.25;
+}
+.legal-hero__sub {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.98rem;
+  font-weight: 400;
+  color: var(--petal);
+  margin-top: 1.4rem;
+  opacity: 0.8;
+  max-width: 46ch;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; z-index: 1;
+}
+
+/* ── PAGE BODY ── */
+.legal-page {
+  background: var(--cream-warm);
+}
+.legal-content {
+  max-width: 72ch;
+  margin: 0 auto;
+  padding: 4.5rem 2rem 7rem;
+  font-family: 'Lora', Georgia, serif;
+  color: var(--earth);
+}
+
+/* ── Upozorňovací box (pracovná verzia) ── */
+.legal-notice {
+  background: var(--violet-pale);
+  border: 1px solid rgba(123,79,110,0.35);
+  border-left: 4px solid var(--violet);
+  border-radius: 12px;
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 3.5rem;
+}
+.legal-notice__title {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--violet);
+  margin-bottom: 0.5rem;
+}
+.legal-notice p {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--earth);
+  margin: 0;
+}
+
+/* ── Úvodný „ľudský" odsek ── */
+.legal-intro {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--warm-brown);
+  font-style: italic;
+  margin-bottom: 3rem;
+}
+
+/* ── Obsah / TOC ── */
+.legal-toc {
+  background: var(--cream);
+  border-radius: 14px;
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 3.5rem;
+}
+.legal-toc__title {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--clay);
+  margin-bottom: 0.9rem;
+}
+.legal-toc ol {
+  margin: 0;
+  padding-left: 1.4rem;
+  columns: 2;
+  column-gap: 2.5rem;
+}
+.legal-toc li {
+  font-size: 0.92rem;
+  line-height: 2;
+  break-inside: avoid;
+}
+.legal-toc a {
+  color: var(--warm-brown);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(139,69,19,0.25);
+}
+.legal-toc a:hover { color: var(--violet); border-bottom-color: var(--violet); }
+@media (max-width: 640px) {
+  .legal-toc ol { columns: 1; }
+}
+
+/* ── Články ── */
+.legal-article {
+  margin-bottom: 3.2rem;
+  padding-bottom: 3.2rem;
+  border-bottom: 1px solid var(--divider);
+}
+.legal-article:last-of-type { border-bottom: none; }
+.legal-article__num {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dust);
+  margin-bottom: 0.5rem;
+}
+.legal-article h2 {
+  font-family: 'Abril Fatface', Georgia, serif;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 400;
+  color: var(--earth);
+  line-height: 1.25;
+  margin: 0 0 1.2rem;
+}
+.legal-article h3 {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--warm-brown);
+  margin: 1.8rem 0 0.7rem;
+}
+.legal-article p {
+  font-size: 0.97rem;
+  line-height: 1.85;
+  color: rgba(46,26,14,0.8);
+  margin: 0 0 1rem;
+}
+.legal-article p:last-child { margin-bottom: 0; }
+.legal-article strong {
+  font-weight: 600;
+  color: var(--warm-brown);
+}
+.legal-article a {
+  color: var(--violet);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.legal-article a:hover { color: var(--warm-brown); }
+
+/* Zoznamy — číslované odseky právneho textu */
+.legal-article ol {
+  margin: 0.4rem 0 1.2rem;
+  padding-left: 1.6rem;
+}
+.legal-article ol li {
+  font-size: 0.97rem;
+  line-height: 1.85;
+  color: rgba(46,26,14,0.8);
+  margin-bottom: 0.6rem;
+}
+.legal-article ul {
+  list-style: none;
+  margin: 0.4rem 0 1.2rem;
+  padding: 0;
+}
+.legal-article ul li {
+  font-size: 0.97rem;
+  line-height: 1.85;
+  color: rgba(46,26,14,0.8);
+  padding-left: 1.4rem;
+  position: relative;
+  margin-bottom: 0.45rem;
+}
+.legal-article ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--dust);
+}
+
+/* Placeholder zvýraznenie */
+.legal-placeholder {
+  background: rgba(224,184,158,0.35);
+  border-radius: 4px;
+  padding: 0.05em 0.35em;
+  font-style: italic;
+  color: var(--clay);
+  white-space: nowrap;
+}
+
+/* ── Tabuľky ── */
+.legal-table-wrap { overflow-x: auto; margin: 1.2rem 0 1.6rem; }
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+.legal-table th {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--clay);
+  text-align: left;
+  padding: 0.7rem 0.9rem;
+  border-bottom: 2px solid rgba(139,69,19,0.25);
+}
+.legal-table td {
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid var(--divider);
+  line-height: 1.6;
+  color: rgba(46,26,14,0.8);
+  vertical-align: top;
+}
+.legal-table code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.85em;
+  background: var(--cream);
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+  color: var(--warm-brown);
+}
+
+/* ── Príloha — vzorový formulár ── */
+.legal-annex {
+  background: var(--cream);
+  border: 1px dashed rgba(139,69,19,0.4);
+  border-radius: 14px;
+  padding: 2rem 2.2rem;
+  margin-top: 3rem;
+}
+.legal-annex__title {
+  font-family: 'Abril Fatface', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--earth);
+  margin: 0 0 0.4rem;
+}
+.legal-annex__sub {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.78rem;
+  color: var(--clay);
+  margin-bottom: 1.4rem;
+}
+.legal-annex p {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: rgba(46,26,14,0.8);
+  margin-bottom: 0.9rem;
+}
+.legal-annex .legal-annex__line {
+  display: block;
+  border-bottom: 1px dotted rgba(139,69,19,0.5);
+  min-height: 1.6em;
+  margin: 0.3rem 0 0.9rem;
+}
+
+/* ── Pätička dokumentu ── */
+.legal-updated {
+  text-align: center;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: rgba(46,26,14,0.4);
+  padding-top: 2.5rem;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 600px) {
+  .legal-hero { padding: 7rem 1.5rem 4rem; }
+  .legal-content { padding: 3.5rem 1.25rem 5rem; }
+  .legal-annex { padding: 1.5rem 1.25rem; }
+}

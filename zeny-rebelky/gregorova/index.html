@@ -545,6 +545,8 @@ initScrollReveal();
 // When opening files directly (file://), we fall back to native navigation.
 if (window.location.protocol !== 'file:') {
 barba.init({
+  /* E-shop sa vykresluje JS-om — potrebuje plne nacitanie, nie barba swap */
+  prevent: function (data) { return data.href && data.href.indexOf("eshop") !== -1; },
   transitions: [{
     name: 'botanical-curtain',
     leave({ current }) {

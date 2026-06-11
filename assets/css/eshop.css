@@ -1,0 +1,580 @@
+/* ═══════════════════════════════════════════════════════════
+   ESHOP.CSS — štýly len pre /eshop/
+   Linkovať ZA main.css. Farby výhradne z tokenov.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── HERO — kompaktný pruh ──────────────────────────────── */
+.eshop-hero {
+  background: var(--earth);
+  padding: 9rem 2rem 4.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.eshop-hero__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.eshop-hero__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  color: var(--cream-warm);
+}
+.eshop-hero__script {
+  font-family: var(--font-lit);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: var(--violet-light);
+  margin-top: 0.5rem;
+  line-height: 1.2;
+}
+.eshop-hero__lead {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--petal);
+  max-width: 540px;
+  margin: 1.5rem auto 0;
+}
+
+/* ─── INFO PÁSIK ─────────────────────────────────────────── */
+.eshop-notice {
+  background: var(--violet);
+  color: var(--white);
+  text-align: center;
+  padding: 0.875rem 1.5rem;
+}
+.eshop-notice p {
+  font-family: var(--font-ui, 'DM Sans', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+}
+.eshop-notice strong { font-weight: 500; }
+
+/* ─── SEKCIA PRODUKTY ────────────────────────────────────── */
+.eshop-products {
+  background: var(--cream-warm);
+  padding: 4rem 2rem 5.5rem;
+}
+.eshop-products__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* ─── FILTRE — chips ─────────────────────────────────────── */
+.eshop-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  margin-bottom: 2.75rem;
+}
+.eshop-filters__group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.eshop-filters__label {
+  font-family: var(--font-ui, 'DM Sans', sans-serif);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--clay);
+  min-width: 3.25rem;
+}
+.filter-chip {
+  font-family: var(--font-ui, 'DM Sans', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--warm-brown);
+  background: transparent;
+  border: 1px solid rgba(139,69,19,0.28);
+  border-radius: var(--r-pill);
+  padding: 0.45rem 1.1rem;
+  transition: all 0.25s var(--ease-out);
+}
+.filter-chip:hover {
+  border-color: var(--violet);
+  color: var(--violet);
+  transform: translateY(-2px);
+}
+.filter-chip.is-active {
+  background: var(--violet);
+  border-color: var(--violet);
+  color: var(--white);
+  box-shadow: 0 4px 16px rgba(123,79,110,0.28);
+}
+
+/* ─── GRID KARIET ────────────────────────────────────────── */
+.eshop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.75rem;
+}
+/* prepíše fixnú šírku .product-card z main.css (tam je pre horizontálny pás) */
+.eshop-grid .eshop-card {
+  width: 100%;
+  flex-shrink: initial;
+  box-shadow: 0 2px 16px rgba(30,12,4,0.08);
+}
+.eshop-grid .product-card__name {
+  font-weight: 400; /* Abril Fatface má len jeden rez */
+}
+.eshop-grid .product-card__price {
+  font-family: var(--font-ui, 'DM Sans', sans-serif);
+  white-space: nowrap;
+}
+
+.eshop-empty {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--warm-brown);
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+/* ─── PÍŠEM TI — PREDPLATNÉ ──────────────────────────────── */
+.eshop-letters {
+  background: var(--earth);
+  padding: 5.5rem 2rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+.eshop-letters__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: 4rem;
+  align-items: start;
+}
+.eshop-letters__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  color: var(--cream-warm);
+  line-height: 1.1;
+}
+.eshop-letters__script {
+  font-family: var(--font-lit);
+  font-size: clamp(2rem, 3.5vw, 2.6rem);
+  color: var(--violet-light);
+  margin-top: 0.4rem;
+  line-height: 1.25;
+}
+.eshop-letters__text {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--petal);
+  margin-top: 1.25rem;
+  max-width: 440px;
+}
+.eshop-letters__image {
+  margin-top: 2rem;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+.eshop-letters__image img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.6s var(--ease-out);
+}
+.eshop-letters__image:hover img { transform: scale(1.03); }
+
+/* cenové úrovne */
+.eshop-letters__plans {
+  display: grid;
+  gap: 1.1rem;
+}
+.letter-plan {
+  background: rgba(250,244,238,0.05);
+  border: 1px solid var(--divider);
+  border-radius: var(--r-md);
+  padding: 1.4rem 1.6rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "name price" "detail detail";
+  gap: 0.2rem 1rem;
+  align-items: baseline;
+  transition: border-color 0.3s, background 0.3s, transform 0.3s var(--ease-out);
+}
+.letter-plan:hover {
+  border-color: var(--violet-light);
+  background: rgba(123,79,110,0.12);
+  transform: translateY(-3px);
+}
+.letter-plan--featured {
+  border-color: var(--violet-light);
+  background: rgba(123,79,110,0.18);
+  box-shadow: var(--shadow-violet);
+  position: relative;
+}
+.letter-plan__badge {
+  position: absolute;
+  top: -0.7rem; left: 1.4rem;
+  font-family: var(--font-ui, 'DM Sans', sans-serif);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: var(--violet);
+  color: var(--white);
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--r-pill);
+}
+.letter-plan__name {
+  grid-area: name;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.25rem;
+  color: var(--cream-warm);
+}
+.letter-plan__price {
+  grid-area: price;
+  font-family: var(--font-ui, 'DM Sans', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--violet-light);
+}
+.letter-plan__detail {
+  grid-area: detail;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--petal);
+  margin-top: 0.3rem;
+}
+
+/* CTA listov */
+.eshop-letters__cta {
+  margin-top: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+.letters-field {
+  display: grid;
+  gap: 0.4rem;
+}
+.letters-field__label {
+  font-family: var(--font-ui, 'DM Sans', sans-serif);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dust);
+}
+.letters-field__select {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--cream);
+  background: rgba(250,244,238,0.06);
+  border: 1px solid var(--divider);
+  border-radius: var(--r-sm);
+  padding: 0.75rem 0.9rem;
+  appearance: none;
+  cursor: none;
+  transition: border-color 0.25s;
+}
+.letters-field__select:hover,
+.letters-field__select:focus {
+  border-color: var(--violet-light);
+  outline: none;
+}
+.letters-field__select option {
+  color: var(--ink);
+  background: var(--cream-warm);
+}
+.eshop-letters__cta .btn { justify-self: start; }
+.eshop-letters__note {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--dust);
+}
+
+/* ─── MODAL — DETAIL PRODUKTU ────────────────────────────── */
+body.modal-open { overflow: hidden; }
+
+.product-modal {
+  position: fixed; inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.product-modal[hidden] { display: none; }
+
+.product-modal__overlay {
+  position: absolute; inset: 0;
+  background: rgba(26,13,6,0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.product-modal__sheet {
+  position: relative;
+  z-index: 1;
+  background: var(--cream-warm);
+  color: var(--ink);
+  border-radius: var(--r-lg);
+  width: min(860px, 100%);
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: 0;
+  box-shadow: var(--shadow-card);
+  animation: modalIn 0.35s var(--ease-out);
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.product-modal__close {
+  position: absolute;
+  top: 0.9rem; right: 0.9rem;
+  z-index: 2;
+  width: 2.4rem; height: 2.4rem;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; line-height: 1;
+  color: var(--warm-brown);
+  background: var(--cream);
+  border-radius: 50%;
+  transition: background 0.25s, color 0.25s, transform 0.25s var(--ease-out);
+}
+.product-modal__close:hover {
+  background: var(--violet);
+  color: var(--white);
+  transform: rotate(90deg);
+}
+
+/* galéria */
+.product-modal__gallery {
+  background: var(--cream);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.product-modal__main {
+  aspect-ratio: 3/4;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--cream);
+}
+.product-modal__main img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.product-modal__thumbs {
+  display: flex;
+  gap: 0.6rem;
+}
+.product-modal__thumb {
+  width: 64px; height: 80px;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  border: 2px solid transparent;
+  padding: 0;
+  opacity: 0.65;
+  transition: opacity 0.25s, border-color 0.25s;
+}
+.product-modal__thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.product-modal__thumb:hover { opacity: 1; }
+.product-modal__thumb.is-active {
+  opacity: 1;
+  border-color: var(--violet);
+}
+
+/* info panel */
+.product-modal__info {
+  padding: 2.25rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.product-modal__woman {
+  font-family: var(--font-ui, 'DM Sans', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--violet);
+}
+.product-modal__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.15;
+  color: var(--ink);
+}
+.product-modal__price {
+  font-family: var(--font-ui, 'DM Sans', sans-serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--warm-brown);
+}
+.product-modal__desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--warm-brown);
+}
+.product-modal__field-label {
+  font-family: var(--font-ui, 'DM Sans', sans-serif);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--clay);
+  margin-bottom: 0.45rem;
+}
+.product-modal__size-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.product-modal__size {
+  font-family: var(--font-ui, 'DM Sans', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 500;
+  min-width: 2.75rem;
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+  color: var(--warm-brown);
+  border: 1px solid rgba(139,69,19,0.3);
+  border-radius: var(--r-sm);
+  transition: all 0.2s var(--ease-out);
+}
+.product-modal__size:hover {
+  border-color: var(--violet);
+  color: var(--violet);
+}
+.product-modal__size.is-active {
+  background: var(--violet);
+  border-color: var(--violet);
+  color: var(--white);
+}
+/* upozornenie: vyber veľkosť */
+.product-modal__sizes.needs-size .product-modal__field-label { color: var(--violet); }
+.product-modal__sizes.needs-size .product-modal__size {
+  border-color: var(--violet);
+  animation: needsSize 0.35s var(--ease-out);
+}
+@keyframes needsSize {
+  0%, 100% { transform: translateX(0); }
+  30% { transform: translateX(-3px); }
+  60% { transform: translateX(3px); }
+}
+
+.product-modal__qty input {
+  font-family: var(--font-ui, 'DM Sans', sans-serif);
+  font-size: 0.95rem;
+  width: 5rem;
+  padding: 0.55rem 0.7rem;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid rgba(139,69,19,0.3);
+  border-radius: var(--r-sm);
+  transition: border-color 0.2s;
+}
+.product-modal__qty input:focus {
+  border-color: var(--violet);
+  outline: none;
+}
+
+.product-modal__cta {
+  margin-top: 0.5rem;
+  justify-content: center;
+}
+.product-modal__legal {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.74rem;
+  line-height: 1.6;
+  color: var(--clay);
+}
+.product-modal__legal a {
+  color: var(--violet);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s;
+}
+.product-modal__legal a:hover { color: var(--violet-light); }
+
+/* ─── RESPONZÍVNE ────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .eshop-letters__inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .eshop-letters__text { max-width: none; }
+}
+
+@media (max-width: 720px) {
+  .eshop-hero { padding: 7.5rem 1.25rem 3.5rem; }
+  .eshop-products { padding: 3rem 1.25rem 4rem; }
+  .eshop-letters { padding: 4rem 1.25rem 4.5rem; }
+
+  .eshop-filters__label { width: 100%; min-width: 0; }
+  .eshop-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+
+  /* modal ako fullscreen sheet */
+  .product-modal { padding: 0; align-items: flex-end; }
+  .product-modal__sheet {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-height: 100dvh;
+    height: 100dvh;
+    border-radius: 0;
+    animation: sheetIn 0.4s var(--ease-out);
+  }
+  @keyframes sheetIn {
+    from { transform: translateY(8%); opacity: 0.6; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
+  .product-modal__gallery { padding: 1rem 1rem 0.5rem; }
+  .product-modal__main { aspect-ratio: 4/4.5; }
+  .product-modal__info { padding: 1.5rem 1.25rem 2.5rem; }
+  .product-modal__close {
+    position: fixed;
+    top: 0.75rem; right: 0.75rem;
+    box-shadow: 0 2px 12px rgba(30,12,4,0.25);
+  }
+}
+
+@media (max-width: 420px) {
+  .eshop-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .eshop-grid .product-card__body { padding: 0.75rem 0.8rem 0.9rem; }
+  .eshop-grid .product-card__name { font-size: 0.85rem; }
+  .eshop-grid .product-card__btn { padding: 0.3rem 0.6rem; font-size: 0.6rem; }
+  .filter-chip { padding: 0.4rem 0.85rem; font-size: 0.72rem; }
+  .letter-plan { padding: 1.2rem 1.2rem; }
+}
+
+/* Jemnejšie pre používateľov bez animácií */
+@media (prefers-reduced-motion: reduce) {
+  .product-modal__sheet,
+  .letter-plan,
+  .filter-chip,
+  .eshop-letters__image img { animation: none; transition: none; }
+}

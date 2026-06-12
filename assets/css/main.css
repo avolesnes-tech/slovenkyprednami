@@ -964,7 +964,24 @@ body::before {
   margin-bottom: 1.5rem;
   padding: 0 3rem;
 }
-.section-women .section-title        { color: var(--cream-warm); }
+/* Women section heading — fully in the decorative script, light, so it
+   reads as a different register from the Abril attribute words below */
+.section-women .section-title {
+  font-family: var(--font-lit);
+  font-size: clamp(3.2rem, 7.5vw, 7rem);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: 0.01em;
+  color: var(--cream-warm);
+}
+.section-women .section-title em {
+  font-family: var(--font-lit);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1em;
+  display: inline;
+  color: rgba(216, 188, 212, 0.95);
+}
 .section-women .section-women__sub   { color: rgba(250,244,238,0.52); }
 .section-women .section-label        { color: var(--dust); }
 .section-women .section-label::before,
@@ -3343,6 +3360,18 @@ html.is-transitioning {
 @media (max-width: 768px) {
   [data-barba-namespace="soltesova"] .hero__bg-img {
     object-position: 52% 5%;
+  }
+}
+
+/* ─── TIMRAVA — hero photo is a tight portrait, frame it wider ─ */
+/* Pull the crop down/out so it reads as a portrait, not a zoomed face */
+[data-barba-namespace="timrava"] .hero__bg-img {
+  object-position: center 18%;
+  opacity: 0.42;
+}
+@media (max-width: 768px) {
+  [data-barba-namespace="timrava"] .hero__bg-img {
+    object-position: center 10%;
   }
 }
 

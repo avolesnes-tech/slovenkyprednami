@@ -1025,19 +1025,19 @@ body::before {
    as one continuous passage. Rows interlock vertically (negative margin)
    so nothing feels boxed-off. */
 
-.section-women { padding-bottom: clamp(2rem, 3.5vw, 4rem); }
+.section-women { padding-bottom: clamp(1.5rem, 2.5vw, 3rem); }
 
 .women-list {
   display: flex;
   flex-direction: column;
-  padding: clamp(0.5rem, 1.5vw, 1.5rem) max(2rem, 6vw) 0;
+  padding: 0 max(2rem, 5vw);
 }
 
 .woman-panel {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.85fr 1.15fr;
   align-items: center;
-  column-gap: clamp(1.5rem, 4vw, 5rem);
+  column-gap: 0;
   text-decoration: none;
   color: inherit;
   position: relative;
@@ -1045,10 +1045,11 @@ body::before {
   border: none;
   padding: 0;
 }
-/* Interlock rows so the figures zig-zag into each other — no boxed feel */
-.woman-panel + .woman-panel { margin-top: clamp(-5rem, -5vw, -2.5rem); }
+/* Heavy interlock — figures and words share vertical space, no empty bands */
+.woman-panel + .woman-panel { margin-top: clamp(-8rem, -8vw, -4rem); }
 
 /* Zig-zag: even rows flip illustration to the right */
+.woman-panel:nth-child(even) { grid-template-columns: 1.15fr 0.85fr; }
 .woman-panel:nth-child(even) .woman-panel__visual { order: 2; }
 .woman-panel:nth-child(even) .woman-panel__info   { order: 1; }
 
@@ -1057,7 +1058,8 @@ body::before {
 /* ── Illustration ── */
 .woman-panel__visual {
   position: relative;
-  height: clamp(240px, 26vw, 380px);
+  z-index: 1;
+  height: clamp(200px, 21vw, 300px);
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -1097,13 +1099,17 @@ body::before {
   filter: drop-shadow(0 18px 32px rgba(0,0,0,0.35));
 }
 
-/* ── Info — sits beside the figure, aligned toward the illustration ── */
+/* ── Info — overlaps into the figure's empty transparent zone so the two
+   share space instead of each owning a half (kills the diagonal emptiness) ── */
 .woman-panel__info {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  padding: 0 clamp(1rem, 2.5vw, 3rem);
+  padding: 0 clamp(1rem, 2vw, 2.5rem);
+  margin-left: clamp(-5rem, -6vw, -2rem);
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.14s,
@@ -1112,6 +1118,8 @@ body::before {
 .woman-panel:nth-child(even) .woman-panel__info {
   align-items: flex-end;
   text-align: right;
+  margin-left: 0;
+  margin-right: clamp(-5rem, -6vw, -2rem);
 }
 
 /* ── Number ── */
@@ -1195,36 +1203,50 @@ body::before {
   }
 }
 
-/* ── Mobile — illustration above, info below, still flowing ── */
+/* ── Mobile — small figure offset to one side, text beside it (still
+   alternating L/R) so each woman stays compact instead of full-height ── */
 @media (max-width: 760px) {
-  .women-list { padding: 1rem 1.5rem 0; }
+  .women-list { padding: 0.5rem 1.25rem 0; }
   .woman-panel,
   .woman-panel:nth-child(even) {
-    grid-template-columns: 1fr;
-    row-gap: 0;
+    grid-template-columns: 0.92fr 1.08fr;
+    align-items: center;
+    column-gap: 0;
   }
-  .woman-panel + .woman-panel { margin-top: clamp(0.5rem, 3vw, 2rem); }
+  .woman-panel + .woman-panel { margin-top: clamp(-2.5rem, -7vw, -1rem); }
+
+  /* keep the zig-zag on mobile too */
+  .woman-panel__visual { order: 1; }
+  .woman-panel__info   { order: 2; }
+  .woman-panel:nth-child(even) .woman-panel__visual { order: 2; }
+  .woman-panel:nth-child(even) .woman-panel__info   { order: 1; }
 
   .woman-panel__visual,
   .woman-panel:nth-child(even) .woman-panel__visual {
-    order: 1;
-    height: clamp(220px, 60vw, 320px);
+    height: clamp(160px, 42vw, 230px);
   }
-  .woman-panel__info,
-  .woman-panel:nth-child(even) .woman-panel__info {
-    order: 2;
+  .woman-panel__info {
     align-items: flex-start;
     text-align: left;
-    padding: 1.4rem 0 0;
-    transform: translateY(18px);
+    padding: 0 0.5rem 0 0.75rem;
+    margin-left: clamp(-2rem, -7vw, -0.75rem);
+    margin-right: 0;
+    transform: translateY(16px);
     transition: opacity 0.9s ease 0.1s, transform 0.9s ease 0.1s;
   }
-  .woman-panel:nth-child(even) .woman-panel__cta { flex-direction: row; }
-  .woman-panel:nth-child(even) .woman-panel__cta::after { content: '→'; }
+  .woman-panel:nth-child(even) .woman-panel__info {
+    align-items: flex-end;
+    text-align: right;
+    padding: 0 0.75rem 0 0.5rem;
+    margin-left: 0;
+    margin-right: clamp(-2rem, -7vw, -0.75rem);
+  }
 
-  .woman-panel__virtue-label { font-size: clamp(3.2rem, 13vw, 5rem); margin-bottom: 0.6rem; }
-  .woman-panel__name { font-size: clamp(0.62rem, 2.8vw, 0.8rem); }
-  .woman-panel__num { margin-bottom: 0.9rem; }
+  .woman-panel__virtue-label { font-size: clamp(2.4rem, 11vw, 3.6rem); margin-bottom: 0.5rem; line-height: 0.92; }
+  .woman-panel__name { font-size: clamp(0.56rem, 2.4vw, 0.7rem); margin-bottom: 0.3rem; }
+  .woman-panel__num { margin-bottom: 0.6rem; }
+  .woman-panel__meta { font-size: 0.6rem; margin-bottom: 0; }
+  .woman-panel__cta { display: none; }
   .section-women__header { padding: 0 1.5rem; }
 }
 

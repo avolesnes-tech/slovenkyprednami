@@ -993,11 +993,8 @@ body::before {
 /* ── Illustration side ── */
 .woman-panel__visual {
   position: relative; z-index: 1;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
   overflow: hidden;
-  padding: 0 1rem 0;
+  padding: 0;
   opacity: 0;
   transform: translateY(32px);
   transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
@@ -1007,22 +1004,24 @@ body::before {
 .woman-panel__visual::before {
   content: '';
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 75%,
-    rgba(167, 120, 150, 0.10) 0%, transparent 62%);
-  z-index: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 60%,
+    rgba(167, 120, 150, 0.18) 0%, transparent 65%);
+  z-index: 1; pointer-events: none;
 }
+/* Desktop: illustration fills the full column, face always visible */
 .woman-panel__visual img {
-  position: relative; z-index: 1;
-  width: auto; max-width: 96%;
+  position: absolute;
+  inset: 0;
+  width: 100%;
   height: 100%;
-  max-height: clamp(440px, 56vh, 580px);
-  object-fit: contain; object-position: center bottom;
+  object-fit: cover;
+  object-position: center 18%;
   display: block;
-  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.5));
+  z-index: 0;
   transition: transform 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .woman-panel:hover .woman-panel__visual img {
-  transform: scale(1.04) translateY(-6px);
+  transform: scale(1.06);
 }
 
 /* ── Info side ── */
@@ -1145,15 +1144,23 @@ body::before {
   .woman-panel__info,
   .woman-panel:nth-child(even) .woman-panel__info   { order: 2; }
 
-  /* Taller illustration area — figure pins to top, space below flows to info */
+  /* Mobile: explicit height container, illustration contained (not cover) */
   .woman-panel__visual {
     height: clamp(300px, 80vw, 420px);
     padding: 0 1.5rem 0;
+    display: flex;
     align-items: flex-start;
+    justify-content: center;
   }
   .woman-panel__visual img {
+    position: relative;
+    inset: auto;
+    width: auto;
+    height: 100%;
     max-height: 100%;
     max-width: 88%;
+    object-fit: contain;
+    object-position: center top;
   }
 
   .woman-panel__info,

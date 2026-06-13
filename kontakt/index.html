@@ -335,47 +335,10 @@ form.addEventListener('submit', async e => {
   }
 });
 
-/* ─── BARBA PAGE TRANSITIONS ─────────────────────────────── */
-if (typeof barba !== 'undefined') {
-  barba.init({
-  /* E-shop sa vykresluje JS-om — potrebuje plne nacitanie, nie barba swap */
-  prevent: function (data) { return data.href && data.href.indexOf("eshop") !== -1; },
-    transitions: [{
-      name: 'curtain',
-      leave() {
-        return gsap.to('#pageCurtain', { scaleY: 1, transformOrigin: 'bottom center', duration: 0.55, ease: 'power2.inOut' });
-      },
-      enter() {
-        return gsap.from('#pageCurtain', { scaleY: 0, transformOrigin: 'top center', duration: 0.5, ease: 'power2.inOut', delay: 0.1 });
-      }
-    }]
-  });
-}
-function initHamburger() {
-  const nav = document.getElementById('mainNav');
-  const btn = document.getElementById('navHamburger');
-  if (!btn || !nav) return;
 
-  const fresh = btn.cloneNode(true);
-  btn.parentNode.replaceChild(fresh, btn);
-
-  fresh.addEventListener('click', () => {
-    const open = nav.classList.toggle('menu-open');
-    fresh.setAttribute('aria-expanded', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
-
-  nav.querySelectorAll('.nav__links a').forEach(a => {
-    a.addEventListener('click', () => {
-      nav.classList.remove('menu-open');
-      fresh.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    });
-  });
-}
-initHamburger();
 </script>
 
+<script src="../assets/js/barba-init.js" defer></script>
 <script src="../assets/js/nav-transitions.js" defer></script>
 </body>
 </html>

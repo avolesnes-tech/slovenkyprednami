@@ -718,25 +718,11 @@ document.getElementById('lettersCta').addEventListener('click', () => {
     + `&body=${encodeURIComponent(lines)}`;
 });
 
-/* ─── BARBA PAGE TRANSITIONS ─────────────────────────────── */
-if (typeof barba !== 'undefined') {
-  barba.init({
-  /* E-shop sa vykresluje JS-om — potrebuje plne nacitanie, nie barba swap */
-  prevent: function (data) { return data.href && data.href.indexOf("eshop") !== -1; },
-    transitions: [{
-      name: 'curtain',
-      leave() {
-        return gsap.to('#pageCurtain', { scaleY: 1, transformOrigin: 'bottom center', duration: 0.55, ease: 'power2.inOut' });
-      },
-      enter() {
-        return gsap.from('#pageCurtain', { scaleY: 0, transformOrigin: 'top center', duration: 0.5, ease: 'power2.inOut', delay: 0.1 });
-      }
-    }]
-  });
-}
+
 </script>
 
 <script src="../assets/js/consent.js" defer></script>
+<script src="../assets/js/barba-init.js" defer></script>
 <script src="../assets/js/nav-transitions.js" defer></script>
 
 </body>
